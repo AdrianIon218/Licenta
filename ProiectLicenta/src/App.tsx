@@ -5,7 +5,7 @@ function App() {
 
   return (<>
   <i className="fa fa-envelope" aria-hidden="true" /> __ 
-  <NavBar /> !
+  <NavBar />
   </>);
 }
 
