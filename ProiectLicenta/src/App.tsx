@@ -1,12 +1,13 @@
 import './App.css'
 import NavBar from './MainMenu/Navbar'
+import Layout from './MainPage/Layout';
 
 function App() {
 
-  return (<>
+  return (<Layout>
   <i className="fa fa-envelope" aria-hidden="true" /> __ 
-  <NavBar />
-  </>);
+  
+  </Layout>);
 }
 
 export default App

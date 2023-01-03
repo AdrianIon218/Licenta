@@ -1,12 +1,16 @@
 import cls from './Layout.module.css'
+import Header from './Header'
+import {IProps} from '../CommonInterfaces'
 
-export default function Layout(){
+interface ILayout extends IProps {
+
+}
+
+export default function Layout(props:ILayout){
   return (<div className=''>
-  <header>
-
-  </header>
+  <Header />
   <main>
-
+    {props.children}
   </main>
   </div>);
 }
