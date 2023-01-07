@@ -11,7 +11,12 @@ export default function Header(props:IProps){
     <img src={logo_img} alt="GermanMax" className={cls['logo_box__img']} />
   </div>
   <header className={cls['header']}>
-
+    <div className={cls["text-box"]}>
+      <h1 className={cls['heading-primary']}>
+        <span className={cls['heading-primary-main']}> GermanMax </span>
+        <span className={cls['heading-primary-second']}>Deutschsprachige Bewerbung</span>
+      </h1>
+    </div>
   </header>
   </div>);
 }
