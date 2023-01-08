@@ -13,8 +13,8 @@ export default function Header(props:IProps){
   <header className={cls['header']}>
     <div className={cls["text-box"]}>
       <h1 className={cls['heading-primary']}>
-        <span className={cls['heading-primary-main']}> GermanMax </span>
-        <span className={cls['heading-primary-second']}>Deutschsprachige Bewerbung</span>
+        <span className={cls['heading-primary__main']}> GermanMax </span>
+        <span className={cls['heading-primary__sub']}>Deutschsprachige Bewerbung</span>
       </h1>
     </div>
   </header>
