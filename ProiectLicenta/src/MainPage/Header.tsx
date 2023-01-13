@@ -14,8 +14,9 @@ export default function Header(props:IProps){
     <div className={cls['text-box']}>
       <h1 className={cls['heading-primary']}>
         <span className={cls['heading-primary__main']}> GermanMax </span>
-        <span className={cls['heading-primary__sub']}>Deutschsprachige Bewerbung</span>
+        <span className={`${cls['heading-primary__sub']} ${cls['umargin-top-small']}`}> Aplicație de învățat limba Germană</span>
       </h1>
+      <a href="#" className={`${cls.btn} ${cls['btn--white']} ${cls['btn--animated']}`}>Încearcă o lecție</a>
     </div>
   </header>
   </div>);
