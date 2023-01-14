@@ -41,14 +41,14 @@
   color:white;
   cursor: default;
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 3.75rem;
 }
 
 .heading-primary__main{
   display: block;
-  font-size: 0.63em;
+  font-size: .63em;
   font-weight: 700;
-  letter-spacing: 10px;
+  letter-spacing: .625rem;
 
   animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both;
   -webkit-animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both;
@@ -58,7 +58,7 @@
 
 .heading-primary__sub{
   display: block;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 6px;
 
@@ -146,7 +146,7 @@
 .btn:link,
 .btn:visited{
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   font-size: 1.5rem;
   display:inline-block;
   transition: all .2s;
@@ -168,7 +168,7 @@
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   position:absolute;
   top:0;
   left:0;
