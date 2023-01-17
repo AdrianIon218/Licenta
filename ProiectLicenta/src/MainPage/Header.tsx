@@ -6,17 +6,17 @@ interface IProps{
 }
 
 export default function Header(props:IProps){
-  return (<div className={cls['header-container']}>
-  <div className={cls['logo_box']}>
-    <img src={logo_img} alt="GermanMax" className={cls['logo_box__img']} />
+  return (<div className='header-container'>
+  <div className='logo_box'>
+    <img src={logo_img} alt="GermanMax" className='logo_box__img' />
   </div>
-  <header className={cls['header']}>
-    <div className={cls['text-box']}>
-      <h1 className={cls['heading-primary']}>
-        <span className={cls['heading-primary__main']}> GermanMax </span>
-        <span className={`${cls['heading-primary__sub']} ${cls['umargin-top-small']}`}> Aplicație de învățat limba Germană</span>
+  <header className='header'>
+    <div className='text-box'>
+      <h1 className='heading-primary'>
+        <span className='heading-primary__main'> GermanMax </span>
+        <span className='heading-primary__sub umargin-top-small'> Aplicație de învățat limba Germană</span>
       </h1>
-      <a href="#" className={`${cls.btn} ${cls['btn--white']} ${cls['btn--animated']}`}>Încearcă o lecție</a>
+      <a href="#" className='btn btn--white btn--animated'>Încearcă o lecție</a>
     </div>
   </header>
   </div>);

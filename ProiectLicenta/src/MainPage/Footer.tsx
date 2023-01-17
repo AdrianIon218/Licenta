@@ -1,9 +1,9 @@
 import cls from "./Layout.module.css"
 
 export default function Footer(){
-  return (<div className={cls['footer-container']}>
-    <div className={cls["footer"]}>
-
+  return (<div className='footer-container'>
+    <div className="footer">
+      
     </div>
   </div>);
 }

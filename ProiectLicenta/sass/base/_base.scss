@@ -1,0 +1,40 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 100%;
+}
+
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  padding: 2rem 1rem 1rem;
+  display: flex;
+  min-width: 20rem;
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color:rgb(90, 90, 90);
+  background:linear-gradient(to left top, rgb(97, 183, 230) 0%, rgb(0, 120, 195) 100%);
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    padding: 5px;
+    width: 15px;
+    border-radius: 10px;
+    background-color: #F5F5F5; 
+
+    &-thumb {
+      border:2px rgb(90, 90, 90) solid;
+      border-radius: 10px;
+      background-color: rgb(18, 157, 244) ; 
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@media only screen and (min-width: 551px) and (max-width: 800px) {
+  .logo_box__img{
+    max-width: 8rem
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .header, 
+  .footer{
+    max-width:calc(100vw - 1.8rem);
+  }
+
+  .heading-primary-main{
+    left: 6px;
+  }
+
+  .logo_box__img{
+    height: 11rem;
+    min-width: 7rem;
+  }
+}

@@ -1,4 +1,3 @@
-import './App.css'
 import NavBar from './MainMenu/Navbar'
 import Layout from './MainPage/Layout';
 
