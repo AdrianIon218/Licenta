@@ -1,12 +1,12 @@
-.header-container{
+.header-container {
   position: relative;
   margin-bottom: calc(10rem - 4%);
 }
 
-.header{
+.header {
   height: 95vh;
-  max-width:calc(100vw - 2.4rem);
-  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%) , url(../../src/images/berlin_photo1.jpg);
+  max-width: calc(100vw - 2.4rem);
+  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url(../../src/images/berlin_photo1.jpg);
   background-size: cover;
   background-position: center right;
   border-radius: 1rem;
@@ -15,13 +15,13 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-.logo_box{
+.logo_box {
   position: absolute;
-  bottom:-8%;
-  left:1%;
+  bottom: -8%;
+  left: 1%;
   z-index: 5;
-  
-  &__img{
+
+  &__img {
     height: 14rem;
     min-width: 12rem;
     border-radius: 30px;
@@ -29,39 +29,33 @@
   }
 }
 
-.text-box{
+.text-box {
   position: absolute;
-  top:35%;
-  left:50%;
-  transform: translate(-50%,-70%);
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -70%);
   text-align: center;
 }
 
-.heading-primary{
-  color:white;
+.heading-primary {
+  color: white;
   cursor: default;
   backface-visibility: hidden;
   margin-bottom: 3.75rem;
 
-  &__main{
-  display: block;
-  font-size: .63em;
-  font-weight: 700;
-  letter-spacing: .625rem;
-  animation: moveInLeft $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -webkit-animation: moveInLeft $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -moz-animation: moveInLeft $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -o-animation: moveInLeft $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
+  &__main {
+    display: block;
+    font-size: .63em;
+    font-weight: 700;
+    letter-spacing: .625rem;
+    @include mixin_animation(moveInLeft, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
   }
-  
-  &__sub{
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 6px;
-  animation: moveInRight $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -webkit-animation: moveInRight $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -moz-animation: moveInRight $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
-  -o-animation: moveInRight $time-move-in-ani ease-in-out $delay-move-in-ani 1 normal both;
+
+  &__sub {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    @include mixin_animation(moveInRight, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
   }
 }

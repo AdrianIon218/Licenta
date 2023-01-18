@@ -1,0 +1,7 @@
+
+@mixin mixin_animation($name, $duration, $time_function, $delay){
+  animation: $name $duration $time_function $delay 1 normal both;
+  -webkit-animation: $name $duration $time_function $delay 1 normal both;
+  -moz-animation: $name $duration $time_function $delay 1 normal both;
+  -o-animation: $name $duration $time_function $delay 1 normal both;
+}
