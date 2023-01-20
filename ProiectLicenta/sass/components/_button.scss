@@ -51,3 +51,30 @@
     @include mixin_animation(moveInBottom, $time-btn-move-in, ease-in-out, $delay-move-in-ani)
   }
 }
+
+.btn-text{
+  &:link,
+  &:visited{
+    font-size: $default-font-size;
+    font-weight: 700;
+    color: $color-blue-dark;
+    display:inline-block;
+    text-decoration: none;
+    border-bottom: 3px dotted darken($color-blue-dark, 5%);
+    padding: 3px 4px 1px;
+    border-radius: 10px;
+    transition: all .3s;
+  }
+
+  &:hover{
+    background-color: $color-blue-dark;
+    color:$color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active{
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
+  }
+}

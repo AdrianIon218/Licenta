@@ -1,9 +1,17 @@
+.u-text-blue{
+  color:$color-secondary-dark;
+}
+
 .u-center-text{
   text-align: center;
 }
 
+.u-margin-bottom-small{
+  margin-bottom: 1rem;
+}
+
 .u-margin-bottom-medium{
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 }
 
 @media only screen and (min-width: 551px) and (max-width: 800px) {
