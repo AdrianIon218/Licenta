@@ -1,4 +1,3 @@
-import cls from './Layout.module.css'
 import logo_img from "../images/GermanMax.png"
 
 interface IProps{

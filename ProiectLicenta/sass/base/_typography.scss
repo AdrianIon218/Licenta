@@ -6,3 +6,46 @@ h1 {
 .umargin-top-small{
   margin-top: 5px;
 }
+
+.heading-primary {
+  color: white;
+  cursor: default;
+  backface-visibility: hidden;
+  margin-bottom: 3.75rem;
+
+  &__main {
+    display: block;
+    font-size: .63em;
+    font-weight: 700;
+    letter-spacing: .625rem;
+    @include mixin_animation(moveInLeft, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
+  }
+
+  &__sub {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    @include mixin_animation(moveInRight, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
+  }
+}
+
+.heading-secondary{
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, $color-secondary-dark, $color-secondary-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+  letter-spacing: .13rem;
+  cursor:default;
+  backface-visibility: hidden;
+  transition: all .2s;
+
+  &:hover{
+    transform: skewY(2deg) skewX(12deg) scale(1.1);
+    text-shadow: .3rem .7rem 2rem rgba($color-black, .2);
+  }
+}

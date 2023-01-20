@@ -36,26 +36,3 @@
   transform: translate(-50%, -70%);
   text-align: center;
 }
-
-.heading-primary {
-  color: white;
-  cursor: default;
-  backface-visibility: hidden;
-  margin-bottom: 3.75rem;
-
-  &__main {
-    display: block;
-    font-size: .63em;
-    font-weight: 700;
-    letter-spacing: .625rem;
-    @include mixin_animation(moveInLeft, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
-  }
-
-  &__sub {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 6px;
-    @include mixin_animation(moveInRight, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
-  }
-}

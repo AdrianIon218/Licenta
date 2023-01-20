@@ -1,17 +1,17 @@
-import cls from './Layout.module.css'
-import Header from './Header'
-import Footer from './Footer'
-import {IProps} from '../CommonInterfaces'
+import Header from './Header';
+import AboutSection from './AboutSection';
+import Footer from './Footer';
+import {IProps} from '../CommonInterfaces';
 
 interface ILayout extends IProps {
 
 }
 
 export default function Layout(props:ILayout){
-  return (<><div className={cls["layout-container"]}>  
+  return (<><div className="layout-container">  
     <Header />
       <main>
-        {props.children}
+        <AboutSection />
       </main>
     </div>
     <Footer /> </>);
