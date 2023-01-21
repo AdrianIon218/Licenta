@@ -1,6 +1,5 @@
-import photo1 from '../images/münchen_photo1.jpg';
-import photo2 from '../images/viena-photo1.jpeg';
-import photo3 from '../images/zurich-photo1.jpg';
+import PhotoComposition from './PhotosComposition';
+import aboutPhotos from './AboutPhotos.json';
 
 function AboutSection(){
   return (<section className="section-about">
@@ -26,11 +25,7 @@ function AboutSection(){
       </div>
 
       <div className="col-1-of-2-img">
-        <div className="composition">
-          <img src={photo1} alt="Munich" className="composition__photo composition__photo--p1" title='München (Germania)' />
-          <img src={photo2} alt="Viena" className="composition__photo composition__photo--p2" title="Viena (Austria)"/>
-          <img src={photo3} alt="Zurich" className="composition__photo composition__photo--p3" title="Zürich (Elveția)" />
-        </div>
+        <PhotoComposition photos={aboutPhotos.photos}/>
       </div>
     </div>
   </section>);

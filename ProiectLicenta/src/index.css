@@ -1,3 +1,16 @@
+.composition__photo--p3 {
+  position: absolute; }
+  .composition__photo--p3::after {
+    content: attr(title);
+    bottom: 0;
+    left: 5%;
+    color: #dbe4ed;
+    background-color: #3c3b3b;
+    opacity: 0;
+    z-index: 50; }
+  .composition__photo--p3:hover ::after {
+    opacity: 1; }
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -321,8 +334,6 @@ h1 {
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
-      .composition__photo--p3::after {
-        content: "hhhhhhhhhhhhhhhh"; }
     .composition__photo:hover {
       outline: 6px solid #0065a3;
       transform: scale(1.07) translateY(-0.5rem);
