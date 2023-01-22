@@ -87,7 +87,7 @@ h1 {
 .paragraph {
   font-size: 1.2rem; }
   .paragraph:not(:last-child) {
-    margin-bottom: 2rem; }
+    margin-bottom: 1rem; }
 
 @keyframes moveInLeft {
   0% {
@@ -241,6 +241,9 @@ h1 {
   text-align: center; }
 
 .u-margin-bottom-small {
+  margin-top: 2rem; }
+
+.u-margin-bottom-small {
   margin-bottom: 1rem; }
 
 .u-margin-bottom-medium {
@@ -286,7 +289,7 @@ h1 {
     margin-left: auto;
     flex: 0 1 40%;
     padding: 0.5rem; }
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 850px) {
     .flex-row .col-1-of-2-text {
       order: 1;
       flex-basis: 100%; }

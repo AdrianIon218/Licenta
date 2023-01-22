@@ -13,15 +13,21 @@ function AboutSection(){
       <div className="col-1-of-2-text">
         <h3 className="heading-tertiary u-margin-bottom-small">Unde se vorbește limba germană <span className="u-text-blue">?</span></h3>
         <p className="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nobis accusantium error nisi rerum sunt quas possimus, impedit corrupti exercitationem optio fuga incidunt, beatae quos laudantium illo distinctio. Facilis, impedit?
+        Limba germană este vorbită de majoritatea populației din Germania, Austria, Elveția, Luxemburg și Liechtenstein. Ea fiind folosită și în estul Belgiei, precum și în regiunea Schleswigul de Nord din sudul Danemarcei, dar și în regiunea autonomă Tirolul de Sud din nordul Italiei, cât și în voievodatul Opole al Poloniei și în regiunile Alsacia și Lorena din Franța.
         </p>
         
-        <h3 className="heading-tertiary u-margin-bottom-small">De ce să înveți limba germană <span className="u-text-blue">?</span></h3>
+        <h3 className="heading-tertiary u-margin-bottom-small u-margin-bottom-small">De ce să înveți limba germană <span className="u-text-blue">?</span></h3>
         <p className="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nobis accusantium error nisi rerum sunt quas possimus, impedit corrupti exercitationem optio fuga incidunt, beatae quos laudantium illo distinctio. Facilis, impedit?
+        În domeniul afacerilor sa observat cum comunicare în limba germană cu partenerii vorbitori de limba germană contribuie la îmbunătățirea relației de afaceri, cât și a ratei de succes.
+        </p>
+        <p className="paragraph">
+        Cunoștințele de limba germană pot ajuta în obținerea unui loc de muncă în cadrul unei companii care derulează afaceri pe plan internațional . 
+        </p>
+        <p className="paragraph">
+        După engleză , germana este cea de-a doua limbă ca importanță în lumea științei. Germania ocupând locul trei în lume prin contribuția sa importantă în domeniul cercetării și a dezvoltării .
         </p>
 
-        <a href="#" className="btn-text">Află mai multe &rarr;</a>
+        <a href="#" className="btn-text">Vezi cursurile disponibile &rarr;</a>
       </div>
 
       <div className="col-1-of-2-img">
