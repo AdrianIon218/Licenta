@@ -7,7 +7,7 @@ interface IProps{
 export default function Header(props:IProps){
   return (<div className='header-container'>
   <div className='logo_box'>
-    <img src={logo_img} alt="GermanMax" className='logo_box__img' />
+    <img src='images/GermanMax.png' alt="GermanMax" className='logo_box__img' />
   </div>
   <header className='header'>
     <div className='text-box'>
