@@ -1,4 +1,4 @@
-interface ICompositionPhotoProps{
+export interface ICompositionPhotoProps{
   photo: string,
   alt: string,
   class: string,
@@ -12,6 +12,5 @@ function CompositionPhoto(props:ICompositionPhotoProps){
       title={props.title? props.title:"" }  
     />);
 }
-export {ICompositionPhotoProps};
 
 export default CompositionPhoto;
