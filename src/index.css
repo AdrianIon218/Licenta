@@ -241,9 +241,6 @@ h1 {
   text-align: center; }
 
 .u-margin-bottom-small {
-  margin-top: 2rem; }
-
-.u-margin-bottom-small {
   margin-bottom: 1rem; }
 
 .u-margin-bottom-medium {
@@ -258,8 +255,18 @@ h1 {
 
 .section-about {
   background-color: #a9cae7;
-  padding: 30rem 5px 10rem;
+  padding: 30rem 5px 16rem;
   margin-top: -26rem; }
+
+.section-tests {
+  padding: 18rem 5px;
+  background-image: linear-gradient(to right bottom, rgba(97, 183, 230, 0.6), rgba(0, 120, 195, 0.7)), url(images/bavaria-photo2.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: -12rem;
+  transform: skewY(-6deg); }
+  .section-tests > * {
+    transform: skewY(6deg); }
 
 .row {
   max-width: 100%;
@@ -289,13 +296,27 @@ h1 {
     margin-left: auto;
     flex: 0 1 40%;
     padding: 0.5rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1000px) {
     .flex-row .col-1-of-2-text {
       order: 1;
       flex-basis: 100%; }
     .flex-row .col-1-of-2-img {
       flex-basis: 100%;
       margin-bottom: 1rem; } }
+  .flex-row--centered {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    justify-content: center;
+    gap: 1rem; }
+    .flex-row--centered > .flex-element {
+      margin: 0 1.7rem; }
+    @media screen and (max-width: 1000px) {
+      .flex-row--centered {
+        justify-content: space-around; }
+      .flex-row--centered > .flex-element {
+        margin: 0; } }
 
 .composition {
   position: relative;
@@ -324,3 +345,30 @@ h1 {
       z-index: 20; }
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.9); }
+
+.test-box {
+  background-color: #d1e3f2;
+  padding: 1.5rem 1.3rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 5px solid #0065a3;
+  backface-visibility: hidden;
+  transition: all .3s; }
+  .test-box__icon {
+    font-size: 3rem;
+    background-image: linear-gradient(to right, #0065a3, #34a1e4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .test-box__title {
+    font-size: 1.6rem;
+    background-image: linear-gradient(to right, #34a1e4, #007bc7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .test-box:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, #092d43 0px 30px 60px -30px;
+    transform: translateY(-1rem) scale(1.03); }

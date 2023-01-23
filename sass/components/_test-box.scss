@@ -1,0 +1,25 @@
+.test-box{
+  background-color: lighten($section-color,10%);
+  padding: 1.5rem 1.3rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 5px solid $color-secondary-dark;
+  backface-visibility: hidden;
+  transition: all .3s;
+
+  &__icon{
+    @include textgradient(3rem, $color-secondary-dark, $color-secondary-light);
+  }
+
+  &__title{
+    @include textgradient(1.6rem, $color-secondary-light, lighten($color-secondary-dark, 7%));
+  }
+
+  &:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, darken($color-secondary-light,40%) 0px 30px 60px -30px;
+    transform: translateY(-1rem) scale(1.03);
+  }
+}

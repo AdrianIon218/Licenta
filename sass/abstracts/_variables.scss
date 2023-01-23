@@ -10,6 +10,8 @@ $color-secondary-dark:rgb(0, 101, 163);
 $color-black:rgb(60, 59, 59);
 $color-white:rgb(219, 228, 237);
 
+$section-color: rgb(169, 202, 231);
+
 // animations
 $time-move-in-ani: 1.4s;
 $delay-move-in-ani: 0.3s;
@@ -19,10 +21,15 @@ $time-btn-move-in: 0.8s;
 // width
 $width-screen-small: 650px;
 $width-screen-medium: 850px;
+$width-screen-medium: 1000px;
 
 // font
 $default-font-size: 1.2rem;
 
 // space
-$space-vertical:5rem;
-$space-horizontal:1rem;
+$space-vertical: 5rem;
+$space-horizontal: 1rem;
+$padding-LR-section: 5px;
+
+// section
+$section-skew: 6deg;

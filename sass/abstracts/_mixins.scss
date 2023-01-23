@@ -13,3 +13,11 @@
     display: table;
   }
 }
+
+@mixin textgradient($font-size, $color1, $color2){
+  font-size: $font-size;
+  background-image: linear-gradient(to right, $color1, $color2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+}

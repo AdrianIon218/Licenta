@@ -26,4 +26,27 @@
       margin-bottom: 1rem;
     }
   }
+
+  &--centered{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    justify-content:center;
+    gap: 1rem;
+
+    & > .flex-element{
+      margin: 0 1.7rem;
+    }
+
+    @media screen and (max-width: $width-screen-medium) {
+      & {
+        justify-content:space-around;
+      }
+      
+      & > .flex-element{
+        margin: 0;
+      }
+    }
+  }
 }

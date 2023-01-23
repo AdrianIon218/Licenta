@@ -1,5 +1,6 @@
 import Header from './Header';
 import AboutSection from './AboutSection';
+import TestSection from './TestSection';
 import Footer from './Footer';
 import {IProps} from '../CommonInterfaces';
 
@@ -12,6 +13,7 @@ export default function Layout(props:ILayout){
     <Header />
       <main>
         <AboutSection />
+        <TestSection />
       </main>
     </div>
     <Footer /> </>);

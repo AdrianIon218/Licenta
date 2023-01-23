@@ -1,4 +1,4 @@
-import NavBar from './MainMenu/Navbar'
+
 import Layout from './MainPage/Layout';
 
 function App() {

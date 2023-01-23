@@ -1,5 +1,19 @@
 .section-about{
-  background-color: rgb(169, 202, 231);
-  padding: 30rem 5px 10rem;
+  background-color: $section-color;
+  padding: 30rem $padding-LR-section 16rem;
   margin-top: -26rem;
+}
+
+.section-tests{
+  padding: 18rem $padding-LR-section;
+  background-image: linear-gradient(to right bottom, rgba($color-blue-light, 0.6),
+      rgba($color-blue-dark, 0.7)) , url(images/bavaria-photo2.jpg);
+  background-size: cover;
+  background-position: center;
+  margin-top: -12rem;
+  transform: skewY(-$section-skew);
+
+  & > *{
+    transform: skewY($section-skew);
+  }
 }
