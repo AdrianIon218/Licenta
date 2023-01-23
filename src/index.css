@@ -264,9 +264,17 @@ h1 {
   background-size: cover;
   background-position: center;
   margin-top: -12rem;
-  transform: skewY(-6deg); }
+  transform: skewY(-6deg);
+  position: relative; }
   .section-tests > * {
     transform: skewY(6deg); }
+  .section-tests__helper {
+    position: absolute;
+    right: 2rem;
+    top: 3rem;
+    font-size: 1.6rem;
+    color: #0065a3;
+    cursor: pointer; }
 
 .row {
   max-width: 100%;
@@ -309,7 +317,8 @@ h1 {
     flex-wrap: wrap;
     padding: 0 1rem;
     justify-content: center;
-    gap: 1rem; }
+    column-gap: 1rem;
+    row-gap: 1.3rem; }
     .flex-row--centered > .flex-element {
       margin: 0 1.7rem; }
     @media screen and (max-width: 1000px) {
@@ -351,7 +360,7 @@ h1 {
   padding: 1.5rem 1.3rem 0.9rem;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 1.1rem;
   align-items: center;
   border-radius: 0.8rem;
   border: 5px solid #0065a3;
@@ -371,4 +380,4 @@ h1 {
     color: transparent; }
   .test-box:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, #092d43 0px 30px 60px -30px;
-    transform: translateY(-1rem) scale(1.03); }
+    transform: translateY(-0.9rem) scale(1.03); }
