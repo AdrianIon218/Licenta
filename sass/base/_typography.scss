@@ -48,6 +48,10 @@ h1 {
     transform: skewY(2deg) skewX(12deg) scale(1.1);
     text-shadow: .3rem .7rem 2rem rgba($color-black, .2);
   }
+
+  &--dark-color{
+    background-image: linear-gradient(to right, darken($color-secondary-dark, 5%), darken($color-secondary-dark, 15%));
+  }
 }
 
 .heading-tertiary{

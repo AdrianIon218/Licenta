@@ -8,7 +8,12 @@ export default function TestSection(){
 
   return (<section className="section-tests">
     <div className="section-tests__helper">
-      <i className="fas fa-question-circle"> Ajutor</i>
+      <i className="fas fa-question-circle"></i>
+    </div>
+    <div className="u-center-text u-margin-bottom-medium">
+      <h2 className="heading-secondary heading-secondary--dark-color">
+      Testează-ți cunoștiințele !
+      </h2>  
     </div>
     <div className="flex-row--centered">
       {testElements}

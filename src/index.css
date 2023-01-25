@@ -79,6 +79,8 @@ h1 {
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(12deg) scale(1.1);
     text-shadow: 0.3rem 0.7rem 2rem rgba(60, 59, 59, 0.2); }
+  .heading-secondary--dark-color {
+    background-image: linear-gradient(to right, #00558a, #003657); }
 
 .heading-tertiary {
   font-size: 1.4rem;
@@ -270,9 +272,9 @@ h1 {
     transform: skewY(6deg); }
   .section-tests__helper {
     position: absolute;
-    right: 2rem;
-    top: 3rem;
-    font-size: 1.6rem;
+    right: 1.7rem;
+    top: 4rem;
+    font-size: 1.8rem;
     color: #0065a3;
     cursor: pointer; }
 
