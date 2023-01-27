@@ -9,6 +9,7 @@
   border: 5px solid $color-secondary-dark;
   backface-visibility: hidden;
   transition: all .3s;
+  cursor:default;
 
   &__icon{
     @include textgradient(3rem, $color-secondary-dark, $color-secondary-light);

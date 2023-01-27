@@ -2,10 +2,7 @@
 import Layout from './MainPage/Layout';
 
 function App() {
-  return (<Layout>
-  <i className="fa fa-envelope" aria-hidden="true" /> __ 
-  
-  </Layout>);
+  return (<Layout> </Layout>);
 }
 
 export default App

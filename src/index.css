@@ -278,6 +278,11 @@ h1 {
     color: #0065a3;
     cursor: pointer; }
 
+.section-courses {
+  background-color: #a9cae7;
+  padding: 27rem 5px;
+  margin-top: -17rem; }
+
 .row {
   max-width: 100%;
   margin: 0 auto; }
@@ -367,7 +372,8 @@ h1 {
   border-radius: 0.8rem;
   border: 5px solid #0065a3;
   backface-visibility: hidden;
-  transition: all .3s; }
+  transition: all .3s;
+  cursor: default; }
   .test-box__icon {
     font-size: 3rem;
     background-image: linear-gradient(to right, #0065a3, #34a1e4);
@@ -383,3 +389,77 @@ h1 {
   .test-box:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, #092d43 0px 30px 60px -30px;
     transform: translateY(-0.9rem) scale(1.03); }
+
+.card {
+  perspective: 100rem;
+  -moz-perspective: 100rem;
+  position: relative;
+  width: 18rem;
+  height: 28rem; }
+  .card__side {
+    color: white;
+    font-size: 1.2rem;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 1.2rem 4rem rgba(60, 59, 59, 0.15);
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden; }
+    .card__side--front {
+      background-color: #dbe4ed; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back--1 {
+        background-image: linear-gradient(to right top, #ffc863, #db9614); }
+      .card__side--back--2 {
+        background-image: linear-gradient(to right top, #34a1e4, #0065a3); }
+      .card__side--back--3 {
+        background-image: linear-gradient(to right top, #55f555, #1a971a); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  .card__picture {
+    display: block;
+    height: 50%;
+    margin: -1rem -1rem 0;
+    padding: 1rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 79% 86%, 50% 100%, 21% 85%, 0% 75%);
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 79% 86%, 50% 100%, 21% 85%, 0% 75%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #ffc863, #db9614); }
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, #34a1e4, #0065a3); }
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, #55f555, #1a971a); }
+    .card__picture > img {
+      filter: sepia(30%);
+      border-radius: 8px;
+      width: 100%;
+      max-height: 7em; }
+  .card__heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: right;
+    position: absolute;
+    right: 1rem;
+    top: 5.5em;
+    width: 74%;
+    backface-visibility: hidden; }
+    .card__heading__span {
+      padding: 0.6rem 1rem;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      border-radius: 1rem; }
+      .card__heading__span--1 {
+        background-image: linear-gradient(to right bottom, rgba(255, 245, 227, 0.85), rgba(219, 150, 20, 0.85)); }
+      .card__heading__span--2 {
+        background-image: linear-gradient(to right bottom, rgba(83, 224, 224, 0.85), rgba(7, 157, 157, 0.85)); }
+      .card__heading__span--3 {
+        background-image: linear-gradient(to right bottom, rgba(85, 245, 85, 0.85), rgba(26, 151, 26, 0.85)); }

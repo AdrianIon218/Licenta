@@ -1,6 +1,7 @@
 import Header from './Header';
 import AboutSection from './AboutSection';
 import TestSection from './TestSection';
+import CoursesSection from './CoursesSection';
 import Footer from './Footer';
 import {IProps} from '../CommonInterfaces';
 
@@ -14,6 +15,7 @@ export default function Layout(props:ILayout){
       <main>
         <AboutSection />
         <TestSection />
+        <CoursesSection />
       </main>
     </div>
     <Footer /> </>);
