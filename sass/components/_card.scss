@@ -109,4 +109,42 @@
       }
     }
   }
+
+  &__details{
+    padding: 1rem;
+    color:$color-gray;
+    margin-top:1rem;
+
+    ul{
+      list-style: none;
+      width:95%;
+      margin:0 auto;
+      
+      li{
+        text-align: center;
+        font-weight: 700;
+        padding: 0.3rem;
+        &:not(:last-child){
+          border-bottom: 1px solid $color-blue-gray;
+        }
+      }
+      
+    }
+  }
+
+  
+}
+
+.icon-background{
+  &--1{
+    @include textgradient(1.2rem, $card-secondary-light, $card-secondary-dark);
+  }
+
+  &--2{
+    @include textgradient(1.2rem, $color-secondary-light, $color-secondary-dark);
+  }
+
+  &--3{
+    @include textgradient(1.2rem, $card-tertiary-light, $card-tertiary-dark);
+  }
 }

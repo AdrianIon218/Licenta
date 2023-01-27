@@ -15,6 +15,14 @@
   margin-bottom: 5rem;
 }
 
+.u-margin-left-small{
+  margin-left: 0.8rem;
+}
+
+.u-margin-right-small{
+  margin-right: 0.8rem;
+}
+
 @media only screen and (max-width: $width-screen-small) {
   .heading-primary-main{
     left: 6px;

@@ -27,7 +27,7 @@ function AboutSection(){
         După engleză , germana este cea de-a doua limbă ca importanță în lumea științei. Germania ocupând locul trei în lume prin contribuția sa importantă în domeniul cercetării și a dezvoltării .
         </p>
 
-        <a href="#" className="btn-text">Vezi cursurile disponibile &rarr;</a>
+        <a href="#" className="btn-text">Vezi cursurile disponibile &nbsp;<i className="fas fa-arrow-right" /></a>
       </div>
 
       <div className="col-1-of-2-img">

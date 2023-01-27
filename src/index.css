@@ -248,6 +248,12 @@ h1 {
 .u-margin-bottom-medium {
   margin-bottom: 5rem; }
 
+.u-margin-left-small {
+  margin-left: 0.8rem; }
+
+.u-margin-right-small {
+  margin-right: 0.8rem; }
+
 @media only screen and (max-width: 650px) {
   .heading-primary-main {
     left: 6px; }
@@ -419,7 +425,7 @@ h1 {
       .card__side--back--2 {
         background-image: linear-gradient(to right top, #34a1e4, #0065a3); }
       .card__side--back--3 {
-        background-image: linear-gradient(to right top, #55f555, #1a971a); }
+        background-image: linear-gradient(to right top, #3be93b, #1a971a); }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
@@ -436,7 +442,7 @@ h1 {
     .card__picture--2 {
       background-image: linear-gradient(to right bottom, #34a1e4, #0065a3); }
     .card__picture--3 {
-      background-image: linear-gradient(to right bottom, #55f555, #1a971a); }
+      background-image: linear-gradient(to right bottom, #3be93b, #1a971a); }
     .card__picture > img {
       filter: sepia(30%);
       border-radius: 8px;
@@ -462,4 +468,39 @@ h1 {
       .card__heading__span--2 {
         background-image: linear-gradient(to right bottom, rgba(83, 224, 224, 0.85), rgba(7, 157, 157, 0.85)); }
       .card__heading__span--3 {
-        background-image: linear-gradient(to right bottom, rgba(85, 245, 85, 0.85), rgba(26, 151, 26, 0.85)); }
+        background-image: linear-gradient(to right bottom, rgba(59, 233, 59, 0.85), rgba(26, 151, 26, 0.85)); }
+  .card__details {
+    padding: 1rem;
+    color: #838384;
+    margin-top: 1rem; }
+    .card__details ul {
+      list-style: none;
+      width: 95%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-weight: 700;
+        padding: 0.3rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #9aaebb; }
+
+.icon-background--1 {
+  font-size: 1.2rem;
+  background-image: linear-gradient(to right, #ffc863, #db9614);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
+
+.icon-background--2 {
+  font-size: 1.2rem;
+  background-image: linear-gradient(to right, #34a1e4, #0065a3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
+
+.icon-background--3 {
+  font-size: 1.2rem;
+  background-image: linear-gradient(to right, #3be93b, #1a971a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
