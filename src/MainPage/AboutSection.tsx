@@ -18,7 +18,7 @@ function AboutSection(){
         
         <h3 className="heading-tertiary u-margin-bottom-small u-margin-bottom-small">De ce să înveți limba germană <span className="u-text-blue">?</span></h3>
         <p className="paragraph">
-        În domeniul afacerilor sa observat cum comunicare în limba germană cu partenerii vorbitori de limba germană contribuie la îmbunătățirea relației de afaceri, cât și a ratei de succes.
+        În domeniul afacerilor s-a observat cum comunicare în limba germană cu partenerii vorbitori de limba germană contribuie la îmbunătățirea relației de afaceri, cât și a ratei de succes.
         </p>
         <p className="paragraph">
         Cunoștințele de limba germană pot ajuta în obținerea unui loc de muncă în cadrul unei companii care derulează afaceri pe plan internațional . 

@@ -209,6 +209,13 @@ h1 {
   .btn--white::after {
     background-color: aliceblue; }
 
+.btn--green {
+  background-color: #68ca59;
+  font-weight: 700;
+  color: #0e8b0e; }
+  .btn--green::after {
+    background-color: #68ca59; }
+
 .btn--animated {
   animation: moveInBottom 0.8s ease-in-out 0.3s 1 normal both;
   -webkit-animation: moveInBottom 0.8s ease-in-out 0.3s 1 normal both;
@@ -241,6 +248,9 @@ h1 {
 
 .u-center-text {
   text-align: center; }
+
+.u-margin-top-medium {
+  margin-top: 5rem; }
 
 .u-margin-bottom-small {
   margin-bottom: 1rem; }
@@ -483,6 +493,19 @@ h1 {
         padding: 0.3rem; }
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #9aaebb; }
+  .card__back-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center; }
+  .card__time-estimation {
+    margin-top: 15%;
+    font-size: 1.5rem;
+    text-align: center; }
+  .card__back-btn {
+    margin-top: auto; }
 
 .icon-background--1 {
   font-size: 1.2rem;

@@ -47,6 +47,16 @@
     }
   }
 
+  &--green{
+    background-color: $color-green-light-1;
+    font-weight: 700;
+    color:$color-green-dark-1;
+
+    &::after{
+      background-color: $color-green-light-1;
+    }
+  }
+
   &--animated{
     @include mixin_animation(moveInBottom, $time-btn-move-in, ease-in-out, $delay-move-in-ani)
   }
