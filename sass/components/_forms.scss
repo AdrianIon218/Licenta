@@ -13,7 +13,7 @@
 
   @media only screen and (max-width: $width-screen-small) {
     &{
-      background-image: linear-gradient(105deg, rgba($color-white,.8) 0%, rgba($color-white,.8) 64%, transparent 64%), url(images/germany-photo1.jpeg);
+      background-image: linear-gradient(105deg, rgba($color-white,.8) 0%, rgba($color-white,.8) 74%, transparent 74%), url(images/germany-photo1.jpeg);
       width:94%;
     }
   }
@@ -35,7 +35,7 @@
     padding: 0.8rem 1.2rem;
     border-radius: 4px;
     background-color: rgba($color-white, .85);
-    width: 70%;
+    width: 74%;
     border: none;
     border-bottom: 3px solid transparent;
     display:block;
@@ -47,7 +47,6 @@
       }
     }
 
-    
     &:focus{
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .2);
