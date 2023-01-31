@@ -21,7 +21,40 @@ export default function RegisterForm(){
                 <input type="email" className="form__input" placeholder="Adresă de mail" id="email" required />
                 <label htmlFor="name" className="form__label">Adresă de mail</label>
               </div>
+              
+              <div className="form__group u-margin-bottom-intermediate">
+                <h3 className="form__sub-heading">Care este nivelul tău de germană ?</h3>
 
+                <div className="form__radio-group">
+                  <input type="radio" className="form__radio-input" id="beginner" name="level" />
+                  <label htmlFor="beginner" className="form__radio-label"> 
+                    <span className="form__radio-button"></span>
+                    Începător
+                  </label>
+                </div>
+
+                <div className="form__radio-group">
+                  <input type="radio" className="form__radio-input" id="intermediate" name="level"/>
+                  <label htmlFor="intermediate" className="form__radio-label"> 
+                    <span className="form__radio-button"></span>
+                    Intermediar
+                  </label>
+                </div>
+
+                <div className="form__radio-group">
+                  <input type="radio" className="form__radio-input" id="advanced" name="level"/>
+                  <label htmlFor="advanced" className="form__radio-label"> 
+                    <span className="form__radio-button"></span>
+                    Avansat
+                  </label>
+                </div>
+              </div>
+              
+              <div className="form__group">
+                <button className="btn btn--white">
+                  Înregistrează-te <i className="fas fa-angle-right"></i>
+                </button>
+              </div>
             </form>
           </div>
         </div>
