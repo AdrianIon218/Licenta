@@ -545,8 +545,10 @@ h1 {
     padding: 2em 0.5em 2em 1em; }
   @media only screen and (max-width: 650px) {
     .box-sign-up {
-      background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 74%, transparent 74%), url(images/germany-photo1.jpeg);
-      width: 94%; } }
+      background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 94%, transparent 94%), url(images/germany-photo1.jpeg);
+      width: 94%; }
+    .box-sign-up__form {
+      width: 80%; } }
 
 .form__group {
   font-size: 1rem; }
@@ -561,7 +563,7 @@ h1 {
   padding: 0.8rem 1.2rem;
   border-radius: 4px;
   background-color: rgba(219, 228, 237, 0.85);
-  width: 74%;
+  width: 72%;
   border: none;
   border-bottom: 3px solid transparent;
   display: block;
