@@ -20,7 +20,7 @@ export default function RegisterForm(){
           <div className="box-sign-up__form">
             <form onSubmit={submit} className="forn">
               <div className="u-margin-bottom-medium u-center-text">
-                <h2 className="heading-secondary">Înregistrare curs</h2>
+                <h2 className="heading-secondary">Creare cont</h2>
               </div>
 
               <div className="form__group">
@@ -46,7 +46,7 @@ export default function RegisterForm(){
               
               <div className="form__group">
                 <button className="btn btn--white">
-                  Înregistrează-te <i className="fas fa-angle-right"></i>
+                  Următorul pas <i className="fas fa-angle-right"></i>
                 </button>
               </div>
             </form>
