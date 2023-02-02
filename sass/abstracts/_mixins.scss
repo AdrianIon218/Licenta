@@ -21,3 +21,9 @@
   background-clip: text;
   color:transparent;
 }
+
+%flex-centered{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

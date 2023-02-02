@@ -36,7 +36,7 @@
 
 .section-sign-up{
   margin-top:-20rem;
-  padding: 20rem $padding-LR-section 15rem;
-  background-image: linear-gradient(to right bottom, $color-blue-dark, darken($card-primary-light, 4%));
+  padding: 20rem $padding-LR-section 32rem;
+  background-image: linear-gradient(to left top, $color-blue-dark, darken($card-primary-light, 4%));
   clip-path: polygon(0px 100%, 0px 0px, 20% 10rem, 50% 0px, 80% 10rem, 100% 0px, 100% 100%);
 }

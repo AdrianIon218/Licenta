@@ -1,18 +1,40 @@
 .footer-container{
-  position: relative;
-  margin-top: 10rem;
+  position: relative;  
   bottom: 0;
 }
 
 .footer{
-  height: 70vh;
-  min-width:calc(100vw - 2.4rem);
-  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.35) 0%, rgba(18, 157, 244, 0.55) 100%) , url(images/viena-photo2.jpg); 
-  border-radius: 1rem;
+  margin-top:-10rem;
+  min-height: 68vh;
+  padding: 1rem 1rem 3rem;
+  min-width: calc(100vw - 2.4rem);
+  background-image: linear-gradient(to right bottom, darken(rgb(150, 242, 242), 8%) 0%, darken(rgb(18, 157, 244), 7%) 100%); 
+  clip-path: polygon(10% 0, 90% 0, 90% 10%, 100% 10%, 100% 100%, 0 100%, 0 10%, 10% 10%);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   background-size: cover;
   background-position: center;
   position: relative;
   bottom: 0;
   position: relative;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  &__logo-box{
+    @extend %flex-centered;
+  }
+
+  &__logo{
+    display: inline-block;
+  }
+
+  &__list{
+    list-style: none;
+    display:flex;
+    gap:1rem;
+    flex-wrap: wrap;
+  }
+
+  &__link{
+    text-decoration: none;
+    color:rgb(0, 120, 195);
+  }
 }

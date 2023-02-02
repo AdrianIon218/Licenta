@@ -27,7 +27,7 @@
     }
   }
 
-  &--centered{
+  &--centered, &--centered-no-wrap{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -50,4 +50,24 @@
       }
     }
   }
+
+  &--centered-no-wrap{
+    flex-wrap:nowrap;
+    font-size: 1.5rem;
+
+    & > .flex-element{
+      flex: 1;
+      @extend %flex-centered;
+    }
+
+    @media screen and (max-width: $width-screen-medium) {
+      flex-wrap:wrap;
+
+      & > .flex-element{
+        flex-basis: 100%;
+      }
+    }
+  }
+
 }
+
