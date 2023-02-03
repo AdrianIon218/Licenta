@@ -54,6 +54,7 @@
   &--centered-no-wrap{
     flex-wrap:nowrap;
     font-size: 1.5rem;
+    align-items: flex-start;
 
     & > .flex-element{
       flex: 1;

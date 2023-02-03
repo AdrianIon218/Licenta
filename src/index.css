@@ -1,5 +1,6 @@
 .footer__logo-box, .flex-row--centered-no-wrap > .flex-element {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center; }
 
@@ -163,28 +164,47 @@ h1 {
 
 .footer {
   margin-top: -10rem;
-  min-height: 68vh;
-  padding: 1rem 1rem 3rem;
-  min-width: calc(100vw - 2.4rem);
-  background-image: linear-gradient(to right bottom, #72eeee 0%, #0a89d8 100%);
+  min-height: 70vh;
+  padding: 2rem 1rem 4rem;
+  display: block;
+  background-image: linear-gradient(to right bottom, #6deded 0%, #0980ca 100%);
   clip-path: polygon(10% 0, 90% 0, 90% 10%, 100% 10%, 100% 100%, 0 100%, 0 10%, 10% 10%);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   background-size: cover;
   background-position: center;
   position: relative;
-  bottom: 0;
-  position: relative; }
+  bottom: 0; }
   .footer__logo {
     display: inline-block; }
+    @media screen and (min-width: 1400px) {
+      .footer__logo {
+        margin-left: -5rem; } }
   .footer__list {
+    border-top: 2px solid #0263a0;
+    padding-top: 1rem;
     list-style: none;
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: space-around; }
+  .footer__link-up {
+    display: inline-block; }
+  .footer__item, .footer__link-up {
+    transition: transform .4s; }
+    .footer__item:hover, .footer__link-up:hover {
+      transform: translateY(-5px); }
   .footer__link {
     text-decoration: none;
-    color: #0078c3; }
+    color: #0263a0;
+    font-weight: 500;
+    transition: all .4s; }
+    .footer__link:hover {
+      text-shadow: 0 1px 4px #0078c3; }
+  .footer__coryright {
+    border-top: 2px solid #0263a0;
+    padding-top: 1rem;
+    text-align: center; }
 
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
@@ -378,7 +398,8 @@ h1 {
         margin: 0; } }
   .flex-row--centered-no-wrap {
     flex-wrap: nowrap;
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    align-items: flex-start; }
     .flex-row--centered-no-wrap > .flex-element {
       flex: 1; }
     @media screen and (max-width: 1000px) {
