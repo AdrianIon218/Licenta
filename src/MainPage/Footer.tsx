@@ -10,13 +10,13 @@ export default function Footer(){
           <ul className="footer__list">
             <li className="footer__item"><a href="#" className="footer__link">Contacte</a></li>
             <li className="footer__item"><a href="#" className="footer__link">Vlog</a></li>
-            <li className="footer__item"><a href="#" className="footer__link">Termeni si condiții</a></li>
+            <li className="footer__item"><a href="#" className="footer__link">Termeni și condiții</a></li>
             <li className="footer__item"><a href="#" className="footer__link">Sugestii</a></li>
           </ul>
         </div>
         <div className="flex-element">
             <p className="footer__coryright">
-              GermanMax este o aplicație destinată persoanelor dornice să-și îmbunătățească cunoștiile de limbă germană . Principalul său obiectiv fiind acela de a furniza un conținut cât mai util și facil utilizatorilor. Proiectul a fost creat si publicat de <span className="footer__link-up"><a href="#" className="footer__link">Ion Adrian Gabriel</a></span> . 
+              GermanMax este o aplicație destinată persoanelor dornice să-și îmbunătățească cunoștiile de limbă germană . Principalul său obiectiv fiind acela de a furniza un conținut cât mai util și facil utilizatorilor săi. Proiectul a fost creat si publicat de <span className="footer__link-up"><a href="#" className="footer__link">Ion Adrian Gabriel</a></span> . 
             </p>
         </div>
       </div>
