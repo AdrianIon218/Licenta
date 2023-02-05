@@ -15,7 +15,7 @@ export default function Header(props:IProps){
         <span className='heading-primary__main'> GermanMax </span>
         <span className='heading-primary__sub umargin-top-small'> Aplicație de învățat limba Germană</span>
       </h1>
-      <a href="#" className='btn btn--white btn--animated'>Încearcă o lecție</a>
+      <a href="#section-course-id" className='btn btn--white btn--animated'>Începe un curs</a>
     </div>
   </header>
   </div>);

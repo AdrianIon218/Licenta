@@ -2,7 +2,7 @@ import CardCoure from "../components/CardCourse";
 import { AvailableCourses } from "./AvailableCourses";
 
 export default function CoursesSection(){
-  return (<section className="section-courses"> 
+  return (<section className="section-courses" id="section-course-id"> 
     <div className="u-center-text u-margin-bottom-medium">
       <h2 className="heading-secondary">
       Cursuri disponibile
@@ -12,7 +12,7 @@ export default function CoursesSection(){
       {AvailableCourses.map((course,index) => <CardCoure {...course} key={index} />)}
     </div>
     <div className="u-center-text u-margin-top-medium">
-      <a href="#" className="btn btn--green">Află ce curs ți se potrivește</a>
+      <a href="#" className="btn btn--blue">Află ce curs ți se potrivește</a>
     </div>
     </section>);
 }

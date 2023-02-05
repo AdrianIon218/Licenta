@@ -248,11 +248,18 @@ h1 {
     background-color: aliceblue; }
 
 .btn--green {
-  background-color: #68ca59;
+  background-color: #0e8b0e;
   font-weight: 700;
-  color: #0e8b0e; }
+  color: #68ca59; }
   .btn--green::after {
-    background-color: #68ca59; }
+    background-color: #0e8b0e; }
+
+.btn--blue {
+  background-color: #0088dd;
+  font-weight: 700;
+  color: #9ad1ef; }
+  .btn--blue::after {
+    background-color: #0088dd; }
 
 .btn--animated {
   animation: moveInBottom 0.8s ease-in-out 0.3s 1 normal both;

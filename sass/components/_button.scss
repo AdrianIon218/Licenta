@@ -45,23 +45,15 @@
   }
 
   &--white{
-    background-color: aliceblue;
-    font-weight: 700;
-    color:#777;
-
-    &::after{
-      background-color: aliceblue;
-    }
+    @include btn-color(#777, aliceblue);
   }
 
   &--green{
-    background-color: $color-green-light-1;
-    font-weight: 700;
-    color:$color-green-dark-1;
+    @include btn-color($color-green-light-1, $color-green-dark-1);
+  }
 
-    &::after{
-      background-color: $color-green-light-1;
-    }
+  &--blue{
+    @include btn-color(lighten($color-blue-light, 13%), lighten($color-blue-dark,5%));
   }
 
   &--animated{

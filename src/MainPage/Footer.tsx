@@ -1,5 +1,8 @@
 
 export default function Footer(){
+  const footerNav = ["Contacte", "Vlog", "Termeni și condiții","Sugestii"];
+  const footerNavElements = footerNav.map((item,index) => <li className="footer__item"><a href="#"  className="footer__link" key={index}>{item}</a></li>);
+
   return (<div className='footer-container'>
     <div className="footer">
       <div className="footer__logo-box u-margin-bottom-medium">
@@ -8,10 +11,7 @@ export default function Footer(){
       <div className="flex-row--centered-no-wrap">
         <div className="flex-element footer__navigation">
           <ul className="footer__list">
-            <li className="footer__item"><a href="#" className="footer__link">Contacte</a></li>
-            <li className="footer__item"><a href="#" className="footer__link">Vlog</a></li>
-            <li className="footer__item"><a href="#" className="footer__link">Termeni și condiții</a></li>
-            <li className="footer__item"><a href="#" className="footer__link">Sugestii</a></li>
+            {footerNavElements}
           </ul>
         </div>
         <div className="flex-element">
