@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center; }
 
+.blackdrop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; }
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -32,11 +37,13 @@ body {
     padding: 5px;
     width: 15px;
     border-radius: 10px;
-    background-color: #F5F5F5; }
+    background-color: #F5F5F5;
+    transition: all .8s; }
     body::-webkit-scrollbar-thumb {
       border: 2px #5a5a5a solid;
       border-radius: 10px;
-      background-color: #129df4; }
+      background-color: #129df4;
+      transition: all .8s; }
 
 h1 {
   font-size: 3.2em;
@@ -206,7 +213,7 @@ h1 {
     padding-top: 1rem;
     text-align: center; }
 
-.btn, .btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited, .btn--cleared {
   text-decoration: none;
   padding: 0.625rem 1.25rem;
   font-size: 1.5rem;
@@ -336,11 +343,16 @@ h1 {
     transform: skewY(6deg); }
   .section-tests__helper {
     position: absolute;
-    right: 1.7rem;
+    right: 1.3rem;
     top: 4rem;
-    font-size: 1.8rem;
     color: #0065a3;
     cursor: pointer; }
+    .section-tests__helper .helper-btn {
+      font-size: 2rem;
+      color: #0065a3;
+      transition: text-shadow .4s; }
+      .section-tests__helper .helper-btn:hover {
+        text-shadow: 2px 1px 1rem white; }
 
 .section-courses {
   background-color: #a9cae7;
@@ -701,3 +713,52 @@ h1 {
 
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1; }
+
+.blackdrop {
+  position: fixed;
+  background-color: rgba(60, 59, 59, 0.9);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 5000;
+  padding: 3rem 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s; }
+  .blackdrop:target {
+    position: fixed;
+    opacity: 1;
+    visibility: visible; }
+  .blackdrop__content {
+    flex: 1;
+    position: relative; }
+  .blackdrop__exit {
+    display: inline-block;
+    position: absolute;
+    right: -2rem;
+    top: -2rem; }
+    .blackdrop__exit__btn {
+      color: #dbe4ed;
+      text-decoration: none;
+      font-size: 1.9rem;
+      font-weight: 800;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: all .4s; }
+      .blackdrop__exit__btn:hover {
+        color: #d21414;
+        text-shadow: 0px 0px 18px #d21414; }
+
+body:has(.blackdrop:target)::-webkit-scrollbar {
+  border-radius: 0px;
+  background-color: #565454; }
+  body:has(.blackdrop:target)::-webkit-scrollbar-thumb {
+    box-shadow: inset 0px 0px 20px 1px #6f6e6e; }
+
+.panel {
+  display: block;
+  min-height: 10rem;
+  border-radius: 3px; }
+  .panel--white {
+    background-color: #dbe4ed; }

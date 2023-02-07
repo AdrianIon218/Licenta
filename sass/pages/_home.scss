@@ -20,11 +20,19 @@
 
   &__helper{
     position: absolute;
-    right: 1.7rem;
+    right: 1.3rem;
     top: 4rem;
-    font-size: 1.8rem;
     color:$color-secondary-dark;
     cursor: pointer;
+
+    .helper-btn{
+      font-size: 2rem;
+      color:$color-secondary-dark;
+      transition: text-shadow .4s;
+      &:hover{
+        text-shadow: 2px 1px 1rem $color-white-max;
+      }
+    }
   }
 }
 

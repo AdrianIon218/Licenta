@@ -1,7 +1,8 @@
 .btn{
   &,
   &:link,
-  &:visited{
+  &:visited,
+  &--cleared{
     text-decoration: none;
     padding: 0.625rem 1.25rem;
     font-size: 1.5rem;

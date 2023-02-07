@@ -1,7 +1,7 @@
 
 export default function Footer(){
   const footerNav = ["Contacte", "Vlog", "Termeni și condiții","Sugestii"];
-  const footerNavElements = footerNav.map((item,index) => <li className="footer__item"><a href="#"  className="footer__link" key={index}>{item}</a></li>);
+  const footerNavElements = footerNav.map((item,index) => <li className="footer__item" key={index}><a href="#"  className="footer__link"> {item} </a></li>);
 
   return (<div className='footer-container'>
     <div className="footer">

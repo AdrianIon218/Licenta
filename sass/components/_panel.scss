@@ -1,0 +1,9 @@
+.panel{
+  display: block;
+  min-height: 10rem;
+  border-radius: 3px;
+  
+  &--white{
+    background-color: $color-white;
+  }
+}
