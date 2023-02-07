@@ -1,9 +1,12 @@
 .panel{
   display: block;
-  min-height: 10rem;
-  border-radius: 3px;
+  min-height: 10em;
+  border-radius: 6px;
+  padding: 2rem 0.5rem;
   
   &--white{
     background-color: $color-white;
+    border: 6px double darken($color-white, 30%);
   }
+  
 }

@@ -13,6 +13,5 @@ export default function Blackdrop(props:IBlackdropProps){
       </div>
       {props.children}
     </div>
-    
   </section>);
 }

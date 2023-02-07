@@ -10,7 +10,7 @@ export default function TestSection(){
 
   return (<>
   <Blackdrop popupId="popup-test-details" backElementId="section-tests"> 
-    <TestDetails></TestDetails>
+    <TestDetails />
   </Blackdrop>
   <section className="section-tests">
     <div className="section-tests__helper">

@@ -758,7 +758,9 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
 
 .panel {
   display: block;
-  min-height: 10rem;
-  border-radius: 3px; }
+  min-height: 10em;
+  border-radius: 6px;
+  padding: 2rem 0.5rem; }
   .panel--white {
-    background-color: #dbe4ed; }
+    background-color: #dbe4ed;
+    border: 6px double #7598ba; }
