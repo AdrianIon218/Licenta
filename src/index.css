@@ -1,13 +1,8 @@
-.footer__logo-box, .flex-row--centered-no-wrap > .flex-element {
+.footer__logo-box, .flex-row--centered-no-wrap > .flex-element, .blackdrop {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center; }
-
-.blackdrop {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; }
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -98,9 +93,16 @@ h1 {
 .heading-tertiary {
   font-size: 1.4rem;
   font-weight: 700; }
+  .heading-tertiary--biger {
+    font-size: 1.7rem;
+    font-weight: 800; }
 
 .paragraph {
   font-size: 1.2rem; }
+  .paragraph__title {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800; }
   .paragraph:not(:last-child) {
     margin-bottom: 1rem; }
 
@@ -732,7 +734,12 @@ h1 {
     visibility: visible; }
   .blackdrop__content {
     flex: 1;
-    position: relative; }
+    position: relative;
+    transform: scale(0.5);
+    transition: all 0.5s; }
+  .blackdrop:target .blackdrop__content {
+    transition: all .8s 0.3s;
+    transform: scale(1); }
   .blackdrop__exit {
     display: inline-block;
     position: absolute;
@@ -759,8 +766,19 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
 .panel {
   display: block;
   min-height: 10em;
+  max-height: 24em;
   border-radius: 6px;
-  padding: 2rem 0.5rem; }
+  padding: 2.3rem 0.7rem;
+  overflow-y: auto; }
   .panel--white {
-    background-color: #dbe4ed;
-    border: 6px double #7598ba; }
+    background-color: #9aaebb;
+    border: 6px double #373737; }
+  .panel::-webkit-scrollbar {
+    padding: 5px;
+    width: 15px;
+    border-radius: 10px;
+    background-color: #F5F5F5; }
+    .panel::-webkit-scrollbar-thumb {
+      border: 2px #838384 solid;
+      border-radius: 10px;
+      background-color: #61b7e6; }

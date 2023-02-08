@@ -1,5 +1,5 @@
 .blackdrop{
-  @extend %flex-top;
+  @extend %flex-centered;
   position: fixed;
   background-color: rgba($color-black, 0.9); 
   top:0;
@@ -21,6 +21,13 @@
   &__content{
     flex: 1;
     position: relative;
+    transform: scale(0.5);
+    transition: all 0.5s;
+  }
+
+  &:target &__content{
+    transition: all .8s 0.3s;
+    transform: scale(1);
   }
 
   &__exit{
@@ -47,9 +54,7 @@
 }
 
 body:has(.blackdrop:target){
-
   &::-webkit-scrollbar {
-    
     border-radius: 0px;
     background-color: lighten($color-black, 10%);
     &-thumb {

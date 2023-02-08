@@ -57,10 +57,20 @@ h1 {
 .heading-tertiary{
   font-size: 1.4rem;
   font-weight: 700;
+
+  &--biger{
+    font-size: 1.7rem;
+    font-weight: 800;
+  }
 }
 
 .paragraph{
   font-size: $default-font-size;
+  &__title{
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
 
   &:not(:last-child){
     margin-bottom: 1rem;
