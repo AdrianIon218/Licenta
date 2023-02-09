@@ -4,6 +4,13 @@
   justify-content: center;
   align-items: center; }
 
+/*
+0 - 600 px   phone
+900 - 1200 px   tablet portrait, tab-port
+900 - 1200 px   tablet landscape, tab-land
+1200 - 1800 px   normal styles
+> 1800 px   big desktop
+*/
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -56,11 +63,14 @@ h1 {
     display: block;
     font-size: .63em;
     font-weight: 700;
-    letter-spacing: .625rem;
+    letter-spacing: 10px;
     animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both;
     -webkit-animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both;
     -moz-animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both;
     -o-animation: moveInLeft 1.4s ease-in-out 0.3s 1 normal both; }
+    @media (max-width: 600px) {
+      .heading-primary__main {
+        letter-spacing: 3px; } }
   .heading-primary__sub {
     display: block;
     font-size: 1.25rem;
@@ -70,6 +80,9 @@ h1 {
     -webkit-animation: moveInRight 1.4s ease-in-out 0.3s 1 normal both;
     -moz-animation: moveInRight 1.4s ease-in-out 0.3s 1 normal both;
     -o-animation: moveInRight 1.4s ease-in-out 0.3s 1 normal both; }
+    @media (max-width: 600px) {
+      .heading-primary__sub {
+        letter-spacing: 3px; } }
 
 .heading-secondary {
   font-size: 1.9rem;

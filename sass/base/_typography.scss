@@ -17,8 +17,11 @@ h1 {
     display: block;
     font-size: .63em;
     font-weight: 700;
-    letter-spacing: .625rem;
+    letter-spacing: 10px;
     @include mixin_animation(moveInLeft, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
+    @include respond(phone){
+      letter-spacing: 3px;
+    }
   }
 
   &__sub {
@@ -27,6 +30,9 @@ h1 {
     font-weight: 700;
     letter-spacing: 6px;
     @include mixin_animation(moveInRight, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
+    @include respond(phone){
+      letter-spacing: 3px;
+    }
   }
 }
 
