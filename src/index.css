@@ -453,15 +453,25 @@ h1 {
     position: absolute;
     transition: all .3s;
     outline-offset: .5rem; }
+    @media (max-width: 600px) {
+      .composition__photo {
+        max-width: 74%;
+        min-width: none; } }
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
+      @media (max-width: 600px) {
+        .composition__photo--p2 {
+          top: 4rem; } }
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
+      @media (max-width: 600px) {
+        .composition__photo--p3 {
+          left: 8%; } }
     .composition__photo:hover {
       outline: 6px solid #0065a3;
       transform: scale(1.07) translateY(-0.5rem);
@@ -626,16 +636,32 @@ h1 {
   background-size: cover;
   min-height: 40rem;
   border-radius: 10px;
-  box-shadow: 0 1rem 3rem rgba(60, 59, 59, 0.4); }
+  box-shadow: 0 1rem 3rem rgba(60, 59, 59, 0.4);
+  /*
+  @media only screen and (max-width: $width-screen-small) {
+    &{
+      background-image: linear-gradient(105deg, rgba($color-white,.8) 0%, rgba($color-white,.8) 94%, transparent 94%), url(images/germany-photo1.jpeg);
+      width:94%;
+    }
+
+    &__form{
+      width:80%;
+    }
+  }
+  */ }
+  @media (max-width: 900px) {
+    .box-sign-up {
+      width: 100%;
+      background-image: linear-gradient(to right bottom, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 100%), url(images/germany-photo1.jpeg); } }
   .box-sign-up__form {
     width: 54%;
     padding: 2em 0.5em 2em 1em; }
-  @media only screen and (max-width: 650px) {
-    .box-sign-up {
-      background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 94%, transparent 94%), url(images/germany-photo1.jpeg);
-      width: 94%; }
-    .box-sign-up__form {
-      width: 80%; } }
+    @media (max-width: 900px) {
+      .box-sign-up__form {
+        width: 72%; } }
+    @media (max-width: 600px) {
+      .box-sign-up__form {
+        width: 95%; } }
 
 .form__group {
   font-size: 1rem; }
