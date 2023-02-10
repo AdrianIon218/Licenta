@@ -10,11 +10,9 @@ export default function RegisterForm(){
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
-    
   }
 
-  return (
-    <section className="section-sign-up">
+  return (<section className="section-sign-up">
       <div className="flex-row--centered">
         <div className="box-sign-up">
           <div className="box-sign-up__form">

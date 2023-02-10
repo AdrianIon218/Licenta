@@ -9,7 +9,7 @@ export interface IPropsCardCourse{
     lessonsNumber:number,
     words:number,
     testsNumber:number,
-  },
+  }, 
   estimationWeeks:number
 }
 
