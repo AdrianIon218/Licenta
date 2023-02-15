@@ -858,7 +858,7 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
 .navigation__btn {
   position: fixed;
   top: 1rem;
-  right: .5rem;
+  right: 10px;
   z-index: 5500;
   background-color: white;
   width: 4rem;
