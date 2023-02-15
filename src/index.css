@@ -190,6 +190,7 @@ h1 {
   clip-path: polygon(10% 0, 90% 0, 90% 10%, 100% 10%, 100% 100%, 0 100%, 0 10%, 10% 10%);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  border-bottom: 1.7px solid #0980ca;
   background-size: cover;
   background-position: center;
   position: relative;
