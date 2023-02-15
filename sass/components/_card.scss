@@ -52,12 +52,13 @@
 
   // Picture of the front side's card 
   &__picture{
+    $local-poligon: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
     display: block;
     height: 50%;
     margin:-1rem -1rem 0;
     padding: 1rem;
-    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+    -webkit-clip-path: $local-poligon;
+    clip-path: $local-poligon;
 
     &--1{
       background-image: linear-gradient(to right bottom, $card-secondary-light, $card-secondary-dark);
@@ -150,10 +151,13 @@
     margin-top:auto;
   }
 
-
-  // ********************
-  @include respond(tab-port){
+  // *************************
+  @include hover(false){
     height: auto;
+
+    &__picture{
+      height: 45%;
+    }
 
     &__side{
       height: auto;
@@ -161,15 +165,17 @@
       position:relative;
 
       &--front{
-        height: 32rem;
+        height: 34rem;
       }
 
       &--back{
+        $local-poligon: polygon(0% 0%, 12.5% 5%, 25% 0%, 37.5% 5%, 50% 0%, 62.5% 5%, 75% 0%, 87.5% 5%, 100% 0%, 100% 100%, 0% 100%);
+
         min-height: 18rem;
         border-top-left-radius: 0%;
         border-top-right-radius: 0%;
-        -webkit-clip-path: polygon(0% 20%, 50% 0%, 100% 20%, 100% 100%, 0% 100%);
-        clip-path: polygon(0% 20%, 50% 0%, 100% 20%, 100% 100%, 0% 100%);
+        -webkit-clip-path: $local-poligon;
+        clip-path: $local-poligon;
         transform: rotateY(0) translateY(-25%);
       }
     }
@@ -186,29 +192,28 @@
       width: auto;
       right: 50%;
       transform: translateX(50%);
+
+      &__span{
+        &--1{
+          background-image: linear-gradient(to right bottom,rgba(lighten($card-secondary-light, 10%),.85), rgba(darken($card-secondary-light, 15%), .85));
+        }
+
+        &--3{
+          background-image: linear-gradient(to right bottom, rgba($card-tertiary-light, .85), rgba(lighten($card-tertiary-dark, 10%),.85));
+        }
+      }
     }
   
-  &__back-content{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding: 1rem 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
+    &__back-content{
+      padding: 1rem 0;
+      justify-content: space-between;
+    }
 
   &__time-estimation{
-    margin-top: 15%;
-    font-size: 1.5rem;
-    text-align: center;
+    margin-top: 0px;
   }
 
-  &__back-btn{
-    margin-top:auto;
   }
-  }
-
 }
 
 .icon-background{

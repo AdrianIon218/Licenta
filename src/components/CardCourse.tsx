@@ -43,7 +43,7 @@ export default function CardCourse(props:IPropsCardCourse){
 
     <div className={`card__side card__side--back card__side--back--${props.typeCard}`}>
       <div className="card__back-content">
-        <div className="card__time-estimation">
+        <div className="card__time-estimation u-margin-bottom-intermediate">
           <p className="u-margin-bottom-small">Timp estimat<i className="fas fa-clock u-margin-left-small" /></p>
           <p>{props.estimationWeeks} săptămâni</p>
         </div>
