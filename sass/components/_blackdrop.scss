@@ -6,7 +6,7 @@
   left:0;
   width: 100%;
   height: 100vh;
-  z-index: 5000;
+  z-index: $the-most-front-layer;
   padding: 3rem 2rem;
   opacity: 0;
   visibility: hidden;
