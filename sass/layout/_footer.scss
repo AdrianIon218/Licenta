@@ -20,7 +20,6 @@
 
   &__logo-box{
     @extend %flex-centered;
-
   }
 
   &__logo{
@@ -38,6 +37,13 @@
     gap:1rem;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  &__item{
+    @include respond(phone){
+      flex-basis: 60%;
+      text-align: center;
+    }
   }
 
   &__link-up{

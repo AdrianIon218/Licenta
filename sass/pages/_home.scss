@@ -25,6 +25,11 @@
     color:$color-secondary-dark;
     cursor: pointer;
 
+    @include respond(phone){
+      top: 3rem;
+      right: .4rem;
+    }
+
     .helper-btn{
       font-size: 2rem;
       color:$color-secondary-dark;
@@ -43,8 +48,10 @@
 }
 
 .section-sign-up{
+  $local-polygon: polygon(0px 100%, 0px 0px, 20% 10rem, 50% 0px, 80% 10rem, 100% 0px, 100% 100%);
   margin-top:-20rem;
   padding: 20rem $padding-LR-section 32rem;
   background-image: linear-gradient(to left top, $color-blue-dark, darken($card-primary-light, 4%));
-  clip-path: polygon(0px 100%, 0px 0px, 20% 10rem, 50% 0px, 80% 10rem, 100% 0px, 100% 100%);
+  -webkit-clip-path: $local-polygon;
+  clip-path: $local-polygon;
 }
