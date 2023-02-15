@@ -5,20 +5,21 @@ import CoursesSection from './CoursesSection';
 import Footer from './Footer';
 import {IProps} from '../CommonInterfaces';
 import RegisterForm from './RegisterForm';
+import MainMenu from '../components/MainMenu';
 
 interface ILayout extends IProps {
 
 }
 
 export default function Layout(props:ILayout){
-  return (<><div className="layout-container">  
+  return (<> 
     <Header />
-      <main>
-        <AboutSection />
-        <TestSection />
-        <CoursesSection />
-        <RegisterForm />
-      </main>
-    </div>
+    <MainMenu />
+    <main>
+      <AboutSection />
+      <TestSection />
+      <CoursesSection />
+      <RegisterForm />
+    </main>
     <Footer /> </>);
 }

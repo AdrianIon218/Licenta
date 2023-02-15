@@ -1,0 +1,53 @@
+.navigation{
+  &__btn{
+    position: fixed;
+    top: 1rem;
+    right: .5rem;
+    z-index: $very-front-layer;
+    background-color: $color-white-max;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    text-align: center;
+    
+    &__icon{
+      margin-top: 1.9rem;
+      position: relative;
+      height: 2px;
+      &,
+      &::before,
+      &::after{
+        backface-visibility: hidden;
+        display: inline-block;
+        height: 4px;
+        width: 2rem;
+        background-color: $color-secondary-dark;
+      }
+      
+      &::after,
+      &::before{
+        content:'';
+        position: absolute;
+        left:0;
+        transition: all .3s;
+      }
+
+      &::before{
+        top:-.7rem;
+      }
+
+      &::after{
+        top:.7rem;
+      }
+    }
+
+    &:hover &__icon::before{
+      top:-.9rem;
+    }
+
+    &:hover &__icon::after{
+      top:.9rem;
+    }
+  }
+}

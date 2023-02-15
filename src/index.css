@@ -854,3 +854,38 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
       border: 2px #838384 solid;
       border-radius: 10px;
       background-color: #61b7e6; }
+
+.navigation__btn {
+  position: fixed;
+  top: 1rem;
+  right: .5rem;
+  z-index: 6000;
+  background-color: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  text-align: center; }
+  .navigation__btn__icon {
+    margin-top: 1.9rem;
+    position: relative;
+    height: 2px; }
+    .navigation__btn__icon, .navigation__btn__icon::before, .navigation__btn__icon::after {
+      backface-visibility: hidden;
+      display: inline-block;
+      height: 4px;
+      width: 2rem;
+      background-color: #0065a3; }
+    .navigation__btn__icon::after, .navigation__btn__icon::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all .3s; }
+    .navigation__btn__icon::before {
+      top: -.7rem; }
+    .navigation__btn__icon::after {
+      top: .7rem; }
+  .navigation__btn:hover .navigation__btn__icon::before {
+    top: -.9rem; }
+  .navigation__btn:hover .navigation__btn__icon::after {
+    top: .9rem; }
