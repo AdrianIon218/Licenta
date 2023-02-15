@@ -12,8 +12,7 @@
     text-align: center;
 
     @include respond(phone){
-      left: 80%;
-      right: auto;
+      right: 5%;
     }
     
     &__icon{
