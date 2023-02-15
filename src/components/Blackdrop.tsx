@@ -14,8 +14,12 @@ export default function Blackdrop(props:IBlackdropProps){
     goBack(-1);
   }
 
+  function breakPropagation(event:React.MouseEvent<HTMLDivElement, MouseEvent>){
+    event.stopPropagation();
+  }
+
   return (<section className='blackdrop' id={props.popupId} onClick={exitBackdrop}>
-    <div className='blackdrop__content'>
+    <div className='blackdrop__content' onClick={breakPropagation}>
       <div className='blackdrop__exit'>
         <a href={`#${props.backElementId}`} className="blackdrop__exit__btn">&times;</a>
       </div>
