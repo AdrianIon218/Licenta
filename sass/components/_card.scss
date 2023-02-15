@@ -152,7 +152,7 @@
   }
 
   // *************************
-  @include hover(false){
+  @include respond(tab-port){
     height: auto;
 
     &__picture{
