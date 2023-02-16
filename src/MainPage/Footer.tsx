@@ -1,6 +1,6 @@
 
 export default function Footer(){
-  const footerNav = ["Contacte", "Vlog", "Termeni și condiții","Sugestii"];
+  const footerNav = ["Contacte", "Recenzi", "Termeni și condiții","Sugestii"];
   const footerNavElements = footerNav.map((item,index) => <li className="footer__item" key={index}><a href="#"  className="footer__link"> {item} </a></li>);
 
   return (<div className='footer-container'>
@@ -16,7 +16,7 @@ export default function Footer(){
         </div>
         <div className="flex-element">
             <p className="footer__coryright">
-              GermanMax este o aplicație destinată persoanelor dornice să-și îmbunătățească cunoștiile de limbă germană . Principalul său obiectiv fiind acela de a furniza un conținut cât mai util și facil utilizatorilor săi. Proiectul a fost creat si publicat de <span className="footer__link-up"><a href="#" className="footer__link">Ion Adrian Gabriel</a></span> . 
+              GermanMax este o aplicație destinată persoanelor dornice să-și îmbunătățească cunoștiile de limbă germană . Principalul său obiectiv fiind acela de a furniza un conținut cât mai util și facil utilizatorilor săi. Proiectul a fost creat si publicat de <span className="footer__link-up"><a href="https://adrianion218.github.io/My-React-Projects/#/CV" className="footer__link">Ion Adrian Gabriel</a></span> . 
             </p>
         </div>
       </div>
