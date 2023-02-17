@@ -50,6 +50,34 @@
     &:hover &__icon::after{
       top:.9rem;
     }
+
+
+    &__icon.navigation__btn__icon--X{
+      background-color: transparent;
+
+      &::before{
+        transition: all .3s;
+        top:0;
+        transform: rotate(45deg);
+      }
+
+      &::after{
+        transition: all .3s;
+        top:0;
+        transform: rotate(-45deg);
+      }
+    }
+    
+    &:hover &__icon.navigation__btn__icon--X::before{
+      top:0;
+      transform: rotate(45deg) scale(1.2);
+    }
+
+    &:hover &__icon.navigation__btn__icon--X::after{
+      top:0;
+      transform: rotate(-45deg) scale(1.2);
+    }
+
   }
 
   &__background{
@@ -65,6 +93,7 @@
 
     &.navigation__menu-open{
       transform: scale(80);
+
       & ~ .navigation__menu{
         visibility: visible;
         opacity: 1;
@@ -89,7 +118,7 @@
     min-width: 80%;
     top:50%;
     left:50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-53%,-70%);
     list-style: none;
     text-align: center;
 

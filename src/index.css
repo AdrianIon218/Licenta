@@ -891,6 +891,22 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
     top: -.9rem; }
   .navigation__btn:hover .navigation__btn__icon::after {
     top: .9rem; }
+  .navigation__btn__icon.navigation__btn__icon--X {
+    background-color: transparent; }
+    .navigation__btn__icon.navigation__btn__icon--X::before {
+      transition: all .3s;
+      top: 0;
+      transform: rotate(45deg); }
+    .navigation__btn__icon.navigation__btn__icon--X::after {
+      transition: all .3s;
+      top: 0;
+      transform: rotate(-45deg); }
+  .navigation__btn:hover .navigation__btn__icon.navigation__btn__icon--X::before {
+    top: 0;
+    transform: rotate(45deg) scale(1.2); }
+  .navigation__btn:hover .navigation__btn__icon.navigation__btn__icon--X::after {
+    top: 0;
+    transform: rotate(-45deg) scale(1.2); }
 
 .navigation__background {
   position: fixed;
@@ -924,7 +940,7 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
   min-width: 80%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-53%, -70%);
   list-style: none;
   text-align: center; }
   .navigation__list__item {

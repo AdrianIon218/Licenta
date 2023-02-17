@@ -20,8 +20,8 @@ export default function MainMenu(){
         </li> ), []);
 
   return(<div className="navigation">
-    <div className=" navigation__btn" onClick={triggerMenu}>
-      <span className="navigation__btn__icon">&nbsp;</span>
+    <div className="navigation__btn" onClick={triggerMenu}>
+      <span className={`navigation__btn__icon ${showMenu?'navigation__btn__icon--X':''}`}>&nbsp;</span>
     </div>
     <div className={`navigation__background ${showMenu?'navigation__menu-open':''}`} />
     <nav className="navigation__menu">
