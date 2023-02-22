@@ -11,7 +11,7 @@ export default function Blackdrop(props:IBlackdropProps){
 
   function exitBackdrop(event: React.MouseEvent<HTMLElement, MouseEvent>){
     event.stopPropagation();
-    goBack(-1);
+    goBack(-1); // go back to the previous stage in history 
   }
 
   function breakPropagation(event:React.MouseEvent<HTMLDivElement, MouseEvent>){

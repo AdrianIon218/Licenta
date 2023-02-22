@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "homepage": "https://AdrianIon218.github.io/Licenta",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -11,10 +11,14 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "sass-dev": "node-sass sass/index.scss src/index.css",
-    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css"
+    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css",
+    "server": "node public/server/app"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
