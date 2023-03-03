@@ -14,8 +14,13 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
   font-size: 100%; }
+  @media only screen and (max-width: 600px) {
+    :root {
+      font-size: 80%; } }
+  @media only screen and (max-width: 1200px) {
+    :root {
+      font-size: 90%; } }
 
 *,
 *::after,
@@ -25,7 +30,7 @@
   box-sizing: inherit; }
 
 body {
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 1.2rem;
   display: flex;
   min-width: 20rem;
   min-height: 100vh;
@@ -152,7 +157,7 @@ h1 {
 .header {
   height: 95vh;
   max-width: calc(100vw - 1.8rem);
-  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url(images/berlin_photo1.jpg);
+  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url("assets/images/berlin_photo1.jpg");
   background-size: cover;
   background-position: center right;
   border-radius: 1rem;
@@ -354,7 +359,7 @@ h1 {
 
 .section-tests {
   padding: 18rem 5px;
-  background-image: linear-gradient(to right bottom, rgba(97, 183, 230, 0.6), rgba(0, 120, 195, 0.7)), url(images/bavaria-photo2.jpg);
+  background-image: linear-gradient(to right bottom, rgba(97, 183, 230, 0.6), rgba(0, 120, 195, 0.7)), url("assets/images/bavaria-photo2.jpg");
   background-size: cover;
   background-position: center;
   margin-top: -12rem;
@@ -678,7 +683,7 @@ h1 {
 
 .box-sign-up {
   width: 80%;
-  background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 57%, transparent 57%), url(images/germany-photo1.jpeg);
+  background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 57%, transparent 57%), url("assets/images/germany-photo1.jpeg");
   background-size: cover;
   min-height: 40rem;
   border-radius: 10px;
@@ -686,7 +691,7 @@ h1 {
   @media only screen and (max-width: 900px) {
     .box-sign-up {
       width: 100%;
-      background-image: linear-gradient(to right bottom, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 100%), url(images/germany-photo1.jpeg); } }
+      background-image: linear-gradient(to right bottom, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 100%), url("assets/images/germany-photo1.jpeg"); } }
   .box-sign-up__form {
     width: 54%;
     padding: 2em 0.5em 2em 1em; }

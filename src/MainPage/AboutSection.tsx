@@ -1,5 +1,5 @@
 import PhotoComposition from './PhotosComposition';
-import aboutPhotos from './AboutPhotos.json';
+import aboutPhotos from '../assets/json-data/AboutPhotos.json';
 
 function AboutSection(){
   return (<section className="section-about">

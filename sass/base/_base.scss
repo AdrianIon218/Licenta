@@ -1,8 +1,14 @@
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
+  
   font-size: 100%;
+  @include respond(phone){
+    font-size: 80%;
+  }
+  @include respond(tab-land){
+    font-size: 90%;
+  }
 }
 
 *,
@@ -14,7 +20,7 @@
 }
 
 body {
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 1.2rem;
   display: flex;
   min-width: 20rem;
   min-height: 100vh;

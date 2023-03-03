@@ -1,5 +1,5 @@
 import TestBox,{ITestBoxProps} from "../components/TestBox";
-import tests from "./AvailableTests.json";
+import tests from "../assets/json-data/AvailableTests.json";
 import Blackdrop from "../components/Blackdrop";
 import TestDetails from "./TestDetails";
 
