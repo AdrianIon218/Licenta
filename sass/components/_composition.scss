@@ -1,5 +1,4 @@
 .composition{
-  position:relative;
   margin-bottom: 30rem;
 
   &__photo{
@@ -15,19 +14,31 @@
       max-width: 74%;
       min-width: none;
     }
+    
+    &__container{
+      position:relative;
+    }
 
-    &--p1{
+    &--p1, &--p1 ~ &__title{
       left:0;
       top:-2rem;
     }
+    
+    &--p1 ~ &__title{
+      margin-left: 10%;
+    }
 
-    &--p2{
+    &--p2, &--p2 ~ &__title{
       right: 0;
       top:2rem;
       
       @include respond(phone){
         top:4rem;
       }
+    }
+
+    &--p2 ~ &__title{
+      right: 10%;
     }
 
     &--p3{
@@ -39,15 +50,45 @@
       }
     }
 
+    &--p3 ~ &__title{
+      top:10rem;
+      left:30%;
+    }
+
+    &__container{
+      position: relative;
+    }
+
+    &__title{
+      font-size: 1rem;
+      font-weight: 700;
+      background-color: whitesmoke;
+      padding: 1px 4px;
+      border-bottom-left-radius:10px;
+      border-bottom-right-radius: 10px;
+      border: 2px solid $color-blue-darker;
+      position: absolute;
+      backface-visibility: hidden;
+      transition: all .31s;
+    }
+
     &:hover{
       outline: 6px solid $color-secondary-dark;
       transform: scale(1.07) translateY(-.5rem);
       box-shadow: 0 2.2rem 3rem rgba($color-black, .5);
       z-index: 20;
+
+      & ~ .composition__photo__title{
+        transform: translateY(-.99rem);
+        z-index: 20;
+      }
     }
   }
 
   &:hover &__photo:not(:hover){
     transform: scale(.9);
+    & ~ .composition__photo__title{
+      transform: translateY(.7rem);
+    }
   }
 }
