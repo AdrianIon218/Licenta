@@ -39,11 +39,14 @@ body {
   line-height: 1.7;
   color: #5a5a5a;
   background: linear-gradient(to left top, #61b7e6 0%, #0078c3 100%);
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  /* Firefox scrollbar*/
+  scrollbar-color: green white;
+  scrollbar-width: thin; }
   body::-webkit-scrollbar {
     padding: 5px;
     width: 15px;
-    border-radius: 10px;
+    border-radius: 50px;
     background-color: #F5F5F5;
     transition: all .8s; }
     body::-webkit-scrollbar-thumb {
@@ -51,6 +54,9 @@ body {
       border-radius: 10px;
       background-color: #129df4;
       transition: all .8s; }
+    body::-webkit-scrollbar-track {
+      background-color: #F5F5F5;
+      border-radius: 10px; }
 
 h1 {
   font-size: 3.2em;
@@ -157,7 +163,7 @@ h1 {
 .header {
   height: 95vh;
   max-width: calc(100vw - 1.8rem);
-  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url("assets/images/berlin_photo1.jpg");
+  background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url("assets/images/berlin_photo1_compressed.jpg");
   background-size: cover;
   background-position: center right;
   border-radius: 1rem;
