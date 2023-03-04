@@ -53,6 +53,13 @@ h1 {
     }
   }
 
+  @include hover(false){
+    &:hover{
+      transform: none;
+      text-shadow: none;
+    }
+  }
+
   &--dark-color{
     background-image: linear-gradient(to right, darken($color-secondary-dark, 5%), darken($color-secondary-dark, 15%));
   }

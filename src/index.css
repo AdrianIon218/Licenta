@@ -109,6 +109,10 @@ h1 {
     .heading-secondary:hover {
       transform: skewY(2deg) skewX(10deg) scale(1.1);
       text-shadow: 0.3rem 0.7rem 2rem rgba(60, 59, 59, 0.2); } }
+  @media only screen and (hover: none) {
+    .heading-secondary:hover {
+      transform: none;
+      text-shadow: none; } }
   .heading-secondary--dark-color {
     background-image: linear-gradient(to right, #00558a, #003657); }
 
