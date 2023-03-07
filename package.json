@@ -11,8 +11,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "sass-dev": "node-sass sass/index.scss src/index.css",
-    "sass-prod": "sass --no-source-map --style=compressed assets/scss:assets/css",
-    "server": "node public/server/app"
+    "server": "node public/server/app",
+    "nodemon": "nodemon public/server/app"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
@@ -28,6 +28,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "gh-pages": "^5.0.0",
     "node-sass": "^8.0.0",
+    "nodemon": "^2.0.21",
     "react-router-dom": "^6.8.1",
     "sass-loader": "^13.2.0",
     "typescript": "^4.9.3",

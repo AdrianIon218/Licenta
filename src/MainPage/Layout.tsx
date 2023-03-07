@@ -6,20 +6,17 @@ import Footer from './Footer';
 import {IProps} from '../CommonInterfaces';
 import RegisterForm from './RegisterForm';
 import MainMenu from '../components/MainMenu';
+import { navListNoLogin as navList} from '../assets/ts-data/navLists';
 
-interface ILayout extends IProps {
+interface ILayout {
 
 }
 
 export default function Layout(props:ILayout){
   return (<> 
-    <Header />
-    <MainMenu />
-    <main>
       <AboutSection />
       <TestSection />
       <CoursesSection />
-      <RegisterForm />
-    </main>
-    <Footer /> </>);
+      <RegisterForm /> 
+    </>);
 }

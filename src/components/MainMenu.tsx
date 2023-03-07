@@ -2,21 +2,25 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
 
-const navigationList = [
-  {btn:"Pagina principală", to:"", icon:'fas fa-home'},
-  {btn:"Autentificare", to:"", icon:"fas fa-pen"},
-  {btn:"Înregistrare", to:"", icon:"far fa-clipboard"},
-  {btn:"Contacte", to:"", icon:'far fa-envelope-open'},
-];
+interface ILocProps {
+  navList: {btn: string; to: string;
+    icon: string;}[]
+};
 
-export default function MainMenu(){
+export default function MainMenu(props:ILocProps){
   const [showMenu, setShownMenu] = useState(false);
   const triggerMenu = () => setShownMenu(oltState=>!oltState);
 
+  const {navList} = props;
+
+  const linkClick= () => {
+    triggerMenu();
+  }
+
   const navButtons = useMemo(() => 
-      navigationList.map((item,index) => 
+      navList.map((item,index) => 
         <li key={index} className="navigation__list__item">
-        <Link to={item.to} className="navigation__link"><i className={item.icon}/> &nbsp;&nbsp;{item.btn}</Link>
+        <Link to={item.to} className="navigation__link" onClick={linkClick}><i className={item.icon}/> &nbsp;&nbsp;{item.btn}</Link>
         </li> ), []);
 
   return(<div className="navigation">
