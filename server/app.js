@@ -1,14 +1,12 @@
 const bodyParser = require('body-parser');
 const path = require('path');
 const express = require('express');
-const { dirname } = require('path');
 const app = express();
+const login = require('./routes/login'); 
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,"..","..","dist")));
 
-app.get('/',(req,res,next)=>{
-  res.sendFile(path.join(__dirname,"..","..","dist","index.html"));
-});
+app.use('/login', login);
 
-app.listen(3000);
+app.listen(5000, ()=>{console.log("Server running on port 5000")});
