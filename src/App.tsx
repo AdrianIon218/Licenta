@@ -1,8 +1,9 @@
-import LayoutMainPage from './components/Layouts/LayoutMainPage';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
-import Login from './LoginPage/Login';
-import MainLayout from './MainPage/Layout';
+
+import MainLayout from './components/Layouts/MainLayout';
+import MainPage from './MainPage/MainPage';
+import LoginPage from './LoginPage/LoginPage';
 
 function App() {
   /*
@@ -11,12 +12,12 @@ function App() {
   */
   return (<Router>
     <Routes>
-      <Route path="/" element={<LayoutMainPage />}>
-        <Route index element={<MainLayout />} />
-        <Route path="login" element={<Login />} />
-        <Route path="contacts" element={<Login />} />
-        <Route path="signup" element={<Login />} />
-        <Route path="*" element={ <Login />} />
+      <Route path="/" element={<MainLayout />} >
+        <Route index element={<MainPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="contacts" element={<LoginPage />} />
+        <Route path="signup" element={<LoginPage />} />
+        <Route path="*" element={ <LoginPage />} />
       </Route>
     </Routes> 
   </Router>);

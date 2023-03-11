@@ -75,3 +75,18 @@
     @media only screen and (hover: hover) {@content};
   }
 }
+
+@mixin touchScreenState($isTouchScreen){
+  @if($isTouchScreen == true){
+    // coarse - minimum de acuratete , ca apasare cu degetul 
+    @media only screen and (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+  @else if($isTouchScreen == false){
+    // fine - pentru mouse
+    @media only screen and (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  }
+}

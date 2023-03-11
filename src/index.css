@@ -105,11 +105,11 @@ h1 {
   cursor: default;
   backface-visibility: hidden;
   transition: all .2s; }
-  @media only screen and (hover: hover) {
+  @media only screen and (hover: hover) and (pointer: fine) {
     .heading-secondary:hover {
       transform: skewY(2deg) skewX(10deg) scale(1.1);
       text-shadow: 0.3rem 0.7rem 2rem rgba(60, 59, 59, 0.2); } }
-  @media only screen and (hover: none) {
+  @media only screen and (hover: none) and (pointer: coarse) {
     .heading-secondary:hover {
       transform: none;
       text-shadow: none; } }
@@ -355,6 +355,12 @@ h1 {
 .u-margin-right-small {
   margin-right: 0.8rem !important; }
 
+.u_move_up--big {
+  margin-top: -26rem !important; }
+
+.u_padding_down--big {
+  padding-bottom: 26rem !important; }
+
 @media only screen and (max-width: 650px) {
   .heading-primary-main {
     left: 6px; }
@@ -364,8 +370,7 @@ h1 {
 
 .section-about {
   background-color: #a9cae7;
-  padding: 30rem 5px 16rem;
-  margin-top: -26rem; }
+  padding: 30rem 5px 16rem; }
 
 .section-tests {
   padding: 18rem 5px;

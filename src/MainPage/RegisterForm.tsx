@@ -12,7 +12,7 @@ export default function RegisterForm(){
     event.preventDefault();
   }
 
-  return (<section className="section-sign-up">
+  return (<section className="section-sign-up u_padding_down--med">
       <div className="flex-row--centered">
         <div className="box-sign-up">
           <div className="box-sign-up__form">

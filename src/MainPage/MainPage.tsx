@@ -1,22 +1,17 @@
 import Header from './Header';
+import Footer from '../components/Footer';
+import MainMenu from '../components/MainMenu';
 import AboutSection from './AboutSection';
 import TestSection from './TestSection';
 import CoursesSection from './CoursesSection';
-import Footer from './Footer';
-import {IProps} from '../CommonInterfaces';
 import RegisterForm from './RegisterForm';
-import MainMenu from '../components/MainMenu';
-import { navListNoLogin as navList} from '../assets/ts-data/navLists';
 
-interface ILayout {
-
-}
-
-export default function Layout(props:ILayout){
-  return (<> 
+export default function MainPage(){
+  return (<> <Header />
+    <main >
       <AboutSection />
       <TestSection />
       <CoursesSection />
       <RegisterForm /> 
-    </>);
+    </main> </>);
 }
