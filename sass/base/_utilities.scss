@@ -42,6 +42,10 @@
   padding-bottom: 26rem !important;
 }
 
+.span-block{
+  display: inline-block;
+}
+
 @media only screen and (max-width: $width-screen-small) {
   .heading-primary-main{
     left: 6px;

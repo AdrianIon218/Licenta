@@ -54,3 +54,44 @@
   -webkit-clip-path: $local-polygon;
   clip-path: $local-polygon;
 }
+
+.section-video-bg{
+  max-width: 100%;
+  min-height: 50vh;
+  border-radius: 1rem;
+  overflow: auto;
+  background-color: $section-color;
+  position: relative;
+
+  @include respond(tab-land){
+    min-height: 80vh;
+  }
+
+  .bg-video{
+    width: 100%;
+    
+    @include respond(phone){
+      transform: scaleY(2);
+    }
+  }
+
+  .message-not-found{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:$card-primary-light;
+    border: 3px double $card-primary-dark;
+    border-radius: 1rem;
+    padding: 3px 1rem;
+    z-index: 1;
+    animation: moveInBottomCenter .6s ease-in-out .2s 1 normal backwards;
+
+    & > .heading-secondary{
+      &:hover{
+        transform: none;
+        text-shadow: none;
+      }
+    }
+  }
+}
