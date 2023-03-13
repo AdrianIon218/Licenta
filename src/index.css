@@ -4,6 +4,16 @@
   justify-content: center;
   align-items: center; }
 
+.header, .section-video-bg, .section-login {
+  border: 1px solid #0980ca;
+  border-bottom: none;
+  border-radius: 1rem; }
+
+.section-about, .section-tests, .section-courses, .section-sign-up {
+  border: 1px solid #0980ca;
+  border-bottom: none;
+  border-top: none; }
+
 /*
 0 - 600 px   phone
 900 - 1200 px   tablet portrait, tab-port
@@ -178,7 +188,6 @@ h1 {
   background-image: linear-gradient(to right bottom, rgba(150, 242, 242, 0.23) 0%, rgba(18, 157, 244, 0.23) 100%), url("assets/images/berlin_photo1_compressed.jpg");
   background-size: cover;
   background-position: center right;
-  border-radius: 1rem;
   clip-path: polygon(0 0, 100% 0%, 100% 75%, 78% 89%, 51% 78%, 20% 91%, 0% 75%);
   position: relative;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; }
@@ -214,7 +223,9 @@ h1 {
   clip-path: polygon(10% 0, 90% 0, 90% 10%, 100% 10%, 100% 100%, 0 100%, 0 10%, 10% 10%);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  border-bottom: 2px solid #0980ca;
+  border: 1px solid #0980ca;
+  border-top: none;
+  border-bottom-width: 2px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -343,7 +354,7 @@ h1 {
   text-align: center !important; }
 
 .u-margin-top-small {
-  margin-top: 5px; }
+  margin-top: 5px !important; }
 
 .u-margin-top-medium {
   margin-top: 5rem !important; }
@@ -369,8 +380,27 @@ h1 {
 .u_padding_down--big {
   padding-bottom: 26rem !important; }
 
+.u_disabled_user_selector {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
 .span-block {
   display: inline-block; }
+
+.span-header-block {
+  display: block;
+  color: #0263a0;
+  font-size: 1rem; }
+  .span-header-block__link {
+    color: #0263a0;
+    transition: all .2s;
+    backface-visibility: hidden;
+    display: inline-block; }
+    .span-header-block__link:hover {
+      transform: translateY(-5px) scale(1.1); }
 
 @media only screen and (max-width: 650px) {
   .heading-primary-main {
@@ -425,7 +455,6 @@ h1 {
 .section-video-bg {
   max-width: 100%;
   min-height: 50vh;
-  border-radius: 1rem;
   overflow: auto;
   background-color: #a9cae7;
   position: relative; }
@@ -451,6 +480,10 @@ h1 {
     .section-video-bg .message-not-found > .heading-secondary:hover {
       transform: none;
       text-shadow: none; }
+
+.section-login {
+  background-image: linear-gradient(to left top, #0078c3, #42dddd);
+  padding: 5rem 5px; }
 
 .row {
   max-width: 100%;
@@ -763,7 +796,7 @@ h1 {
   background-clip: text;
   color: transparent; }
 
-.box-sign-up {
+.box-mountain-bg {
   width: 80%;
   background-image: linear-gradient(105deg, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 57%, transparent 57%), url("assets/images/germany-photo1.jpeg");
   background-size: cover;
@@ -771,17 +804,17 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 1rem 3rem rgba(60, 59, 59, 0.4); }
   @media only screen and (max-width: 900px) {
-    .box-sign-up {
+    .box-mountain-bg {
       width: 100%;
       background-image: linear-gradient(to right bottom, rgba(219, 228, 237, 0.8) 0%, rgba(219, 228, 237, 0.8) 100%), url("assets/images/germany-photo1.jpeg"); } }
-  .box-sign-up__form {
+  .box-mountain-bg__form {
     width: 54%;
     padding: 2em 0.5em 2em 1em; }
     @media only screen and (max-width: 900px) {
-      .box-sign-up__form {
+      .box-mountain-bg__form {
         width: 72%; } }
     @media only screen and (max-width: 600px) {
-      .box-sign-up__form {
+      .box-mountain-bg__form {
         width: 95%; } }
 
 .form__group {

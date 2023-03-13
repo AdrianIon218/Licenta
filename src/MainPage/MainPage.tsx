@@ -1,6 +1,4 @@
 import Header from './Header';
-import Footer from '../components/Footer';
-import MainMenu from '../components/MainMenu';
 import AboutSection from './AboutSection';
 import TestSection from './TestSection';
 import CoursesSection from './CoursesSection';

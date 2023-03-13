@@ -7,7 +7,7 @@
 }
 
 .u-margin-top-small{
-  margin-top: 5px;
+  margin-top: 5px !important;
 }
 
 .u-margin-top-medium{
@@ -42,8 +42,33 @@
   padding-bottom: 26rem !important;
 }
 
+.u_disabled_user_selector{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .span-block{
   display: inline-block;
+}
+
+.span-header-block{
+  display: block;
+  color:$color-blue-darker;
+  font-size: 1rem;
+
+  &__link{
+    color:$color-blue-darker;
+    transition: all .2s;
+    backface-visibility: hidden;
+    display: inline-block;
+
+    &:hover{
+      transform: translateY(-5px) scale(1.1);
+    }
+  }
 }
 
 @media only screen and (max-width: $width-screen-small) {

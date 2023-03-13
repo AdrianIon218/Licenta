@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RadioButton from "./RadioButton";
+import { Link } from "react-router-dom";
 
 enum KnowlegdeLevel {
   BEGGINER, INTERMEDIATE, ADVANCED
@@ -10,15 +11,24 @@ export default function RegisterForm(){
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
+    
   }
 
   return (<section className="section-sign-up u_padding_down--med">
       <div className="flex-row--centered">
-        <div className="box-sign-up">
-          <div className="box-sign-up__form">
+        <div className="box-mountain-bg">
+          <div className="box-mountain-bg__form">
             <form onSubmit={submit} className="forn">
               <div className="u-margin-bottom-medium u-center-text">
-                <h2 className="heading-secondary">Creare cont</h2>
+                <h2 className="heading-secondary">
+                  Creare cont 
+                </h2>
+                <span className="span-header-block">
+                  ai cont deja ? &ensp;
+                  <Link className="span-header-block__link" to="login"> 
+                    <i className="fas fa-sign-in-alt" />
+                  </Link> 
+                </span>
               </div>
 
               <div className="form__group">
@@ -28,7 +38,7 @@ export default function RegisterForm(){
 
               <div className="form__group">
                 <input type="email" className="form__input" placeholder="Adresă de mail" id="email" required />
-                <label htmlFor="name" className="form__label">Adresă de mail</label>
+                <label htmlFor="email" className="form__label">Adresă de mail</label>
               </div>
               
               <div className="form__group u-margin-bottom-intermediate">

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useMemo } from "react";
 
 interface ILocProps {
-  navList: {btn: string; to: string;
-    icon: string;}[]
+  navList: {btn: string; to: string; icon: string;}[]
 };
 
 export default function MainMenu(props:ILocProps){
@@ -23,7 +22,7 @@ export default function MainMenu(props:ILocProps){
         <Link to={item.to} className="navigation__link" onClick={linkClick}><i className={item.icon}/> &nbsp;&nbsp;{item.btn}</Link>
         </li> ), []);
 
-  return(<div className="navigation">
+  return(<div className="navigation u_disabled_user_selector">
     <div className="navigation__btn" onClick={triggerMenu}>
       <span className={`navigation__btn__icon ${showMenu?'navigation__btn__icon--X':''}`}>&nbsp;</span>
     </div>

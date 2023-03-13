@@ -45,6 +45,18 @@
   align-items: flex-start;
 }
 
+%border-section--header{
+  border: $section-border;
+  border-bottom: none;
+  border-radius: 1rem;
+}
+
+%border-section--between{
+  border: $section-border;
+  border-bottom: none;
+  border-top: none;
+}
+
 /*
 0 - 600 px   phone
 900 - 1200 px   tablet portrait, tab-port
