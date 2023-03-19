@@ -2,7 +2,7 @@ import PhotoComposition from './PhotosComposition';
 import aboutPhotos from '../assets/json-data/AboutPhotos.json';
 
 function AboutSection(){
-  return (<section className="section-about u_move_up--big">
+  return (<section className="section-about between-section u_move_up--big">
     <div className="u-center-text u-margin-bottom-medium">
       <h2 className="heading-secondary">
       Învață germană simplu și ușor

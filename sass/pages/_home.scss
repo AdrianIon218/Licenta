@@ -1,7 +1,6 @@
 .section-about{
   background-color: $section-color;
   padding: 30rem $padding-LR-section 16rem;
-  @extend %border-section--between;
 }
 
 .section-tests{
@@ -13,7 +12,6 @@
   margin-top: -12rem;
   transform: skewY(-$section-skew);
   position:relative;
-  @extend %border-section--between;
 
   & > *{
     transform: skewY($section-skew);
@@ -46,7 +44,6 @@
   background-color: $section-color;
   padding: 27rem $padding-LR-section 30rem;
   margin-top: -17rem;
-  @extend %border-section--between;
 }
 
 .section-sign-up{
@@ -56,7 +53,6 @@
   background-image: $gradient-cyan-blue;
   -webkit-clip-path: $local-polygon;
   clip-path: $local-polygon;
-  @extend %border-section--between;
 }
 
 .section-video-bg{
@@ -65,7 +61,6 @@
   overflow: auto;
   background-color: $section-color;
   position: relative;
-  @extend %border-section--header;
 
   @include respond(tab-land){
     min-height: 80vh;
@@ -103,5 +98,4 @@
 .section-login{
   background-image: $gradient-cyan-blue;
   padding: 5rem $padding-LR-section;
-  @extend %border-section--header;
 }

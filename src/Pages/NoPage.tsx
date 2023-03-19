@@ -1,7 +1,6 @@
 
-
 export default function NoPage(){
-  return (<section className="section-video-bg">
+  return (<section className="section-video-bg header-section">
     <div className="message-not-found">
       <h2 className="heading-secondary u-center-text">
         <span className="span-block">Pagina nu</span>&nbsp; 
@@ -10,7 +9,7 @@ export default function NoPage(){
     </div>
     
     <video autoPlay muted loop className="bg-video" >
-      <source src="videos/no_page_found.mp4" type="video/mp4" />
+      <source src="videos/no_page_found-compressed.mp4" type="video/mp4" />
     </video>
   </section>);
 } 

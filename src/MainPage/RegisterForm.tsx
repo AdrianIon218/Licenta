@@ -14,7 +14,7 @@ export default function RegisterForm(){
     
   }
 
-  return (<section className="section-sign-up u_padding_down--med">
+  return (<section className="section-sign-up between-section u_padding_down--med">
       <div className="flex-row--centered">
         <div className="box-mountain-bg">
           <div className="box-mountain-bg__form">

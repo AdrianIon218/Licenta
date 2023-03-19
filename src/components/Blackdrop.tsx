@@ -1,4 +1,4 @@
-import {IProps} from '../CommonInterfaces';
+import {IProps} from './Helpers/CommonInterfaces';
 import {useNavigate } from 'react-router-dom';
 
 interface IBlackdropProps extends IProps{

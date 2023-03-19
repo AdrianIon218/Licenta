@@ -1,0 +1,10 @@
+.header-section{
+  @extend %border-section--header;
+  background-color: $section-color;
+  min-height: 85vh;
+}
+
+.between-section{
+  @extend %border-section--between;
+  min-height: 20vh;
+}

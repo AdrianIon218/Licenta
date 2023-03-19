@@ -12,7 +12,7 @@ export default function TestSection(){
   <Blackdrop popupId="popup-test-details" backElementId="section-tests"> 
     <TestDetails />
   </Blackdrop>
-  <section className="section-tests">
+  <section className="section-tests between-section">
     <div className="section-tests__helper">
       <a href="#popup-test-details" className="btn--cleared helper-btn">
         <i className="fas fa-question-circle" />

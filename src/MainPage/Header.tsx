@@ -1,15 +1,10 @@
-import logo_img from "../images/GermanMax.png"
 
-interface IProps{
-  
-}
-
-export default function Header(props:IProps){
+export default function Header(){
   return (<div className='header-container'>
   <div className='logo_box'>
     <img src='images/GermanMax.png' alt="GermanMax" className='logo_box__img' />
   </div>
-  <header className='header'>
+  <header className='header header-section'>
     <div className='text-box'>
       <h1 className='heading-primary'>
         <span className='heading-primary__main'> GermanMax </span>

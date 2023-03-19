@@ -2,7 +2,7 @@ import CardCoure from "../components/CardCourse";
 import { AvailableCourses } from "./AvailableCourses";
 
 export default function CoursesSection(){
-  return (<section className="section-courses" id="section-course-id"> 
+  return (<section className="section-courses between-section" id="section-course-id"> 
     <div className="u-center-text u-margin-bottom-medium">
       <h2 className="heading-secondary">
       Cursuri disponibile
