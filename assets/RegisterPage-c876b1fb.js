@@ -1,0 +1,1 @@
+import{a as i}from"./index-8e964ccc.js";function n(e){return e.id?i("section",{className:e.classes,id:e.id,children:e.children}):i("section",{className:e.classes,children:e.children})}function c(){return i(n,{classes:"section-sign-up header-section u_padding_down--med"})}export{c as default};
