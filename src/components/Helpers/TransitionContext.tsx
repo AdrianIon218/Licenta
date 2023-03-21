@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import {IProps} from './CommonInterfaces';
-export const TransitionCtx = React.createContext<null|{
+export const TransitionCtx = React.createContext<null | {
   getState:boolean,
-  setTransition:any
-}>(null);
+  setTransition:any }>(null);
 
 function TransitionContext(props:IProps) {
   const [transitionEffect, setTransitionEffect] = useState(false);

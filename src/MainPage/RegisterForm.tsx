@@ -1,6 +1,5 @@
 import { useState } from "react";
 import RadioButton from "./RadioButton";
-import { Link } from "react-router-dom";
 import LinkTansition from "../components/Helpers/LinkTransition";
 
 enum KnowlegdeLevel {
@@ -14,12 +13,6 @@ export default function RegisterForm(){
     event.preventDefault();
     
   }
-
-  /*
-  <Link className="span-header-block__link" to="/login"> 
-              <i className="fas fa-sign-in-alt" />
-            </Link> 
-  */
 
   return (<div className="flex-row--centered">
     <div className="box-mountain-bg">
