@@ -50,7 +50,7 @@
   }
 
   &--green{
-    @include btn-color($color-green-light-1, $color-green-dark-1);
+    @include btn-color($color-green-2, $color-green-4);
   }
 
   &--blue{

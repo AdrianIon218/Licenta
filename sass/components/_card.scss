@@ -29,7 +29,7 @@
       transform: rotateY(180deg);
 
       &--1{
-        background-image: linear-gradient(to right top, $card-secondary-light, $card-secondary-dark);
+        background-image: linear-gradient(to right top, $color-orange-1, $color-orange-3);
       }
 
       &--2{
@@ -37,7 +37,7 @@
       }
 
       &--3{
-        background-image: linear-gradient(to right top, $card-tertiary-light, $card-tertiary-dark);
+        background-image: linear-gradient(to right top, $color-green-1, $color-green-3);
       }
     }
   }
@@ -61,7 +61,7 @@
     clip-path: $local-poligon;
 
     &--1{
-      background-image: linear-gradient(to right bottom, $card-secondary-light, $card-secondary-dark);
+      background-image: linear-gradient(to right bottom, $color-orange-1, $color-orange-3);
     }
 
     &--2{
@@ -69,7 +69,7 @@
     }
 
     &--3{
-      background-image: linear-gradient(to right bottom, $card-tertiary-light, $card-tertiary-dark);
+      background-image: linear-gradient(to right bottom, $color-green-1, $color-green-3);
     }
 
     & > img{
@@ -98,15 +98,15 @@
       border-radius: 1rem;
 
       &--1{
-        background-image: linear-gradient(to right bottom,rgba(lighten($card-secondary-light,25%),.85), rgba($card-secondary-dark, .85));
+        background-image: linear-gradient(to right bottom,rgba(lighten($color-orange-1,25%),.85), rgba($color-orange-3, .85));
       }
 
       &--2{
-        background-image: linear-gradient(to right bottom,rgba($card-primary-light,.85), rgba($card-primary-dark, .85));
+        background-image: linear-gradient(to right bottom,rgba($card-cyan-1,.85), rgba($card-cyan-5, .85));
       }
 
       &--3{
-        background-image: linear-gradient(to right bottom, rgba($card-tertiary-light, .85), rgba($card-tertiary-dark,.85));
+        background-image: linear-gradient(to right bottom, rgba($color-green-1, .85), rgba($color-green-3,.85));
       }
     }
   }
@@ -195,11 +195,11 @@
 
       &__span{
         &--1{
-          background-image: linear-gradient(to right bottom,rgba(lighten($card-secondary-light, 10%),.85), rgba(darken($card-secondary-light, 15%), .85));
+          background-image: linear-gradient(to right bottom,rgba(lighten($color-orange-1, 10%),.85), rgba(darken($color-orange-1, 15%), .85));
         }
 
         &--3{
-          background-image: linear-gradient(to right bottom, rgba($card-tertiary-light, .85), rgba(lighten($card-tertiary-dark, 10%),.85));
+          background-image: linear-gradient(to right bottom, rgba($color-green-1, .85), rgba(lighten($color-green-3, 10%),.85));
         }
       }
     }
@@ -218,7 +218,7 @@
 
 .icon-background{
   &--1{
-    @include textgradient(1.2rem, $card-secondary-light, $card-secondary-dark);
+    @include textgradient(1.2rem, $color-orange-1, $color-orange-3);
   }
 
   &--2{
@@ -226,6 +226,6 @@
   }
 
   &--3{
-    @include textgradient(1.2rem, $card-tertiary-light, $card-tertiary-dark);
+    @include textgradient(1.2rem, $color-green-1, $color-green-3);
   }
 }

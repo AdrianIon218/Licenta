@@ -11,7 +11,9 @@ export default function MainPage(){
       <AboutSection />
       <TestSection />
       <CoursesSection />
-      <RegisterForm /> 
+      <section className="section-sign-up between-section u_padding_down--med">
+        <RegisterForm /> 
+      </section>
     </main> 
     </>);
 }

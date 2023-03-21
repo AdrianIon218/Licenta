@@ -400,7 +400,8 @@ h1 {
 .span-header-block {
   display: block;
   color: #0263a0;
-  font-size: 1rem; }
+  font-size: 1rem;
+  cursor: pointer; }
   .span-header-block__link {
     color: #0263a0;
     transition: all .2s;
@@ -488,7 +489,7 @@ h1 {
       transform: none;
       text-shadow: none; }
 
-.section-login {
+.section-gradient {
   background-image: linear-gradient(to left top, #0078c3, #42dddd);
   padding: 5rem 5px; }
 
@@ -955,7 +956,7 @@ h1 {
       transition: all .4s; }
       .blackdrop__exit__btn:hover {
         color: #d21414;
-        text-shadow: 0px 0px 18px #d21414; }
+        text-shadow: 0px 0px 18px #fed9cc; }
 
 body:has(.blackdrop:target)::-webkit-scrollbar {
   border-radius: 0px;

@@ -79,8 +79,8 @@
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    background-color:$card-primary-light;
-    border: 3px double $card-primary-dark;
+    background-color:$card-cyan-1;
+    border: 3px double $card-cyan-5;
     border-radius: 1rem;
     padding: 3px 1rem;
     z-index: 1;
@@ -95,7 +95,7 @@
   }
 }
 
-.section-login{
+.section-gradient{
   background-image: $gradient-cyan-blue;
   padding: 5rem $padding-LR-section;
 }
