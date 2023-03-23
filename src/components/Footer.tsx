@@ -6,7 +6,7 @@ export default function Footer(){
   return (<div className='footer-container'>
     <div className="footer">
       <div className="footer__logo-box u-margin-bottom-medium">
-        <img src="images/GermanMax-just-logo.png" alt="GermanMax" className="footer__logo" />
+        <img src="assets/images/GermanMax-just-logo.png" alt="GermanMax" className="footer__logo" />
       </div>
       <div className="flex-row--centered-no-wrap">
         <div className="flex-element footer__navigation">

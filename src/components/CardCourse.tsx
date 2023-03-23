@@ -18,7 +18,7 @@ export default function CardCourse(props:IPropsCardCourse){
 
     <div className="card__side card__side--front">
       <div className={`card__picture card__picture--${props.typeCard}`}>
-        <img src={`public/images/${props.frontImageName}`} alt={props.frontImageName.split('.')[0]} />
+        <img src={`images/${props.frontImageName}`} alt={props.frontImageName.split('.')[0]} />
       </div>
       <h4 className="card__heading">
         <span className={`card__heading__span card__heading__span--${props.typeCard}`}>
