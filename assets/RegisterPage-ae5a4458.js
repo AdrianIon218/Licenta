@@ -1,1 +1,0 @@
-import{a as e}from"./index-ae9421ba.js";import{R as r}from"./RegisterForm-3350e119.js";import"./LinkTransition-4096afac.js";function a(){return e("section",{className:"header-section u_padding_down--big section-gradient",children:e(r,{})})}export{a as default};
