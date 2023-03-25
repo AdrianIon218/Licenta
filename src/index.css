@@ -274,7 +274,7 @@ h1 {
 
 .btn, .btn:link, .btn:visited, .btn--cleared {
   text-decoration: none;
-  padding: 0.625rem 1.25rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1.5rem;
   display: inline-block;
   transition: all .2s;
@@ -360,8 +360,11 @@ h1 {
 .u-center-text {
   text-align: center !important; }
 
-.u-margin-top-small {
+.u-margin-top-very-small {
   margin-top: 5px !important; }
+
+.u-margin-top-small {
+  margin-top: 2rem !important; }
 
 .u-margin-top-medium {
   margin-top: 5rem !important; }
@@ -555,6 +558,18 @@ h1 {
         .flex-row--centered-no-wrap > .flex-element {
           flex-basis: 100%; } }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5px;
+  justify-content: space-around; }
+  .flex-column--centered {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 5px;
+    justify-content: center;
+    align-items: center; }
+
 .composition {
   margin-bottom: 30rem; }
   .composition__photo {
@@ -722,7 +737,7 @@ h1 {
         background-image: linear-gradient(to right bottom, rgba(59, 233, 59, 0.85), rgba(26, 151, 26, 0.85)); }
   .card__details {
     padding: 1rem;
-    color: #838384;
+    color: #999;
     margin-top: 1rem; }
     .card__details ul {
       list-style: none;
@@ -825,6 +840,21 @@ h1 {
       .box-mountain-bg__form {
         width: 95%; } }
 
+.box-form {
+  width: 80%;
+  min-height: 40rem;
+  border-radius: 10px;
+  box-shadow: 0 1rem 3rem rgba(60, 59, 59, 0.4);
+  padding: 2rem 1rem;
+  background-image: linear-gradient(to right bottom, rgba(219, 228, 237, 0.7) 0%, rgba(154, 174, 187, 0.8) 100%), url("assets/images/switzerland.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #0263a0; }
+  @media only screen and (max-width: 900px) {
+    .box-form {
+      width: 100%; } }
+
 .form__group {
   font-size: 1rem; }
 
@@ -866,6 +896,21 @@ h1 {
   margin-top: 0.5rem;
   display: block;
   transition: all .3s; }
+  .form__label__request::after {
+    content: ' *';
+    color: #d21414; }
+
+.form__textarea {
+  resize: none;
+  width: 98%; }
+  .form__textarea::-webkit-scrollbar {
+    cursor: grab;
+    padding: 5px;
+    width: 12px;
+    background-color: white; }
+  .form__textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #0263a0; }
 
 .form__sub-heading {
   font-weight: 700;
@@ -973,14 +1018,14 @@ body:has(.blackdrop:target)::-webkit-scrollbar {
   overflow-y: auto; }
   .panel--white {
     background-color: #9aaebb;
-    border: 6px double #373737; }
+    border: 6px double #4d4d4d; }
   .panel::-webkit-scrollbar {
     padding: 5px;
     width: 15px;
     border-radius: 10px;
     background-color: #F5F5F5; }
     .panel::-webkit-scrollbar-thumb {
-      border: 2px #838384 solid;
+      border: 2px #999 solid;
       border-radius: 10px;
       background-color: #61b7e6; }
 

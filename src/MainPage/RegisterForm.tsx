@@ -29,13 +29,13 @@ export default function RegisterForm(){
           </div>
 
           <div className="form__group">
-            <input type="text" className="form__input" placeholder="Nume complet" id="name" required />
-            <label htmlFor="name" className="form__label">Nume complet</label>
+            <input type="text" className="form__input" placeholder="Nume complet *" id="name" required />
+            <label htmlFor="name" className="form__label form__label__request">Nume complet</label>
           </div>
 
           <div className="form__group">
-            <input type="email" className="form__input" placeholder="Adresă de mail" id="email" required />
-            <label htmlFor="email" className="form__label">Adresă de mail</label>
+            <input type="email" className="form__input" placeholder="Adresă de email *" id="email" required />
+            <label htmlFor="email" className="form__label form__label__request">Adresă de email</label>
           </div>
           
           <div className="form__group u-margin-bottom-intermediate">
