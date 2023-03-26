@@ -9,7 +9,7 @@ export default function NoPage(){
     </div>
     
     <video autoPlay muted loop className="bg-video" >
-      <source src="videos/no_page_found-compressed.mp4" type="video/mp4" />
+      <source src="/Licenta/videos/no_page_found-compressed.mp4" type="video/mp4" />
     </video>
   </section>);
 } 

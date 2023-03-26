@@ -2,7 +2,7 @@
 export default function Header(){
   return (<div className='header-container'>
   <div className='logo_box'>
-    <img src="images/GermanMax.png" alt="GermanMax" className="logo_box__img" />
+    <img src="/Licenta/images/GermanMax.png" alt="GermanMax" className="logo_box__img" />
   </div>
   <header className='header header-section'>
     <div className='text-box'>

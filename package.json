@@ -2,12 +2,14 @@
   "name": "proiectlicenta",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://AdrianIon218.github.io/Licenta",
+  "homepage": "https://AdrianIon218.github.io/Licenta/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "sass-dev": "node-sass sass/index.scss src/index.css"
+    "sass-dev": "node-sass sass/index.scss src/index.css",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",
