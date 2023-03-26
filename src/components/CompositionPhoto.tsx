@@ -8,7 +8,7 @@ export interface ICompositionPhotoProps{
 function CompositionPhoto(props:ICompositionPhotoProps){
   return (
     <div className="composition__photo__container">
-      <img src={`images/${props.photo}`} alt={props.alt} 
+      <img src={`../images/${props.photo}`} alt={props.alt} 
         className={`composition__photo ${props.class}`}  />
       <span className="composition__photo__title">{props.title}</span>
     </div>);

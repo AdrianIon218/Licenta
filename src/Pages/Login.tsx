@@ -37,13 +37,13 @@ export default function Login(){
               </div>
 
               <div className="form__group">
-                <input type="email" className="form__input" placeholder="Adresă de mail" id="email" name="email" ref={email} required />
-                <label htmlFor="email" className="form__label">Adresă de mail</label>
+                <input type="email" className="form__input" placeholder="Adresă de email *" id="email" name="email" ref={email} required />
+                <label htmlFor="email" className="form__label form__label__required">Adresă de email</label>
               </div>
 
               <div className="form__group u-margin-bottom-intermediate">
-                <input type="password" className="form__input" placeholder="Parolă" id="password" name="password" ref={password} required />
-                <label htmlFor="password" className="form__label">Parolă</label>
+                <input type="password" className="form__input" placeholder="Parolă *" id="password" name="password" ref={password} required />
+                <label htmlFor="password" className="form__label form__label__required">Parolă</label>
               </div>
 
               <div className="form__group">

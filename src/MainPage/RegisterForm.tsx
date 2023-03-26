@@ -30,12 +30,12 @@ export default function RegisterForm(){
 
           <div className="form__group">
             <input type="text" className="form__input" placeholder="Nume complet *" id="name" required />
-            <label htmlFor="name" className="form__label form__label__request">Nume complet</label>
+            <label htmlFor="name" className="form__label form__label__required">Nume complet</label>
           </div>
 
           <div className="form__group">
             <input type="email" className="form__input" placeholder="Adresă de email *" id="email" required />
-            <label htmlFor="email" className="form__label form__label__request">Adresă de email</label>
+            <label htmlFor="email" className="form__label form__label__required">Adresă de email</label>
           </div>
           
           <div className="form__group u-margin-bottom-intermediate">

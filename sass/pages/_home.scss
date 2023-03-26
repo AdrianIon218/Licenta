@@ -6,7 +6,7 @@
 .section-tests{
   padding: 18rem $padding-LR-section;
   background-image: linear-gradient(to right bottom, rgba($color-blue-light, 0.6),
-      rgba($color-blue-dark, 0.7)) , url('images/bavaria-photo2.jpg');
+      rgba($color-blue-dark, 0.7)) , url($path-to-images+'bavaria-photo2.jpg');
   background-size: cover;
   background-position: center;
   margin-top: -12rem;

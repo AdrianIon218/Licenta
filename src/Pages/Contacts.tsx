@@ -16,12 +16,12 @@ function Contacts() {
 
         <div className="form__group">
           <input type="email" className="form__input" placeholder="Adresă ta de email *" id="email" required />
-          <label htmlFor="email" className="form__label form__label__request">Adresă ta de email</label>
+          <label htmlFor="email" className="form__label form__label__required">Adresă ta de email</label>
         </div>
         <div className="form__group">
           <textarea name="message" className="form__input form__textarea" id="message" rows={10} 
           placeholder="Mesaj *" required />
-          <label htmlFor="message" className="form__label form__label__request">Mesaj</label>
+          <label htmlFor="message" className="form__label form__label__required">Mesaj</label>
         </div>
 
         <div className="form__group">

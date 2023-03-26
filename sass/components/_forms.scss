@@ -1,5 +1,5 @@
 .box-mountain-bg{
-  $local-image:'images/germany-photo1.jpeg';
+  $local-image:$path-to-images+'germany-photo1.jpeg';
   width:80%;
   background-image: linear-gradient(105deg, rgba($color-white,.8) 0%, rgba($color-white,.8) 57%, transparent 57%), url($local-image);
   background-size: cover;
@@ -32,7 +32,7 @@
   border-radius: 10px;
   box-shadow: 0 1rem 3rem rgba($color-black, .4);
   padding: 2rem 1rem;
-  background-image: linear-gradient(to right bottom, rgba($color-white,.7) 0%, rgba($color-blue-gray,.8) 100%), url("images/switzerland.jpg");
+  background-image: linear-gradient(to right bottom, rgba($color-white,.7) 0%, rgba($color-blue-gray,.8) 100%), url($path-to-images+"switzerland.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -99,7 +99,7 @@
     display: block;
     transition: all .3s;
 
-    &__request::after{
+    &__required::after{
       content:' *';
       color: $color-red-dark;
     }
