@@ -32,7 +32,7 @@ export default function Login(){
                 <h2 className="heading-secondary">Autentificare</h2>
                 <span className="span-header-block">
                   creeare cont nou &ensp;
-                  <LinkTansition to="/signup" icon="fas fa-id-card" />
+                  <LinkTansition to="/Licenta/signup" icon="fas fa-id-card" />
                 </span>
               </div>
 

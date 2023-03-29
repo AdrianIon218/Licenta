@@ -13,7 +13,7 @@ function App() {
 
   return (<Router>
     <Routes>
-      <Route path="/" element={<MainLayout />} >
+      <Route path="/Licenta/" element={<MainLayout />} >
         <Route index element={<MainPage />} />
         <Route path="login" element={<Login />} />
         <Route path="contacts" element={<Contacts />} />

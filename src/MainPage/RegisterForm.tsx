@@ -24,7 +24,7 @@ export default function RegisterForm(){
             </h2>
             <span className="span-header-block">
             ai cont deja ? &ensp;
-            <LinkTansition to="/login" icon="fas fa-sign-in-alt" />
+            <LinkTansition to="/Licenta/login" icon="fas fa-sign-in-alt" />
             </span>
           </div>
 
