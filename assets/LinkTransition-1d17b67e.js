@@ -1,0 +1,1 @@
+import{r as a,T as i,u as o,a as e}from"./index-6e4f24a5.js";function u(t){const n=a.useContext(i),s=o();return e("span",{className:"span-header-block__link",onClick:r=>{n.setTransition(!0),setTimeout(()=>{n.setTransition(!1)},500),setTimeout(()=>{s(t.to)},400)},children:e("i",{className:t.icon})})}export{u as L};
