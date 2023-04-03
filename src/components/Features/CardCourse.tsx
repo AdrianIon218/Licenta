@@ -1,4 +1,5 @@
 export enum cardTypes{BEGINNER=1, INTERMEDIARY, ADVANCED};
+import { Link } from "react-router-dom"
 
 export interface IPropsCardCourse{
   frontImageName:string,
@@ -14,17 +15,20 @@ export interface IPropsCardCourse{
 }
 
 export default function CardCourse(props:IPropsCardCourse){
-  return <div className="card flex-element">
 
+  return <div className="card flex-element">
     <div className="card__side card__side--front">
+      
       <div className={`card__picture card__picture--${props.typeCard}`}>
         <img src={`/Licenta/images/${props.frontImageName}`} alt={props.frontImageName.split('.')[0]} />
       </div>
+
       <h4 className="card__heading">
         <span className={`card__heading__span card__heading__span--${props.typeCard}`}>
         {props.heading}
         </span>
       </h4>
+
       <div className="card__details">
         <ul>
           <li>
@@ -39,16 +43,19 @@ export default function CardCourse(props:IPropsCardCourse){
             <i className={`fas fa-history u-margin-right-small icon-background--${props.typeCard}`} />Număr de teste : {props.details.testsNumber} </li>
         </ul>
       </div>
+
     </div>
 
     <div className={`card__side card__side--back card__side--back--${props.typeCard}`}>
+
       <div className="card__back-content">
         <div className="card__time-estimation u-margin-bottom-intermediate">
           <p className="u-margin-bottom-small">Timp estimat<i className="fas fa-clock u-margin-left-small" /></p>
           <p>{props.estimationWeeks} săptămâni</p>
         </div>
-        <a href="#" className="btn btn--white card__back-btn"> Începe cursul <i className="fas fa-play u-margin-left-small" /> </a>
+        <Link to="#" className="btn btn--white card__back-btn"> Începe cursul <i className="fas fa-play u-margin-left-small" /> </Link>
       </div>
+
     </div>
   </div>
 }

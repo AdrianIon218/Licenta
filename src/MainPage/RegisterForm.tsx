@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RadioButton from "./RadioButton";
-import LinkTansition from "../components/Helpers/LinkTransition";
+import LinkTansition from "../components/Features/LinkTransition";
 
 enum KnowlegdeLevel {
   BEGGINER, INTERMEDIATE, ADVANCED
@@ -24,7 +24,9 @@ export default function RegisterForm(){
             </h2>
             <span className="span-header-block">
             ai cont deja ? &ensp;
-            <LinkTansition to="/Licenta/login" icon="fas fa-sign-in-alt" />
+              <span className='span-pointer'>
+                <LinkTansition to="/Licenta/login"  icon="fas fa-sign-in-alt" />
+              </span>
             </span>
           </div>
 

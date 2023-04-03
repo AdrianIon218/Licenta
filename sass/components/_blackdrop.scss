@@ -41,9 +41,10 @@
       text-decoration: none;
       font-size: 1.9rem;
       font-weight: 800;
-      padding: 0.5rem;
+      padding:0 0.5rem;
       border-radius: 50%;
       transition: all .4s;
+      cursor:pointer;
 
       &:hover{
         color:$color-red-dark;

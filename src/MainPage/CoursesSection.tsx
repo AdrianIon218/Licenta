@@ -1,4 +1,4 @@
-import CardCoure from "../components/CardCourse";
+import CardCoure from "../components/Features/CardCourse";
 import { AvailableCourses } from "./AvailableCourses";
 
 export default function CoursesSection(){

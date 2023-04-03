@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import LinkTansition from "../components/Helpers/LinkTransition";
+import LinkTansition from "../components/Features/LinkTransition";
 
 export default function Login(){
   const email = useRef<HTMLInputElement>(null);
@@ -32,7 +32,9 @@ export default function Login(){
                 <h2 className="heading-secondary">Autentificare</h2>
                 <span className="span-header-block">
                   creeare cont nou &ensp;
-                  <LinkTansition to="/Licenta/signup" icon="fas fa-id-card" />
+                  <span className='span-pointer'>
+                    <LinkTansition to="/Licenta/signup" icon="fas fa-id-card" />
+                  </span>
                 </span>
               </div>
 

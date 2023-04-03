@@ -1,6 +1,6 @@
-import TestBox,{ITestBoxProps} from "../components/TestBox";
-import tests from "../assets/json-data/AvailableTests.json";
-import Blackdrop from "../components/Blackdrop";
+import TestBox,{ITestBoxProps} from "../components/Features/TestBox";
+import tests from "../data/json-data/AvailableTests.json";
+import Blackdrop from "../components/Features/Blackdrop";
 import TestDetails from "./TestDetails";
 
 export default function TestSection(){
@@ -9,7 +9,7 @@ export default function TestSection(){
     (item, index) => <TestBox iconClasses={item.iconClasses} titleBox={item.titleBox} linkTest={item.linkTest} key={index} />);
 
   return (<>
-  <Blackdrop popupId="popup-test-details" backElementId="section-tests"> 
+  <Blackdrop popupId="popup-test-details"> 
     <TestDetails />
   </Blackdrop>
   <section className="section-tests between-section">

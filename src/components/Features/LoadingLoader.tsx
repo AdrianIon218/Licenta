@@ -1,6 +1,5 @@
-import React from 'react'
 
-function LodingLoader() {
+function LoadingLoader() {
   return (
     <div className='header-section flex-row--centered-no-wrap'>
       <div className="lds-ellipsis u-margin-top-medium">
@@ -13,4 +12,4 @@ function LodingLoader() {
   )
 }
 
-export default LodingLoader
+export default LoadingLoader

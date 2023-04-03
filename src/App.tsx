@@ -2,7 +2,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 
-import MainLayout from './components/Helpers/MainLayout';
+import MainLayout from './components/Layouts/MainLayout';
 
 function App() {
   const MainPage = lazy(() => import("./MainPage/MainPage")); 

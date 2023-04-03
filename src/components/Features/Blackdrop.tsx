@@ -1,9 +1,8 @@
-import {IProps} from './Helpers/CommonInterfaces';
+import {IProps} from '../Helpers/commonInterfaces';
 import {useNavigate } from 'react-router-dom';
 
 interface IBlackdropProps extends IProps{
   popupId:string,
-  backElementId:string
 }
 
 export default function Blackdrop(props:IBlackdropProps){
@@ -16,12 +15,15 @@ export default function Blackdrop(props:IBlackdropProps){
 
   function breakPropagation(event:React.MouseEvent<HTMLDivElement, MouseEvent>){
     event.stopPropagation();
+
   }
 
   return (<section className='blackdrop' id={props.popupId} onClick={exitBackdrop}>
     <div className='blackdrop__content' onClick={breakPropagation}>
       <div className='blackdrop__exit'>
-        <a href={`#${props.backElementId}`} className="blackdrop__exit__btn">&times;</a>
+        <div onClick={exitBackdrop} className="blackdrop__exit__btn">
+          &times;
+        </div>
       </div>
       {props.children}
     </div>
