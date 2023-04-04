@@ -1,5 +1,5 @@
-import PhotoComposition from './PhotosComposition';
-import aboutPhotos from '../data/json-data/AboutPhotos.json';
+import PhotoComposition from '../../Sections/PhotosComposition';
+import aboutPhotos from '../../../data/json-data/AboutPhotos.json';
 
 function AboutSection(){
   return (<section className="section-about between-section u_move_up--big">

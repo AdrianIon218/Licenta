@@ -1,6 +1,6 @@
-import TestBox,{ITestBoxProps} from "../components/Features/TestBox";
-import tests from "../data/json-data/AvailableTests.json";
-import Blackdrop from "../components/Features/Blackdrop";
+import TestBox,{ITestBoxProps} from "../../Features/TestBox";
+import tests from "../../../data/json-data/AvailableTests.json";
+import Blackdrop from "../../Features/Blackdrop";
 import TestDetails from "./TestDetails";
 
 export default function TestSection(){

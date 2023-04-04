@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import LinkTansition from "../components/Features/LinkTransition";
+import LinkTansition from "../../Features/LinkTransition";
 
 export default function Login(){
   const email = useRef<HTMLInputElement>(null);

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RadioButton from "./RadioButton";
-import LinkTansition from "../components/Features/LinkTransition";
+import RadioButton from "../../Features/RadioButton";
+import LinkTansition from "../../Features/LinkTransition";
 
 enum KnowlegdeLevel {
   BEGGINER, INTERMEDIATE, ADVANCED

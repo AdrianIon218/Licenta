@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import CompositionPhoto , {ICompositionPhotoProps} from '../components/Features/CompositionPhoto';
+import CompositionPhoto , {ICompositionPhotoProps} from '../Features/CompositionPhoto';
 
 interface IProps{
   photos:ICompositionPhotoProps[]

@@ -5,11 +5,11 @@ import { lazy } from 'react';
 import MainLayout from './components/Layouts/MainLayout';
 
 function App() {
-  const MainPage = lazy(() => import("./MainPage/MainPage")); 
-  const NoPage = lazy(() => import("./Pages/NoPage"));
-  const Login = lazy(() => import("./Pages/Login"));
-  const Signup = lazy(() => import("./Pages/RegisterPage"));
-  const Contacts = lazy(() => import("./Pages/Contacts"));
+  const MainPage = lazy(() => import("./components/Pages/Home/MainPage")); 
+  const NoPage = lazy(() => import("./components/Pages/NoPage"));
+  const Login = lazy(() => import("./components/Pages/Auth/Login"));
+  const Signup = lazy(() => import("./components/Pages/Auth/RegisterPage"));
+  const Contacts = lazy(() => import("./components/Pages/Contacts"));
 
   return (<Router>
     <Routes>

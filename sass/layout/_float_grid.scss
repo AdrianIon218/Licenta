@@ -5,7 +5,7 @@
     margin-bottom: $space-vertical;
   }
 
-  @include clearfix;
+  @include floatclearfix;
 
   [class^="col-"]{
     float:left;

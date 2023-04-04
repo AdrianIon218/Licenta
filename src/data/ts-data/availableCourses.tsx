@@ -1,4 +1,4 @@
-import {IPropsCardCourse, cardTypes} from "../components/Features/CardCourse";
+import {IPropsCardCourse, cardTypes} from "../../components/Features/CardCourse";
 
 export const AvailableCourses:IPropsCardCourse[] = [
   {
