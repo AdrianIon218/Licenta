@@ -10,6 +10,7 @@ function App() {
   const Login = lazy(() => import("./components/Pages/Auth/Login"));
   const Signup = lazy(() => import("./components/Pages/Auth/RegisterPage"));
   const Contacts = lazy(() => import("./components/Pages/Contacts"));
+  const CoursePlan = lazy(() => import("./components/Pages/Course/CoursePlan"));
 
   return (<Router>
     <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={ <NoPage />} />
+        <Route path="course-plan/:id" element={<CoursePlan />} />
       </Route>
     </Routes> 
   </Router>);

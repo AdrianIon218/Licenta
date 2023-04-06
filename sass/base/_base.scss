@@ -31,10 +31,6 @@ body {
   background:linear-gradient(to left top, $color-blue-light 0%, $color-blue-dark 100%);
   box-sizing: border-box;
 
-  /* Firefox scrollbar*/
-  scrollbar-color: green white;
-  scrollbar-width: thin;
-
   &::-webkit-scrollbar{
     padding: 5px;
     width: 15px;

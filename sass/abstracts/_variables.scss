@@ -4,23 +4,20 @@ $color-blue-mid: rgb(18, 157, 244);
 $color-blue-dark:rgb(0, 120, 195);
 $color-blue-darker:rgb(2, 99, 160);
 $color-blue-gray:rgb(154, 174, 187);
+$color-secondary-light:rgb(52, 161, 228);
+$color-secondary-dark:rgb(0, 101, 163);
 
 $color-red-light:rgb(254, 217, 204);
 $color-red-dark:rgb(210, 20, 20);
 
-$color-secondary-light:rgb(52, 161, 228);
-$color-secondary-dark:rgb(0, 101, 163);
-
 $color-black:rgb(60, 59, 59);
-
 $color-gray:#999;
 $color-gray-dark:rgb(131, 131, 132);
-
 $color-white:rgb(219, 228, 237);
 $color-white-max:rgb(255, 255, 255);
 
-$card-cyan-1: rgb(83, 224, 224);
-$card-cyan-5: rgb(7, 157, 157);
+$color-cyan-1: rgb(83, 224, 224);
+$color-cyan-5: rgb(7, 157, 157);
 
 $color-orange-1:rgb(255, 200, 99);
 $color-orange-3:rgb(219, 150, 20);
@@ -34,7 +31,7 @@ $section-color: rgb(169, 202, 231);
 
 // gradients
 $gradient-germany: linear-gradient(90deg, rgba(6,6,6,1) 0%, rgba(238,36,36,1) 50%, rgba(255,253,128,1) 100%);
-$gradient-cyan-blue:linear-gradient(to left top, $color-blue-dark, darken($card-cyan-1, 4%));
+$gradient-cyan-blue:linear-gradient(to left top, $color-blue-dark, darken($color-cyan-1, 4%));
 
 // animations
 $time-move-in-ani: 1.4s;

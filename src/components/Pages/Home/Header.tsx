@@ -10,7 +10,7 @@ export default function Header(){
         <span className='heading-primary__main'> 
           GermanMax 
         </span>
-        <span className='heading-primary__sub u-margin-top-very-small'> 
+        <span className='heading-primary__sub u-margin-top--very-small'> 
           Aplicație de învățat limba Germană
         </span>
       </h1>

@@ -87,7 +87,7 @@
     height: 4rem;
     border-radius: 50%;
     z-index: $layer-0;
-    background-image: radial-gradient($card-cyan-1,$card-cyan-5);
+    background-image: radial-gradient($color-cyan-1,$color-cyan-5);
     transition: all .6s cubic-bezier(0.85, 0, 0.07, 1);
 
     &.navigation__menu-open{
@@ -134,7 +134,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       border-radius: 0.5rem;
-      color: $card-cyan-5;
+      color: $color-cyan-5;
       text-decoration: none;
       text-transform: uppercase;
       padding: 2px 10px;

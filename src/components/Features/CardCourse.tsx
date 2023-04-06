@@ -53,7 +53,7 @@ export default function CardCourse(props:IPropsCardCourse){
           <p className="u-margin-bottom-small">Timp estimat<i className="fas fa-clock u-margin-left-small" /></p>
           <p>{props.estimationWeeks} săptămâni</p>
         </div>
-        <Link to="#" className="btn btn--white card__back-btn"> Începe cursul <i className="fas fa-play u-margin-left-small" /> </Link>
+        <Link to={`/Licenta/course-plan/${props.heading}`} className="btn btn--white card__back-btn"> Începe cursul <i className="fas fa-play u-margin-left-small" /> </Link>
       </div>
 
     </div>

@@ -11,7 +11,7 @@ export default function CoursesSection(){
     <div className="flex-row--centered">
       {AvailableCourses.map((course,index) => <CardCoure {...course} key={index} />)}
     </div>
-    <div className="u-center-text u-margin-top-medium">
+    <div className="u-center-text u-margin-top--medium">
       <a href="#" className="btn btn--blue">Află ce curs ți se potrivește</a>
     </div>
     </section>);

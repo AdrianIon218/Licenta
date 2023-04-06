@@ -28,7 +28,7 @@ export default function MainMenu(props:ILocProps){
           </Link>
         </li>), []);
 
-  return(<div className="navigation u_disabled_user_selector">
+  return(<div className="navigation u-disabled-user-selector">
     <div className="navigation__btn" onClick={triggerMenu}>
       <span className={`navigation__btn__icon ${showMenu?'navigation__btn__icon--X':''}`}>&nbsp;</span>
     </div>
