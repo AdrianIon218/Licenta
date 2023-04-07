@@ -5,7 +5,9 @@ import {TransitionCtx} from './TransitionContext';
 
 interface IProps{
   to:string,
-  icon:string
+  icon?:string,
+  children?:any
+  className?:string
 }
 
 function LinkTansition(props:IProps) {
@@ -23,8 +25,8 @@ function LinkTansition(props:IProps) {
     }, 400);
   }
 
-  return (<span className="span-header-block__link" onClick={clickHandler}> 
-      <i className={props.icon} />
+  return (<span className={props.className??'span-header-block__link'} onClick={clickHandler}> 
+      {props.children ?? <i className={props.icon} />}
     </span>);
 }
 

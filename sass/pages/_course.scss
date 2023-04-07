@@ -1,0 +1,40 @@
+.course{
+  background-image: linear-gradient(90deg, $color-blue-darker 0%, $section-color 40%,$section-color 60%, $color-blue-dark 100%);
+  padding: 1rem .5rem 12rem;
+  display: flex;
+
+  &-board{
+    border-radius: 1rem;
+    flex:1;
+    min-height: 50rem;
+    background-color: $backgound-orange;
+    border: 6px solid;
+    & > h1{
+      display: inline-block;
+    }
+  }
+
+  &-A1,&-A2{
+    border-color:$color-orange-1;
+    & > h1{
+      @include textgradient--circle(3rem,$color-orange-3, $color-orange-1);
+    }
+  }
+
+  &-B1,&-B2{
+    background-color:$section-color;
+    border-color:$color-cyan-5;
+    & > h1{
+      @include textgradient--circle(3rem, $color-secondary-light, $color-secondary-dark);
+    }
+  }
+
+  &-C1{
+    border-color:$color-green-2;
+    background-color: $backgound-green;
+    & > h1{
+      @include textgradient--circle(3rem, $color-green-1, $color-green-3);
+    }
+  }
+  
+}

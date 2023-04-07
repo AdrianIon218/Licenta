@@ -1,5 +1,5 @@
 export enum cardTypes{BEGINNER=1, INTERMEDIARY, ADVANCED};
-import { Link } from "react-router-dom"
+import LinkTansition from "../Features/LinkTransition";
 
 export interface IPropsCardCourse{
   frontImageName:string,
@@ -53,7 +53,9 @@ export default function CardCourse(props:IPropsCardCourse){
           <p className="u-margin-bottom-small">Timp estimat<i className="fas fa-clock u-margin-left-small" /></p>
           <p>{props.estimationWeeks} săptămâni</p>
         </div>
-        <Link to={`/Licenta/course-plan/${props.heading}`} className="btn btn--white card__back-btn"> Începe cursul <i className="fas fa-play u-margin-left-small" /> </Link>
+        <LinkTansition to={`/Licenta/course-plan/${props.heading}`} className="btn btn--white card__back-btn"> 
+          Începe cursul <i className="fas fa-play u-margin-left-small" /> 
+        </LinkTansition>
       </div>
 
     </div>

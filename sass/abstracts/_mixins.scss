@@ -21,6 +21,14 @@
   color:transparent;
 }
 
+@mixin textgradient--circle($font-size, $color1, $color2){
+  font-size: $font-size;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+  background-image: radial-gradient(circle,  $color1 0%, $color2 100%);
+}
+
 @mixin btn-color($color-text, $color-background){
   background-color: $color-background;
   font-weight: 700;
