@@ -6,35 +6,98 @@
   &-board{
     border-radius: 1rem;
     flex:1;
-    min-height: 50rem;
+    min-height: 70rem;
     background-color: $backgound-orange;
     border: 6px solid;
-    & > h1{
-      display: inline-block;
-    }
   }
 
-  &-A1,&-A2{
+  &-title-container{
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    border: 6px dotted;
+  }
+
+  &-plan{
+    display: block;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    border: 3px solid;
+    border-color: inherit;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex:1;
+  }
+
+  &-A1, &-A2{
     border-color:$color-orange-1;
-    & > h1{
+    h1{
       @include textgradient--circle(3rem,$color-orange-3, $color-orange-1);
     }
-  }
-
-  &-B1,&-B2{
-    background-color:$section-color;
-    border-color:$color-cyan-5;
-    & > h1{
-      @include textgradient--circle(3rem, $color-secondary-light, $color-secondary-dark);
+    .course-title-container{
+      border-color: $color-orange-3;
+      background-color: darken($backgound-orange,4%);
     }
   }
+
+  &-A1{
+    .course-plan{
+      background-image:linear-gradient(to right bottom,
+          rgba($color-orange-1, 0.6) 0%, rgba($backgound-orange, 0.5) 100%),
+          url($path-to-images+"liechtenstein-photo2.jpg");
+    }
+  }
+
+  &-A2{
+    .course-plan{
+      background-image:linear-gradient(to right bottom,
+          rgba($color-orange-1, 0.6) 0%, rgba($backgound-orange, 0.5) 100%),
+          url($path-to-images+"graz-photo2.webp");
+    }
+  }
+
+  &-B1, &-B2{
+    background-color:$section-color;
+    border-color:$color-cyan-5;
+    h1{
+      @include textgradient--circle(3rem, $color-secondary-light, $color-secondary-dark);
+    }
+    .course-title-container{
+      border-color: $color-secondary-dark;
+      background-color: lighten($section-color,4%);
+    }
+  }
+
+  &-B1{
+    .course-plan{
+      background-image:linear-gradient(to right bottom,
+          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-secondary-dark, 0.5) 100%),
+          url($path-to-images+"viena-photo1.jpeg");
+    }
+  }
+
+  &-B2{
+    .course-plan{
+      background-image:linear-gradient(to right bottom,
+          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-secondary-dark, 0.5) 100%),
+          url($path-to-images+"koln-photo2.webp");
+    }
+  }
+  
 
   &-C1{
     border-color:$color-green-2;
     background-color: $backgound-green;
-    & > h1{
+    h1{
       @include textgradient--circle(3rem, $color-green-1, $color-green-3);
     }
+    .course-title-container{
+      border-color: $color-green-3;
+      background-color: darken($backgound-green,3%);
+    }
+    .course-plan{
+      background-image:linear-gradient(to right bottom, rgba($backgound-green, 0.6) 0%, rgba($color-green-2, 0.5) 100%), url($path-to-images+"viena-photo5.jpg");
+    }
   }
-  
 }
