@@ -1,8 +1,8 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, lazy } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import getCourseDetails from "../../Helpers/coursePhotoLevel";
-import { lazy } from 'react';
+import CourseBtn from '../../Features/CourseBtn';
 const NoPage = lazy(() =>import("../NoPage"));
 
 function CoursePlan() {
@@ -13,11 +13,10 @@ function CoursePlan() {
   }
 
   useEffect(()=>{
-    if(level){
-      axios.get(`http://localhost:5000/course-plan/${level}`).then((res)=>{
-        console.log(res.data);
-      });
-    }
+    axios.get(`http://localhost:5000/course-plan/${level}`).then((res)=>{
+      console.log(res.data);
+    });
+
   },[]);
   const course_details = useMemo(()=> getCourseDetails(level!),[]);
 
@@ -28,7 +27,7 @@ function CoursePlan() {
           <h1>Nivelul {level}</h1>
         </div>
         <div className='course-plan'>
-          
+          <CourseBtn level={level} status="in progress">1</CourseBtn>
         </div>
       </div>
     </section>

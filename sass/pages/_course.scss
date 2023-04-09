@@ -100,4 +100,99 @@
       background-image:linear-gradient(to right bottom, rgba($backgound-green, 0.6) 0%, rgba($color-green-2, 0.5) 100%), url($path-to-images+"viena-photo5.jpg");
     }
   }
+
+  &-lection{
+    display: inline-block;
+    position: relative;
+
+    &-btn{
+      border-radius: 1rem;
+      padding: 1.2rem;
+      min-width: 4.2rem;
+      border:3px solid;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .3s all ease-in-out;
+      backface-visibility: hidden;
+
+      &:hover{
+        transform: scale(1.1);
+      }
+
+      &:active{
+        transform: scale(1.1) translate(0, 5px);
+      }
+
+      &--A1, &--A2{
+        color: $color-orange-3;
+        background-color: $backgound-orange;
+
+        &:hover{
+          $temp-color: rgba(darken($color-orange-3, 15%), 0.07) ;
+          box-shadow: $temp-color 0px 1px 2px, $temp-color 0px 2px 4px, $temp-color 0px 4px 8px, $temp-color 0px 8px 16px, $temp-color 0px 16px 32px, $temp-color 0px 32px 64px;
+        }
+      }
+
+      &--B1, &--B2{
+        color: $color-blue-dark;
+        background-color: rgba($section-color, .75);
+
+        &:hover{
+          $temp-color: rgba(darken($color-blue-dark, 15%), 0.07) ;
+          box-shadow: $temp-color 0px 1px 2px, $temp-color 0px 2px 4px, $temp-color 0px 4px 8px, $temp-color 0px 8px 16px, $temp-color 0px 16px 32px, $temp-color 0px 32px 64px;
+        }
+      }
+
+      &--C1{
+        color: $color-green-2;
+        background-color: rgba($backgound-green, .75);
+
+        &:hover{
+          $temp-color: rgba(darken($color-green-2, 15%), 0.07) ;
+          box-shadow: $temp-color 0px 1px 2px, $temp-color 0px 2px 4px, $temp-color 0px 4px 8px, $temp-color 0px 8px 16px, $temp-color 0px 16px 32px, $temp-color 0px 32px 64px;
+        }
+      }
+    }
+  }
+
+  &-status{
+    font-size: .7rem;
+    font-weight: 800;
+    padding: 0 .3rem;
+    border-radius: 50%;
+    position: absolute;
+    top:-.6rem;
+    right: -5px;
+    color: $color-gray-dark;
+    border: 1px solid;
+    background-color: rgba($section-color, .75);
+    transition: .4s all ease-in-out;
+    backface-visibility: hidden;
+
+    .course-lection-btn:hover ~ &{
+      transform: translate(3px, 0px);
+    }
+
+    .course-lection-btn:active ~ &{
+      transform: translate(3px, 5px);
+    }
+
+    &--gray{
+      background-color: rgba($section-color, .75);
+      color:color-gray;
+    }
+
+    &--green{
+      background-color: rgba($color-green-3, .75);
+      color:$color-white-max;
+      border-color: $color-green-1;
+    }
+
+    &--yellow{
+      background-color: rgba($color-yellow-1, .75);
+      color:$color-orange-3;
+      border-color: $color-orange-3;
+    }
+  }
 }
