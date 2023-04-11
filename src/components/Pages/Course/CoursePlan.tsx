@@ -2,8 +2,9 @@ import { useEffect, useMemo, lazy } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import getCourseDetails from "../../Helpers/coursePhotoLevel";
-import CourseBtn from '../../Features/CourseBtn';
+
 const NoPage = lazy(() =>import("../NoPage"));
+const CoursePanel = lazy(()=> import('./CoursePanel'));
 
 function CoursePlan() {
   let {id:level} = useParams();
@@ -26,9 +27,7 @@ function CoursePlan() {
         <div className='course-title-container u-margin-bottom-intermediate'>
           <h1>Nivelul {level}</h1>
         </div>
-        <div className='course-plan'>
-          <CourseBtn level={level} status="in progress">1</CourseBtn>
-        </div>
+        <CoursePanel />
       </div>
     </section>
   );

@@ -101,6 +101,26 @@
     }
   }
 
+  &__module{
+    background-color:rgba($color-white-max, .84);
+    padding: 5px 15px;
+    border-radius: 1rem;
+    min-width: 30%;
+    min-height: 5%;
+    cursor:pointer;
+    
+    &__title{
+      
+    }
+
+    &__title__arrow{
+      margin-left: 4px;
+      padding-top: 8px ;
+      float: right;
+      transition: all .3s ease-in-out;
+    }
+  }
+
   &-lection{
     display: inline-block;
     position: relative;
