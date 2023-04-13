@@ -84,7 +84,22 @@
     justify-content: center;
     align-items: center;
     row-gap: 1rem;
+    
+    @include respond(phone){
+      & > .flex-element{
+        width: 70%;
+      }
+    }
+    
   }
 
+  &--start {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem $padding-LR-section;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: .4em;
+  }
   
 }

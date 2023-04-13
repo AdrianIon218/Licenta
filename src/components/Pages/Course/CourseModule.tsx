@@ -1,15 +1,15 @@
 import {  useEffect, useState } from "react";
 import CourseBtn from '../../Features/CourseBtn';
-import { useImperativeHandle, useRef } from "react";
+import StringMaxLength from "../../Helpers/StringMaxLength";
 
 interface LocProps{
-    title:string,
+    title:StringMaxLength,
     activeModule:number,
     index:number,
     closeOtherModules:()=>void
 }
 
-function CourseModule({title, activeModule,index, closeOtherModules}:LocProps) {
+function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) {
   const [isModuleExpanded ,setModuleExpanded] = useState(false);
 
   const triggerExpandedModule = ()=>{
@@ -20,7 +20,6 @@ function CourseModule({title, activeModule,index, closeOtherModules}:LocProps) {
       }
       return !oltVal;
     });
-    
   }
   
   useEffect(()=>{
@@ -31,15 +30,16 @@ function CourseModule({title, activeModule,index, closeOtherModules}:LocProps) {
 
   // <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
   return (
-    <div className="course__module" >
+    <div className="course__module flex-element" >
       <div className="course__module__title u-center-text" onClick={triggerExpandedModule}  >
-        {title}
+        {title.str}
         <span className="course__module__title__arrow">
           <i className={` ${isModuleExpanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} `} />
         </span>
       </div>
-      <div className={`course__module__ctn ${isModuleExpanded && 'course__module__ctn--open'}`}>
-        
+      <div className={`course__module__ctn flex-column--start ${isModuleExpanded && 'course__module__ctn--open'}`}>
+       <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+       <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
       </div>
     </div>
   )
