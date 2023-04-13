@@ -1,6 +1,7 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CourseBtn from '../../Features/CourseBtn';
 import StringMaxLength from "../../Helpers/StringMaxLength";
+import { Level } from "../../Helpers/constants";
 
 interface LocProps{
     title:StringMaxLength,
@@ -37,9 +38,12 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
           <i className={` ${isModuleExpanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} `} />
         </span>
       </div>
-      <div className={`course__module__ctn flex-column--start ${isModuleExpanded && 'course__module__ctn--open'}`}>
-       <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
-       <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+      <div className={`course__module__ctn ${isModuleExpanded && 'course__module__ctn--open'}`}>
+        <div className={`flex-column--start course__module__ctn__list ${isModuleExpanded && 'course__module__ctn__list--open'}`}>
+          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+        </div>
       </div>
     </div>
   )

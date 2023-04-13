@@ -1,7 +1,6 @@
 export type IconStatus = "not started"|"in progress"|"completed";
-enum Level {
-  A1, A2, B1, B2, C1
-}
+import { Level } from "../Helpers/constants";
+
 class Icon{
   className='';
   containerClass='';
