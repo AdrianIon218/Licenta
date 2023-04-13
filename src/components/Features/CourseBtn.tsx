@@ -1,5 +1,7 @@
 export type IconStatus = "not started"|"in progress"|"completed";
-
+enum Level {
+  A1, A2, B1, B2, C1
+}
 class Icon{
   className='';
   containerClass='';
@@ -17,7 +19,7 @@ class Icon{
 
 type props = {
   children:string,
-  level:string,
+  level:Level,
   status:IconStatus
 };
 
@@ -26,7 +28,7 @@ function CourseBtn({children, level, status}:props) {
 
   return (
     <div className='course-lection'>
-      <button className={`course-lection-btn course-lection-btn--${level}`}>
+      <button className={`course-lection-btn course-lection-btn--${Level[level]}`}>
         {children}
       </button>
       <div className={`course-status ${icon.containerClass}`} title={icon.message}>

@@ -6,7 +6,7 @@
   &-board{
     border-radius: 1rem;
     flex:1;
-    min-height: 70rem;
+    height: 74rem;
     background-color: $backgound-orange;
     border: 6px solid;
   }
@@ -87,6 +87,7 @@
   
 
   &-C1{
+    height: 84rem;
     border-color:$color-green-2;
     background-color: $backgound-green;
     h1{
@@ -101,23 +102,44 @@
     }
   }
 
+
   &__module{
-    background-color:rgba($color-white-max, .84);
-    padding: 5px 15px;
-    border-radius: 1rem;
     min-width: 30%;
     min-height: 5%;
-    cursor:pointer;
+    position: relative;
     
     &__title{
-      
+      background-color:rgba($color-white-max, .84);
+      padding: 5px 15px;
+      border-radius: 1rem;
+      cursor:pointer;
+      border-bottom: 3px $color-gray solid;
     }
 
     &__title__arrow{
       margin-left: 4px;
-      padding-top: 8px ;
       float: right;
-      transition: all .3s ease-in-out;
+    }
+
+    &__ctn{
+     height: 0;
+     visibility: hidden;
+     padding: .5rem;
+     left:-5rem;
+     right: -5rem;
+     transition: opacity .3s ease-in, height .7s ease-in-out .4s;
+     background-color:rgba($color-white-max, .92);
+     border-radius: 1rem;
+     border: 2px solid $color-gray;
+     position: absolute;
+     opacity: 0;
+     
+     &--open{
+       visibility: visible;
+       opacity: 1;
+       height: 24rem;
+       z-index: $layer-min;
+     }
     }
   }
 
