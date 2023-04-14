@@ -21,8 +21,10 @@ function CoursePanel({level}:LocProps) {
          )}, [currentModule] );
 
   return (
-    <div className='course-plan flex-column--centered' >
+    <div className={`course-plan  course-plan--${Level[level]}`} >
+      <div className='flex-column--centered'>
       {courseModules}
+      </div>
     </div>
   );
 }

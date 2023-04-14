@@ -1,7 +1,6 @@
 .course{
   background-image: linear-gradient(90deg, $color-blue-darker 0%, $section-color 40%,$section-color 60%, $color-blue-dark 100%);
   padding: 1rem .5rem 12rem;
-  display: flex;
 
   &-board{
     border-radius: 1rem;
@@ -20,14 +19,56 @@
   &-plan{
     display: block;
     border-radius: 1rem;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem !important;
     border: 3px solid;
     border-color: inherit;
     width: 100%;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    flex:1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+      padding: 5px;
+      width: 15px;
+      transition: all .8s;
+  
+      &-thumb {
+        border: 2px rgb(90, 90, 90) solid;
+        border-radius: 1rem;
+        background-color: $color-blue-mid; 
+        transition: all .8s;
+      }
+      
+      &-track{
+        background-color: transparent; 
+      }
+    }
+
+    &--A1, &--A2{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-orange-1; 
+        }
+      }
+    }
+
+    &--B1, &--B2{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-blue-mid; 
+        }
+      }
+    }
+
+    &--C1{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-green-2;
+        }
+      }
+    }
   }
 
   &-A1, &-A2{
@@ -108,14 +149,18 @@
     max-width: 100%;
     min-height: 5%;
     position: relative;
+    outline: none;
     
     &__title{
       background-color:rgba($color-white-max, .84);
       padding: 5px 15px;
       border-radius: 1rem;
-      cursor:pointer;
+      cursor: pointer;
       border-bottom: 3px $color-gray solid;
       outline: none;
+      font-weight: 600;
+      font-size: 1.3rem;
+
       @include floatclearfix;
     }
 

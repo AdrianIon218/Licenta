@@ -31,11 +31,6 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
    }
   },[activeModule]);
 
-  const onBlurHandler = (event: React.FocusEvent<HTMLDivElement, Element>)=>{
-    event.preventDefault();
-    setModuleExpanded(false);
-  }
-
   return (
     <div className="course__module flex-element"  tabIndex={index}>
       <div className="course__module__title u-center-text" onClick={triggerExpandedModule}>
@@ -50,7 +45,7 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
           <CourseBtn status={IconStatus.STAR_1}>Buna ziua</CourseBtn>
           <CourseBtn status={IconStatus.STAR_2}>Buna ziua</CourseBtn>
           <CourseBtn status={IconStatus.STAR_3}>Buna ziua</CourseBtn>
-          
+          <CourseBtn status={IconStatus.STAR_1}>Buna ziua</CourseBtn>
         </div>
       </div>
     </div>
