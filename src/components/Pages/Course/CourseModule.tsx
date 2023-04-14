@@ -3,6 +3,7 @@ import CourseBtn from '../../Features/CourseBtn';
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { Level } from "../../Helpers/constants";
 import { CourseCtx } from "../../Features/CourseContext";
+import { IconStatus } from "../../Features/CourseBtn";
 
 interface LocProps{
     title:StringMaxLength,
@@ -45,8 +46,11 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
       </div>
       <div className={`course__module__ctn ${isModuleExpanded && 'course__module__ctn--open'}`}>
         <div className={`flex-column--start course__module__ctn__list course__module__ctn__list--${currentLevelStr} ${isModuleExpanded && 'course__module__ctn__list--open'}`}>
-          <CourseBtn status="not started">Buna ziua</CourseBtn>
-          <CourseBtn status="not started">Buna ziua</CourseBtn>
+          <CourseBtn status={IconStatus.NO_PROGRESS}>Buna ziua</CourseBtn>
+          <CourseBtn status={IconStatus.STAR_1}>Buna ziua</CourseBtn>
+          <CourseBtn status={IconStatus.STAR_2}>Buna ziua</CourseBtn>
+          <CourseBtn status={IconStatus.STAR_3}>Buna ziua</CourseBtn>
+          
         </div>
       </div>
     </div>

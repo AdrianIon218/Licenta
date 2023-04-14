@@ -1,9 +1,9 @@
-import { useEffect, useMemo, lazy, useContext } from 'react'
+import { useEffect, useMemo, lazy } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import getCourseDetails from "../../Helpers/coursePhotoLevel";
 import { Level } from '../../Helpers/constants';
-import CourseContext,{CourseCtx} from '../../Features/CourseContext';
+import CourseContext from '../../Features/CourseContext';
 
 const NoPage = lazy(() =>import("../NoPage"));
 const CoursePanel = lazy(()=> import('./CoursePanel'));
