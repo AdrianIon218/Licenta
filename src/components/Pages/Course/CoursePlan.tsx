@@ -1,36 +1,38 @@
-import { useEffect, useMemo, lazy } from 'react'
+import { useEffect, useMemo, lazy, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import getCourseDetails from "../../Helpers/coursePhotoLevel";
+import { Level } from '../../Helpers/constants';
+import CourseContext,{CourseCtx} from '../../Features/CourseContext';
 
 const NoPage = lazy(() =>import("../NoPage"));
 const CoursePanel = lazy(()=> import('./CoursePanel'));
 
 function CoursePlan() {
-  let {id:level} = useParams();
-  level = ['A1','A2','B1','B2','C1'].find(l => l === level);
-  if(!level){
+  const {id:levelStr} = useParams();
+  const level = [Level.A1,Level.A2,Level.B1,Level.B2,Level.C1].find((l)=>Level[l]=== levelStr);
+  if(level === undefined){
     return (<NoPage />);
   }
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/course-plan/${level}`).then((res)=>{
+    axios.get(`http://localhost:5000/course-plan/${levelStr}`).then((res)=>{
       console.log(res.data);
     });
-
   },[]);
-  const course_details = useMemo(()=> getCourseDetails(level!),[]);
+  const course_details = useMemo(()=> getCourseDetails(levelStr!),[]);
 
   return (
-    <section className='header-section course'>
-      <div className={`course-board course-${level} flex-column--centered`}>
-        <div className='course-title-container u-margin-bottom-intermediate'>
-          <h1>Nivelul {level}</h1>
+    <CourseContext>
+      <section className='header-section course'>
+        <div className={`course-board course-${levelStr} flex-column--centered`}>
+          <div className='course-title-container u-margin-bottom-intermediate'>
+            <h1>Nivelul {levelStr}</h1>
+          </div>
+          <CoursePanel level={level}/>
         </div>
-        <CoursePanel />
-      </div>
-    </section>
-  );
+      </section>
+    </CourseContext>);
 }
 
 export default CoursePlan;

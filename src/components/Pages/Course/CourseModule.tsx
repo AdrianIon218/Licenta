@@ -1,48 +1,52 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CourseBtn from '../../Features/CourseBtn';
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { Level } from "../../Helpers/constants";
+import { CourseCtx } from "../../Features/CourseContext";
 
 interface LocProps{
     title:StringMaxLength,
     activeModule:number,
     index:number,
-    closeOtherModules:()=>void
+    closeOtherModules:()=>void,
 }
 
 function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) {
   const [isModuleExpanded ,setModuleExpanded] = useState(false);
+  const currentLevelStr = Level[useContext(CourseCtx)!.courseLvl];
 
   const triggerExpandedModule = ()=>{
     setModuleExpanded(oltVal => {
-      console.log("Index",index)
       if(oltVal === false){
         closeOtherModules();
       }
       return !oltVal;
     });
   }
-  
+
   useEffect(()=>{
    if(activeModule !== index){
      setModuleExpanded(false);
    }
   },[activeModule]);
 
-  // <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+  const onBlurHandler = (event: React.FocusEvent<HTMLDivElement, Element>)=>{
+    event.preventDefault();
+    setModuleExpanded(false);
+  }
+
   return (
-    <div className="course__module flex-element" >
-      <div className="course__module__title u-center-text" onClick={triggerExpandedModule}  >
+    <div className="course__module flex-element"  tabIndex={index}>
+      <div className="course__module__title u-center-text" onClick={triggerExpandedModule}>
         {title.str}
-        <span className="course__module__title__arrow">
+        <span className={`course__module__title__arrow course__module__title__arrow--${currentLevelStr}`}>
           <i className={` ${isModuleExpanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} `} />
         </span>
       </div>
       <div className={`course__module__ctn ${isModuleExpanded && 'course__module__ctn--open'}`}>
-        <div className={`flex-column--start course__module__ctn__list ${isModuleExpanded && 'course__module__ctn__list--open'}`}>
-          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
-          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
-          <CourseBtn level={2} status="not started">Buna ziua</CourseBtn>
+        <div className={`flex-column--start course__module__ctn__list course__module__ctn__list--${currentLevelStr} ${isModuleExpanded && 'course__module__ctn__list--open'}`}>
+          <CourseBtn status="not started">Buna ziua</CourseBtn>
+          <CourseBtn status="not started">Buna ziua</CourseBtn>
         </div>
       </div>
     </div>

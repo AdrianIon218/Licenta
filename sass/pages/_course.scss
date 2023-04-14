@@ -105,6 +105,7 @@
 
   &__module{
     min-width: 30%;
+    max-width: 100%;
     min-height: 5%;
     position: relative;
     
@@ -114,11 +115,25 @@
       border-radius: 1rem;
       cursor:pointer;
       border-bottom: 3px $color-gray solid;
+      outline: none;
+      @include floatclearfix;
     }
 
     &__title__arrow{
       margin-left: 4px;
       float: right;
+
+      &--A1,&--A2{
+        color:$color-orange-2;
+      }
+
+      &--B1,&--B2{
+        color:$color-secondary-light;
+      }
+
+      &--C1{
+        color:$color-green-2;
+      }
     }
 
     &__ctn{
@@ -141,10 +156,11 @@
        z-index: $layer-min;
      }
 
+
      &__list{
        opacity: 0;
        height: 100%;
-       overflow-y: scroll;
+       overflow-y:auto;
        &::-webkit-scrollbar{
         padding: 5px;
         width: 15px;
@@ -166,6 +182,30 @@
       }
      }
 
+     &__list--A1, &__list--A2{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-orange-2;
+        }
+      }
+     }
+
+     &__list--B1, &__list--B2{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-secondary-light;
+        }
+      }
+     }
+
+     &__list--C1{
+      &::-webkit-scrollbar{
+        &-thumb {
+          background-color: $color-green-2;
+        }
+      }
+     }
+
      &__list--open{
        transition: opacity 1s ease-in-out 1.2s;
        opacity: 1;
@@ -173,14 +213,16 @@
     }
   }
 
-  &-lection{
+
+  &-lesson{
     display: inline-block;
     position: relative;
+    width: 80%;
 
     &-btn{
       border-radius: 1rem;
       padding: 1.2rem;
-      min-width: 4.2rem;
+      width: 100%;
       border:3px solid;
       font-size: 1.2rem;
       font-weight: 800;
@@ -242,11 +284,11 @@
     transition: .4s all ease-in-out;
     backface-visibility: hidden;
 
-    .course-lection-btn:hover ~ &{
+    .course-lesson-btn:hover ~ &{
       transform: translate(3px, 0px);
     }
 
-    .course-lection-btn:active ~ &{
+    .course-lesson-btn:active ~ &{
       transform: translate(3px, 5px);
     }
 
