@@ -16,8 +16,7 @@ export default function Login(){
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-      }
-    }).then(res=>res.json()).then(data => { 
+      }}).then(res=>res.json()).then(data => { 
       email.current!.value = password.current!.value = '';
       console.log(data);
     }); 

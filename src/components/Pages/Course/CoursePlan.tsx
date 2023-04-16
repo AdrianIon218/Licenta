@@ -15,19 +15,13 @@ function CoursePlan() {
     return (<NoPage />);
   }
 
-  useEffect(()=>{
-    axios.get(`http://localhost:5000/course-plan/${levelStr}`).then((res)=>{
-      console.log(res.data);
-    });
-  },[]);
-  const course_details = useMemo(()=> getCourseDetails(levelStr!),[]);
 
   return (
     <CourseContext>
       <section className='header-section course'>
         <div className={`course-board course-${levelStr} flex-column--centered`}>
           <div className='course-title-container u-margin-bottom-intermediate'>
-            <h1>Nivelul {levelStr}</h1>
+            <h1 className='u-center-text'>Nivelul {levelStr}</h1>
           </div>
           <CoursePanel level={level}/>
         </div>
