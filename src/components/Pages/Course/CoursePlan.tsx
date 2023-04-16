@@ -1,7 +1,5 @@
-import { useEffect, useMemo, lazy } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios';
-import getCourseDetails from "../../Helpers/coursePhotoLevel";
+import { lazy } from 'react';
+import { useParams } from 'react-router-dom';
 import { Level } from '../../Helpers/constants';
 import CourseContext from '../../Features/CourseContext';
 
@@ -10,11 +8,10 @@ const CoursePanel = lazy(()=> import('./CoursePanel'));
 
 function CoursePlan() {
   const {id:levelStr} = useParams();
-  const level = [Level.A1,Level.A2,Level.B1,Level.B2,Level.C1].find((l)=>Level[l]=== levelStr);
+  const level = [Level.A1,Level.A2,Level.B1,Level.B2,Level.C1].find((l)=>Level[l] === levelStr);
   if(level === undefined){
     return (<NoPage />);
   }
-
 
   return (
     <CourseContext>

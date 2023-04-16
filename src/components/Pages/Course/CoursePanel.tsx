@@ -24,17 +24,15 @@ function CoursePanel({level}:LocProps) {
 
   useEffect(()=>{
     axios.get('http://localhost:5000/course_modules',{ params: {level: Level[level]} }).then((res)=>{
-     console.log(res.data);
      setCourseModules(res.data);
    });
-  },[]);
+  }, []);
 
   const courseModulesJSX = useMemo(() => {
-    return courseModules.map((c,index) => 
-      <CourseModule title={new StringMaxLength(c.title, COURSE_TITLE_LENGTH)} 
-         key={index} index={index} activeModule={activeModule} 
-         closeOtherModules={() => setActiveModule(index)} /> 
-         )}, [courseModules, activeModule] );
+      return courseModules.map((c,index) => 
+        <CourseModule title={new StringMaxLength(c.title, COURSE_TITLE_LENGTH)} 
+          key={index} index={index} activeModule={activeModule} closeOtherModules={() => setActiveModule(index)} /> 
+      )},[courseModules, activeModule] );
 
   return (
     <div className={`course-plan  course-plan--${Level[level]}`} >

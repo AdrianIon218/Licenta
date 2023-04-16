@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import LinkTansition from "../../Features/LinkTransition";
+import axios from "axios";
 
 export default function Login(){
   const email = useRef<HTMLInputElement>(null);
@@ -7,18 +8,28 @@ export default function Login(){
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
-
-    fetch("http://localhost:5000/login/", { method:"POST",
-      body: JSON.stringify({
-        name: email.current!.value,
-        email: password.current!.value
-      }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }}).then(res=>res.json()).then(data => { 
-      email.current!.value = password.current!.value = '';
-      console.log(data);
+    axios.post("http://localhost:5000/login/", {
+       email: email.current!.value, 
+       password: password.current!.value
+    }).then(response => { 
+      const {status} = response.data;
+      password.current!.value = '';
+      switch(status){
+        case 'USER_OK':
+          email.current!.value = '';
+          console.log('ok')
+          break;
+        case 'NO_USER':
+          email.current!.value = '';
+          console.log('no user')
+          break;
+        case 'PASS_INCORECT':
+          console.log('incorect');
+          break;
+        default:
+          console.log('error server')
+          break;
+      }
     }); 
   }
 
