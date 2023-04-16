@@ -1,8 +1,47 @@
-import { useRef } from "react";
+import { useRef, useReducer } from "react";
 import LinkTansition from "../../Features/LinkTransition";
 import axios from "axios";
+import Notification, { NotificationType } from "../../Features/Notfication";
+
+const reducer = (state:{isShown:boolean}, action:{type:'ACCEPTED'|'INVALID_PASS'|'NO_USER'|'SERVER_ERR'|'DEACTIVATE'}) => {
+  switch (action.type) {
+    case "ACCEPTED":
+      return {
+        isShown:true,
+        message:'Te-ai autentificat !',
+        notificationType: NotificationType.SUCCESS
+      }
+    case "INVALID_PASS":
+      return {
+        isShown:true,
+        message:'Parola este incorectă !',
+        notificationType: NotificationType.ERROR
+      }
+    case "NO_USER":
+      return {
+        isShown:true,
+        message:'Nu există utilizator cu această adresă de mail !',
+        notificationType: NotificationType.NO_TYPE
+      }
+    case 'SERVER_ERR':
+      return{
+        isShown:true,
+        message:'Eroare de server, încerca-ți mai târziu !',
+        notificationType: NotificationType.ERROR
+      }
+    default:
+      return{
+        isShown:false,
+        message:'',
+        notificationType: NotificationType.NO_TYPE
+      }
+  }
+};
 
 export default function Login(){
+  const [notification, dispatchNotification] = useReducer(reducer, 
+        {isShown:false, message:'',notificationType:NotificationType.NO_TYPE});
+
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
@@ -14,26 +53,29 @@ export default function Login(){
     }).then(response => { 
       const {status} = response.data;
       password.current!.value = '';
+
       switch(status){
         case 'USER_OK':
           email.current!.value = '';
-          console.log('ok')
+          dispatchNotification({type:'ACCEPTED'});
           break;
         case 'NO_USER':
-          email.current!.value = '';
-          console.log('no user')
+          dispatchNotification({type:'NO_USER'});
           break;
         case 'PASS_INCORECT':
-          console.log('incorect');
+          dispatchNotification({type:'INVALID_PASS'});
           break;
         default:
-          console.log('error server')
+          dispatchNotification({type:'SERVER_ERR'});
           break;
       }
     }); 
   }
 
-  return (<section className="section-gradient header-section u_padding_down--big">
+  return (<>
+  {notification.isShown && <Notification message={notification.message} 
+      type={notification.notificationType} deleteNotification={() => dispatchNotification({type:'DEACTIVATE'})} />}
+   <section className="section-gradient header-section u_padding_down--big">
       <div className="flex-row--centered">
         <div className="box-mountain-bg">
           <div className="box-mountain-bg__form">
@@ -67,5 +109,6 @@ export default function Login(){
           </div>
         </div>
       </div>
-      </section>);
+      </section>
+      </>);
 }
