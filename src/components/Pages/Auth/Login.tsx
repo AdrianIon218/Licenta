@@ -1,13 +1,14 @@
-import { useRef, useReducer } from "react";
+import { useRef, useReducer, useState } from "react";
 import LinkTansition from "../../Features/LinkTransition";
 import axios from "axios";
 import Notification, { NotificationType } from "../../Features/Notfication";
+import { useNavigate } from "react-router-dom";
 
 const reducer = (state:{isShown:boolean}, action:{type:'ACCEPTED'|'INVALID_PASS'|'NO_USER'|'SERVER_ERR'|'DEACTIVATE'}) => {
   switch (action.type) {
     case "ACCEPTED":
       return {
-        isShown:true,
+        isShown:false,
         message:'Te-ai autentificat !',
         notificationType: NotificationType.SUCCESS
       }
@@ -42,6 +43,7 @@ export default function Login(){
   const [notification, dispatchNotification] = useReducer(reducer, 
         {isShown:false, message:'',notificationType:NotificationType.NO_TYPE});
 
+  const [pageTarget, setPage] = useState('');
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
@@ -57,6 +59,8 @@ export default function Login(){
       switch(status){
         case 'USER_OK':
           email.current!.value = '';
+          const {lastLevel} = response.data;
+          setPage(`/Licenta/course-plan/${lastLevel}`);
           dispatchNotification({type:'ACCEPTED'});
           break;
         case 'NO_USER':
@@ -73,6 +77,7 @@ export default function Login(){
   }
 
   return (<>
+  {pageTarget && <LinkTansition to={pageTarget} transitNow={true}> </LinkTansition>}
   {notification.isShown && <Notification message={notification.message} 
       type={notification.notificationType} deleteNotification={() => dispatchNotification({type:'DEACTIVATE'})} />}
    <section className="section-gradient header-section u_padding_down--big">

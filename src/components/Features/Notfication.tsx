@@ -14,7 +14,6 @@ function Notification({message, type, deleteNotification}:LocProps) {
   const notificationRef = useRef<HTMLDivElement>(null);
 
   const hide = () => {
-    console.log(type)
     notificationRef.current!.classList.add('notification--fade-out');
     setTimeout(() => deleteNotification(), 605);
   }
