@@ -2,34 +2,38 @@ import { useRef, useReducer, useState } from "react";
 import LinkTansition from "../../Features/LinkTransition";
 import axios from "axios";
 import Notification, { NotificationType } from "../../Features/Notfication";
-import { useNavigate } from "react-router-dom";
 
 const reducer = (state:{isShown:boolean}, action:{type:'ACCEPTED'|'INVALID_PASS'|'NO_USER'|'SERVER_ERR'|'DEACTIVATE'}) => {
   switch (action.type) {
+
     case "ACCEPTED":
       return {
         isShown:false,
         message:'Te-ai autentificat !',
         notificationType: NotificationType.SUCCESS
       }
+
     case "INVALID_PASS":
       return {
         isShown:true,
         message:'Parola este incorectă !',
         notificationType: NotificationType.ERROR
       }
+
     case "NO_USER":
       return {
         isShown:true,
         message:'Nu există utilizator cu această adresă de mail !',
         notificationType: NotificationType.NO_TYPE
       }
+
     case 'SERVER_ERR':
       return{
         isShown:true,
         message:'Eroare de server, încerca-ți mai târziu !',
         notificationType: NotificationType.ERROR
       }
+      
     default:
       return{
         isShown:false,
@@ -49,10 +53,10 @@ export default function Login(){
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
-    axios.post("http://localhost:5000/login/", {
-       email: email.current!.value, 
-       password: password.current!.value
-    }).then(response => { 
+    const emailEntered = email.current!.value;
+    const passwordEntered = password.current!.value;
+
+    axios.post("http://localhost:5000/login/", { email: emailEntered, password: passwordEntered }).then(response => { 
       const {status} = response.data;
       password.current!.value = '';
 
@@ -60,15 +64,19 @@ export default function Login(){
         case 'USER_OK':
           email.current!.value = '';
           const {lastLevel} = response.data;
-          setPage(`/Licenta/course-plan/${lastLevel}`);
+          sessionStorage.setItem("userAccount", emailEntered);
           dispatchNotification({type:'ACCEPTED'});
+          setPage(`/Licenta/course-plan/${lastLevel}`);
           break;
+
         case 'NO_USER':
           dispatchNotification({type:'NO_USER'});
           break;
+
         case 'PASS_INCORECT':
           dispatchNotification({type:'INVALID_PASS'});
           break;
+
         default:
           dispatchNotification({type:'SERVER_ERR'});
           break;
@@ -78,8 +86,9 @@ export default function Login(){
 
   return (<>
   {pageTarget && <LinkTansition to={pageTarget} transitNow={true}> </LinkTansition>}
-  {notification.isShown && <Notification message={notification.message} 
-      type={notification.notificationType} deleteNotification={() => dispatchNotification({type:'DEACTIVATE'})} />}
+  {notification.isShown && <Notification message={notification.message} type={notification.notificationType}
+           deleteNotification={() => dispatchNotification({type:'DEACTIVATE'})} />}
+  
    <section className="section-gradient header-section u_padding_down--big">
       <div className="flex-row--centered">
         <div className="box-mountain-bg">

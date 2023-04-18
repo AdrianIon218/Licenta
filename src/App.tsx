@@ -20,7 +20,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={ <NoPage />} />
-        <Route path="course-plan/:id" element={<CoursePlan />} />
+        <Route path="course-plan/:id" element={<CoursePlan />} /> 
       </Route>
     </Routes> 
   </Router>);

@@ -1,32 +1,36 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
+import { navListLogedin } from "../../data/ts-data/navLists";
+import { navListNotLogedin } from '../../data/ts-data/navLists';
 
 interface ILocProps {
-  navList: {
-    btn: string; 
-    to: string; 
-    icon: string;
-  }[]
+  btn: string; 
+  to: string; 
+  icon: string;
 };
 
-export default function MainMenu(props:ILocProps){
+const MainMenu = () => {
   const [showMenu, setShownMenu] = useState(false);
-  const triggerMenu = () => setShownMenu(oltState=>!oltState);
-
-  const {navList} = props;
+  const [menuList, setMenuList] = useState<ILocProps[]>(navListNotLogedin);
+  const triggerMenu = () => {
+    if(sessionStorage.getItem("userAccount")){
+      setMenuList(navListLogedin);
+    }
+    setShownMenu(oltState => !oltState);
+  };
 
   const linkClick= () => {
     triggerMenu();
   }
 
   const navButtons = useMemo(() => 
-      navList.map((item,index) => 
+    menuList.map((item,index) => 
         <li key={index} className="navigation__list__item">
           <Link to={item.to} className="navigation__link" onClick={linkClick}>
             <i className={item.icon}/> &nbsp;&nbsp;{item.btn}
           </Link>
-        </li>), []);
+        </li>), [menuList]);
 
   return(<div className="navigation u-disabled-user-selector">
     <div className="navigation__btn" onClick={triggerMenu}>
@@ -40,3 +44,5 @@ export default function MainMenu(props:ILocProps){
     </nav>
     </div>);
 }
+
+export default MainMenu;
