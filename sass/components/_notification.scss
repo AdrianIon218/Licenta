@@ -1,5 +1,5 @@
 .notification{
-    display:block;
+    display: block;
     position: fixed;
     top:0.3rem;
     border-radius: 1rem;
@@ -38,6 +38,11 @@
     &--error{
       background-color: $backgound-orange;
       color:$color-red-dark;
+    }
+
+    &--warning{
+      background-color: $backgound-orange;
+      color:$color-yellow-5;
     }
 
     @include respond(phone){

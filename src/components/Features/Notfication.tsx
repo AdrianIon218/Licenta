@@ -19,6 +19,7 @@ function Notification({message, type, deleteNotification}:LocProps) {
   }
 
   useEffect(() => {
+
     setTimeout(()=>{
         if(notificationRef.current!==null)
         {
@@ -28,8 +29,10 @@ function Notification({message, type, deleteNotification}:LocProps) {
   },[]);
   
   return (
-    <div className={`notification ${type === NotificationType.ERROR ? 'notification--error': 
-            type === NotificationType.SUCCESS ? 'notification--success':''}`} ref={notificationRef}>
+    <div className={`notification 
+        ${type === NotificationType.ERROR ? 'notification--error': 
+          type === NotificationType.SUCCESS ? 'notification--success':
+          type === NotificationType.WARNING && 'notification--warning'}`} ref={notificationRef}>
       {message}
       <span className='notification__exit' onClick={hide}>&times;</span>
     </div>

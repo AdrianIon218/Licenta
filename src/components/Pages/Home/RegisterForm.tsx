@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import RadioButton from "../../Features/RadioButton";
 import LinkTansition from "../../Features/LinkTransition";
+import axios from "axios";
+import Notification, { NotificationType } from "../../Features/Notfication";
 
 enum KnowlegdeLevel {
   BEGGINER, INTERMEDIATE, ADVANCED
@@ -8,13 +10,30 @@ enum KnowlegdeLevel {
 
 export default function RegisterForm(){
   const [level, setLevel] = useState(KnowlegdeLevel.BEGGINER);
+  const [warningNotification, setNotification] = useState(false);
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
-    
+    const username = usernameRef.current!.value; 
+    const emailEntered = emailRef.current!.value;
+    axios.post("http://localhost:5000/signup/checkemail", { email: emailEntered }).then(response => {
+       const {isEmailAvailable} = response.data;
+       if(isEmailAvailable){
+        
+       }
+       else{
+        setNotification(true);
+       }
+    });
   }
+  
+  return (<>
+  {warningNotification && <Notification message="Adresa de mail e deja folosită !" type={NotificationType.WARNING} 
+   deleteNotification={() => setNotification(false)} />}
 
-  return (<div className="flex-row--centered">
+  <div className="flex-row--centered">
     <div className="box-mountain-bg">
       <div className="box-mountain-bg__form">
         <form onSubmit={submit} className="forn">
@@ -25,18 +44,18 @@ export default function RegisterForm(){
             <span className="span-header-block">
             ai cont deja ? &ensp;
               <span className='span-pointer'>
-                <LinkTansition to="/Licenta/login"  icon="fas fa-sign-in-alt" />
+                <LinkTansition to="/Licenta/login" icon="fas fa-sign-in-alt" />
               </span>
             </span>
           </div>
 
           <div className="form__group">
-            <input type="text" className="form__input" placeholder="Nume complet *" id="name" required />
+            <input type="text" className="form__input" placeholder="Nume complet *" id="name" ref={usernameRef} required />
             <label htmlFor="name" className="form__label form__label__required">Nume complet</label>
           </div>
 
           <div className="form__group">
-            <input type="email" className="form__input" placeholder="Adresă de email *" id="email" required />
+            <input type="email" className="form__input" placeholder="Adresă de email *" id="email" ref={emailRef} required />
             <label htmlFor="email" className="form__label form__label__required">Adresă de email</label>
           </div>
           
@@ -58,5 +77,5 @@ export default function RegisterForm(){
           </form>
         </div>
       </div>
-    </div>);
+    </div> </>);
 }
