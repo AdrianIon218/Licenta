@@ -13,24 +13,41 @@ export default function RegisterForm(){
   const [warningNotification, setNotification] = useState(false);
   const usernameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
-    const username = usernameRef.current!.value; 
     const emailEntered = emailRef.current!.value;
-    axios.post("http://localhost:5000/signup/checkemail", { email: emailEntered }).then(response => {
+    axios.post("http://localhost:5000/signup/checkemail", { email: emailEntered }).
+    then(response => 
+      {
        const {isEmailAvailable} = response.data;
+       
        if(isEmailAvailable){
-        
+        const username = usernameRef.current!.value; 
+        const password = passRef.current!.value;
+        return axios.post("http://localhost:5000/signup/addNewUser", { email: emailEntered, name: username, password:password });
        }
        else{
         setNotification(true);
        }
+      }).
+    then(res => {
+      
     });
+  }
+
+  function togglePassVisibility(){
+    if(passRef.current!.type === 'password'){
+      passRef.current!.type = 'text';
+    }
+    else{
+      passRef.current!.type = 'password';
+    }
   }
   
   return (<>
-  {warningNotification && <Notification message="Adresa de mail e deja folosită !" type={NotificationType.WARNING} 
+  {warningNotification && <Notification message="Adresa de mail este deja folosită !" type={NotificationType.WARNING} 
    deleteNotification={() => setNotification(false)} />}
 
   <div className="flex-row--centered">
@@ -59,14 +76,25 @@ export default function RegisterForm(){
             <label htmlFor="email" className="form__label form__label__required">Adresă de email</label>
           </div>
           
+          <div className="form__group">
+            <input type="password" minLength={6} className="form__input" placeholder="Parolă de minim 6 caractere *" id="password" ref={passRef} required />
+            <label htmlFor="password" className="form__label form__label__required">Parolă</label>
+            
+            <div className="form__group form__group__checkbox mo">
+              <input type="checkbox" className="form__checkbox" onClick={togglePassVisibility} name="pass_toggle"/> 
+              <label htmlFor="pass_toggle" className="form__label">Arată parola</label>
+            </div>
+          </div>
+          
+          
           <div className="form__group u-margin-bottom-intermediate">
             <h3 className="form__sub-heading">Care este nivelul tău de germană ?</h3>
-            <RadioButton id="beginner" name="level" value={KnowlegdeLevel.BEGGINER} change={() => setLevel(KnowlegdeLevel.BEGGINER)} label="Începător" validate={()=>level === KnowlegdeLevel.BEGGINER} />
+            <RadioButton id="beginner" name="level" value={KnowlegdeLevel.BEGGINER} change={() => setLevel(KnowlegdeLevel.BEGGINER)} label="Începător  (A1-A2)" validate={()=>level === KnowlegdeLevel.BEGGINER} />
 
-            <RadioButton id="intermediate" name="level" value={KnowlegdeLevel.INTERMEDIATE} change={() => setLevel(KnowlegdeLevel.INTERMEDIATE)} label="Intermediar" validate={()=>level === KnowlegdeLevel.INTERMEDIATE} />
+            <RadioButton id="intermediate" name="level" value={KnowlegdeLevel.INTERMEDIATE} change={() => setLevel(KnowlegdeLevel.INTERMEDIATE)} label="Intermediar  (B1-B2)" validate={()=>level === KnowlegdeLevel.INTERMEDIATE} />
 
             <RadioButton id="advanced" name="level" value={KnowlegdeLevel.ADVANCED}
-            change={() => setLevel(KnowlegdeLevel.ADVANCED)} label="Avansat" validate={()=>level === KnowlegdeLevel.ADVANCED} />
+            change={() => setLevel(KnowlegdeLevel.ADVANCED)} label="Avansat  (C1-C2)" validate={()=>level === KnowlegdeLevel.ADVANCED} />
             </div>
             
             <div className="form__group">
