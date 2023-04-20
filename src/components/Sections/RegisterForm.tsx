@@ -14,10 +14,13 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
   const usernameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passRef = useRef<HTMLInputElement>(null);
+  const [pageTarget, setPage] = useState('');
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
     const emailEntered = emailRef.current!.value;
+    const currentLevel = level === KnowlegdeLevel.ADVANCED ? 'C1' :
+           level === KnowlegdeLevel.BEGGINER ? 'A1' : 'B1' ;
     axios.post("http://localhost:5000/signup/checkemail", { email: emailEntered }).
     then(response => 
       {
@@ -26,14 +29,18 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
        if(isEmailAvailable){
         const username = usernameRef.current!.value; 
         const password = passRef.current!.value;
-        return axios.post("http://localhost:5000/signup/addNewUser", { email: emailEntered, name: username, password:password,level:level });
+
+        return axios.post("http://localhost:5000/signup/addNewUser", { email: emailEntered, name: username, password:password, level:currentLevel });
        }
        else{
         setNotification(true);
        }
       }).
-    then(res => {
-      
+    then(resAddUser => {
+      if(resAddUser?.data.isUserAdded){
+        sessionStorage.setItem('userAccount',emailEntered);
+        setPage(`/Licenta/course-plan/${currentLevel}`); 
+      }
     });
   }
 
@@ -48,6 +55,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
   
   return (<>{ warningNotification && <Notification message="Adresa de mail este deja folosită !" type={NotificationType.WARNING} 
    deleteNotification={() => setNotification(false)} />}
+   {pageTarget && <LinkTansition to={pageTarget} transitNow={true}> </LinkTansition>}
 
  <section className={location === 'home' ? "section-sign-up between-section u_padding_down--med":"header-section u_padding_down--big section-gradient"}>
   <div className="flex-row--centered">
@@ -81,8 +89,8 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
             <label htmlFor="password" className="form__label form__label__required">Parolă</label>
             
             <div className="form__group form__group__checkbox">
-              <input type="checkbox" className="form__checkbox" onClick={togglePassVisibility} name="pass_toggle"/> 
               <label htmlFor="pass_toggle" className="form__label">Arată parola</label>
+              <input type="checkbox" className="form__checkbox" onClick={togglePassVisibility} name="pass_toggle" id="pass_toggle" /> 
             </div>
           </div>
           

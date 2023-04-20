@@ -51,12 +51,12 @@
       display:flex;
       flex-direction: row;
       align-items:center;
-      input{
+      .form__checkbox{
         align-self: center;
+        margin-left:7px;
       }
 
       label{
-        margin-left:3px;
         padding-bottom: 7px;
       }
     }
