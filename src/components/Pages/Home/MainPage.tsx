@@ -2,7 +2,7 @@ import Header from './Header';
 import AboutSection from './AboutSection';
 import TestSection from './TestSection';
 import CoursesSection from '../../Sections/CoursesSection';
-import RegisterForm from './RegisterForm';
+import RegisterForm from '../../Sections/RegisterForm';
 
 export default function MainPage(){
 
@@ -12,10 +12,7 @@ export default function MainPage(){
       <AboutSection />
       <TestSection />
       <CoursesSection />
-      
-      <section className="section-sign-up between-section u_padding_down--med">
-        <RegisterForm /> 
-      </section>
+      <RegisterForm location="home" /> 
     </main> 
     </>);
 }

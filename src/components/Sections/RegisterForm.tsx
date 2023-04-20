@@ -1,14 +1,14 @@
 import { useState, useRef } from "react";
-import RadioButton from "../../Features/RadioButton";
-import LinkTansition from "../../Features/LinkTransition";
+import RadioButton from "../Features/RadioButton";
+import LinkTansition from "../Features/LinkTransition";
 import axios from "axios";
-import Notification, { NotificationType } from "../../Features/Notfication";
+import Notification, { NotificationType } from "../Features/Notfication";
 
 enum KnowlegdeLevel {
   BEGGINER, INTERMEDIATE, ADVANCED
 };
 
-export default function RegisterForm(){
+export default function RegisterForm({location}:{location:'home'|'register'}){
   const [level, setLevel] = useState(KnowlegdeLevel.BEGGINER);
   const [warningNotification, setNotification] = useState(false);
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -26,7 +26,7 @@ export default function RegisterForm(){
        if(isEmailAvailable){
         const username = usernameRef.current!.value; 
         const password = passRef.current!.value;
-        return axios.post("http://localhost:5000/signup/addNewUser", { email: emailEntered, name: username, password:password });
+        return axios.post("http://localhost:5000/signup/addNewUser", { email: emailEntered, name: username, password:password,level:level });
        }
        else{
         setNotification(true);
@@ -46,10 +46,10 @@ export default function RegisterForm(){
     }
   }
   
-  return (<>
-  {warningNotification && <Notification message="Adresa de mail este deja folosită !" type={NotificationType.WARNING} 
+  return (<>{ warningNotification && <Notification message="Adresa de mail este deja folosită !" type={NotificationType.WARNING} 
    deleteNotification={() => setNotification(false)} />}
 
+ <section className={location === 'home' ? "section-sign-up between-section u_padding_down--med":"header-section u_padding_down--big section-gradient"}>
   <div className="flex-row--centered">
     <div className="box-mountain-bg">
       <div className="box-mountain-bg__form">
@@ -80,12 +80,11 @@ export default function RegisterForm(){
             <input type="password" minLength={6} className="form__input" placeholder="Parolă de minim 6 caractere *" id="password" ref={passRef} required />
             <label htmlFor="password" className="form__label form__label__required">Parolă</label>
             
-            <div className="form__group form__group__checkbox mo">
+            <div className="form__group form__group__checkbox">
               <input type="checkbox" className="form__checkbox" onClick={togglePassVisibility} name="pass_toggle"/> 
               <label htmlFor="pass_toggle" className="form__label">Arată parola</label>
             </div>
           </div>
-          
           
           <div className="form__group u-margin-bottom-intermediate">
             <h3 className="form__sub-heading">Care este nivelul tău de germană ?</h3>
@@ -105,5 +104,6 @@ export default function RegisterForm(){
           </form>
         </div>
       </div>
-    </div> </>);
+    </div>
+   </section> </>);
 }
