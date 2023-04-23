@@ -1,6 +1,4 @@
-export enum IconStatus{
-  NO_PROGRESS , STAR_1, STAR_2, STAR_3
-}
+import { IconStatus } from "../Helpers/commonInterfaces";
 import { useContext } from "react";
 import { Level } from "../Helpers/constants";
 import { CourseCtx } from "./CourseContext";

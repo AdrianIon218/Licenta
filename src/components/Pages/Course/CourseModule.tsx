@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import CourseBtn from '../../Features/CourseBtn';
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { Level } from "../../Helpers/constants";
 import { CourseCtx } from "../../Features/CourseContext";
-import { IconStatus } from "../../Features/CourseBtn";
+import { IconStatus, lessonItem } from "../../Helpers/commonInterfaces";
 
 interface LocProps{
     title:StringMaxLength,
     activeModule:number,
     index:number,
     closeOtherModules:()=>void,
+    lessons:lessonItem[]
 }
 
-function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) {
+function CourseModule({title, activeModule, index, closeOtherModules, lessons}:LocProps) {
   const [isModuleExpanded ,setModuleExpanded] = useState(false);
   const currentLevelStr = Level[useContext(CourseCtx)!.courseLvl];
 
@@ -31,6 +32,10 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
    }
   },[activeModule]);
 
+  const lessonsJSX = useMemo(()=>{
+   return lessons.map((l,index)=> <CourseBtn status={l.status ?? IconStatus.NO_PROGRESS} key={index}>{l.title}</CourseBtn>);
+  },[lessons]);
+
   return (
     <div className="course__module flex-element"  tabIndex={index}>
       <div className="course__module__title u-center-text" onClick={triggerExpandedModule}>
@@ -41,11 +46,7 @@ function CourseModule({title, activeModule, index, closeOtherModules}:LocProps) 
       </div>
       <div className={`course__module__ctn ${isModuleExpanded && 'course__module__ctn--open'}`}>
         <div className={`flex-column--start course__module__ctn__list course__module__ctn__list--${currentLevelStr} ${isModuleExpanded && 'course__module__ctn__list--open'}`}>
-          <CourseBtn status={IconStatus.NO_PROGRESS}>Buna ziua</CourseBtn>
-          <CourseBtn status={IconStatus.STAR_1}>Buna ziua</CourseBtn>
-          <CourseBtn status={IconStatus.STAR_2}>Buna ziua</CourseBtn>
-          <CourseBtn status={IconStatus.STAR_3}>Buna ziua</CourseBtn>
-          <CourseBtn status={IconStatus.STAR_1}>Buna ziua</CourseBtn>
+          {lessonsJSX}
         </div>
       </div>
     </div>
