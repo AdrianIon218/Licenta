@@ -1,1 +1,0 @@
-import{u as t,r as a,a as s,F as r}from"./index-3b656e50.js";function n(){const e=t();return a.useEffect(()=>{sessionStorage.removeItem("userAccount"),e("/Licenta/")},[]),s(r,{})}export{n as default};
