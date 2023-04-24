@@ -20,14 +20,17 @@ const MainMenu = () => {
     setShownMenu(oltState => !oltState);
   };
 
-  const linkClick= () => {
+  const linkClick= (btn:string) => {
     triggerMenu();
+    if(btn==="Deconectare"){
+      setTimeout(()=>setMenuList(navListNotLogedin), 500);
+    }
   }
 
   const navButtons = useMemo(() => 
     menuList.map((item,index) => 
         <li key={index} className="navigation__list__item">
-          <Link to={item.to} className="navigation__link" onClick={linkClick}>
+          <Link to={item.to} className="navigation__link" onClick={e => linkClick(item.btn)}>
             <i className={item.icon}/> &nbsp;&nbsp;{item.btn}
           </Link>
         </li>), [menuList]);

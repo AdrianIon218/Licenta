@@ -54,7 +54,7 @@ export default function CardCourse(props:IPropsCardCourse){
           <p>{props.estimationWeeks} săptămâni</p>
         </div>
         <LinkTansition to={`/Licenta/course-plan/${props.heading}`} className="btn btn--white card__back-btn"> 
-          Începe cursul <i className="fas fa-play u-margin-left-small" /> 
+          Vezi cursul <i className="fas fa-play u-margin-left-small" /> 
         </LinkTansition>
       </div>
 
