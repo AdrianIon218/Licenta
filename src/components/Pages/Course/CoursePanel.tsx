@@ -26,23 +26,8 @@ function CoursePanel({level}:LocProps) {
   useEffect(()=>{
     const user = sessionStorage.getItem('userAccount');
     
-    if(!user){
-      axios.get('http://localhost:5000/course_modules', {params: {level: Level[level]}}).
-       then((res)=>{
-        const {lessons: lessonsRetrived, modules: modulesRetrieved} = res.data;
-        const modules = modulesRetrieved.
-          map((m: {id:number, title:string }) => {
-            return { title: m.title,
-              lessons: lessonsRetrived.filter((l:lessonItem) => l.moduleId === m.id)
-            };
-          });
-        setCourseModules({modules:modules});
-       });
-    }
-    else
-    {
-      axios.get('http://localhost:5000/course_modules', {params: {level: Level[level], email:user}}).
-       then((res)=>{
+    axios.get('http://localhost:5000/course_modules', {params: {level: Level[level], email:user}}).
+      then((res)=>{
         const {lessons: lessonsRetrived, modules: modulesRetrieved} = res.data;
         
         let modules = modulesRetrieved.
@@ -52,10 +37,15 @@ function CoursePanel({level}:LocProps) {
             };
           });
         
-        const {finishedLessons} = res.data;
-        setCourseModules({modules:modules, finishedLessons:finishedLessons});
+        if(user){
+          const {finishedLessons} = res.data;
+          setCourseModules({modules:modules, finishedLessons:finishedLessons});
+        }
+        else{
+          setCourseModules({modules:modules});
+        }
        });
-    }
+
   }, []);
 
   const courseModulesJSX = useMemo(() => {
@@ -70,9 +60,9 @@ function CoursePanel({level}:LocProps) {
                 }
               }) : c.lessons;
         
-        return (<CourseModule title={new StringMaxLength(c.title, COURSE_TITLE_LENGTH)} 
+        return Lessons.length > 0 ? (<CourseModule title={new StringMaxLength(c.title, COURSE_TITLE_LENGTH)} 
           key={index} index={index} activeModule={activeModule} lessons={Lessons}
-          closeOtherModules={() => setActiveModule(index)} /> )
+          closeOtherModules={() => setActiveModule(index)} /> ) : undefined;
         }
       )},[courseModules, activeModule]);
 
