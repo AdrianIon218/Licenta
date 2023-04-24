@@ -11,6 +11,7 @@ function App() {
   const RegisterForm = lazy(() => import("./components/Sections/RegisterForm"));
   const Contacts = lazy(() => import("./components/Pages/Contacts"));
   const CoursePlan = lazy(() => import("./components/Pages/Course/CoursePlan"));
+  const CoursesSection = lazy(()=> import("./components/Sections/CoursesSection"));
 
   return (<Router>
     <Routes>
@@ -21,6 +22,7 @@ function App() {
         <Route path="signup" element={<RegisterForm location="register"/>} />
         <Route path="*" element={ <NoPage />} />
         <Route path="course-plan/:id" element={<CoursePlan />} /> 
+        <Route path="courses" element={<CoursesSection location='own-page'/>} />
       </Route>
     </Routes> 
   </Router>);

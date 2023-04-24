@@ -1,8 +1,9 @@
 import CardCoure from "../Features/CardCourse";
 import { AvailableCourses } from "../../data/ts-data/availableCourses";
 
-export default function CoursesSection(){
-  return (<section className="section-courses between-section" id="section-course-id"> 
+export default function CoursesSection({location}:{location:'home'|'own-page'}){
+
+  return (<section className={`section-courses ${location === 'home'? 'section-courses--between between-section':'header-section'} `} id="section-course-id"> 
     <div className="u-center-text u-margin-bottom-medium">
       <h2 className="heading-secondary">
       Cursuri disponibile

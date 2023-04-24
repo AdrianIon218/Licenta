@@ -11,7 +11,7 @@ export default function MainPage(){
     <main >
       <AboutSection />
       <TestSection />
-      <CoursesSection />
+      <CoursesSection location='home' />
       <RegisterForm location="home" /> 
     </main> 
     </>);
