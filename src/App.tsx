@@ -11,7 +11,6 @@ function App() {
   const RegisterForm = lazy(() => import("./components/Sections/RegisterForm"));
   const Contacts = lazy(() => import("./components/Pages/Contacts"));
   const CoursePlan = lazy(() => import("./components/Pages/Course/CoursePlan"));
-  const SignOut = lazy(() => import("./components/Pages/Auth/Signout"));
 
   return (<Router>
     <Routes>
@@ -22,7 +21,6 @@ function App() {
         <Route path="signup" element={<RegisterForm location="register"/>} />
         <Route path="*" element={ <NoPage />} />
         <Route path="course-plan/:id" element={<CoursePlan />} /> 
-        <Route path="signOut" element={<SignOut />} />
       </Route>
     </Routes> 
   </Router>);

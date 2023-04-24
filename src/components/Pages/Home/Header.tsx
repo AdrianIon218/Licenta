@@ -15,7 +15,7 @@ export default function Header(){
         </span>
       </h1>
       <a href="#section-course-id" className='btn btn--white btn--animated'>
-        Începe un curs
+        Vezi cursurile
       </a>
     </div>
   </header>

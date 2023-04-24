@@ -19,10 +19,11 @@ const MainMenu = () => {
     }
     setShownMenu(oltState => !oltState);
   };
-
+ 
   const linkClick= (btn:string) => {
     triggerMenu();
     if(btn==="Deconectare"){
+      sessionStorage.removeItem('userAccount');
       setTimeout(()=>setMenuList(navListNotLogedin), 500);
     }
   }
