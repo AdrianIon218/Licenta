@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import CourseBtn from '../../Features/CourseBtn';
+import LessonBtn from '../../Features/LessonBtn';
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { Level } from "../../Helpers/constants";
 import { CourseCtx } from "../../Features/CourseContext";
@@ -33,7 +33,7 @@ function CourseModule({title, activeModule, index, closeOtherModules, lessons}:L
   },[activeModule]);
 
   const lessonsJSX = useMemo(()=>{
-   return lessons.map((l,index)=> <CourseBtn status={l.status ?? IconStatus.NO_PROGRESS} key={index}>{l.title}</CourseBtn>);
+   return lessons.map((l,index) => <LessonBtn status={l.status ?? IconStatus.NO_PROGRESS} lessonId={l.id} moduleId={l.moduleId} key={index}>{l.title}</LessonBtn>);
   },[lessons]);
 
   return (

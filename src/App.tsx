@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 
 import MainLayout from './components/Layouts/MainLayout';
+import LessonLayout from './components/Layouts/LessonLayout';
 
 function App() {
   const MainPage = lazy(() => import("./components/Pages/Home/MainPage")); 
@@ -15,6 +16,9 @@ function App() {
 
   return (<Router>
     <Routes>
+      <Route path="/Licenta/lesson" element={<LessonLayout />}>
+        <Route index element={<NoPage />} />
+      </Route>
       <Route path="/Licenta/" element={<MainLayout />} >
         <Route index element={<MainPage />} />
         <Route path="login" element={<Login />} />
