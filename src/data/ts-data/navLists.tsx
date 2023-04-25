@@ -7,8 +7,7 @@ export const navListNotLogedin = [
 
 export const navListLogedin = [
   {btn:"Pagina principală", to:"/Licenta/", icon:'fas fa-home'},
-  {btn:"Profilul meu", to:"/Licenta/myProfile", icon:"fas fa-pen"},
   {btn:"Deconectare", to:"/Licenta/", icon:"fas fa-door-closed"},
   {btn:"Cursuri", to:"/Licenta/courses", icon:"far fa-clipboard"},
-  {btn:"Contacte", to:"/Licenta/contacts", icon:'far fa-envelope-open'},
+  {btn:"Suport", to:"/Licenta/contacts", icon:'far fa-envelope-open'},
 ];
