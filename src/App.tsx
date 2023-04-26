@@ -13,11 +13,12 @@ function App() {
   const Contacts = lazy(() => import("./components/Pages/Contacts"));
   const CoursePlan = lazy(() => import("./components/Pages/Course/CoursePlan"));
   const CoursesSection = lazy(()=> import("./components/Sections/CoursesSection"));
+  const LessonContainer = lazy(()=>import("./components/Pages/Lesson/LessonContainer"));
 
   return (<Router>
     <Routes>
       <Route path="/Licenta/lesson" element={<LessonLayout />}>
-        <Route index element={<NoPage />} />
+        <Route index element={<LessonContainer />} />
       </Route>
       <Route path="/Licenta/" element={<MainLayout />} >
         <Route index element={<MainPage />} />

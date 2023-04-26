@@ -1,0 +1,109 @@
+.lesson-section{
+    background-color: $section-color;
+    padding: 2rem .8rem;
+    border-radius: 1rem;
+    border: $section-border;
+    height: 93vh;
+    box-sizing: border-box;
+    width: calc(100vw - 2.2rem);
+    position: relative;
+
+    .lesson__exit{
+      display: block;
+      position: absolute;
+      right: -.8rem;
+      top: -.7rem;
+      
+      &__btn{
+        color:$color-red-dark;
+        text-decoration: none;
+        font-size: 1.6rem;
+        font-weight: 800;
+        padding:0 7px;
+        border:2px dashed $color-red-dark;
+        border-radius: 30%;
+        cursor:pointer;
+        background-color: $color-red-light;
+        transition: all .4s;
+
+       &:hover{
+          color:$color-red-dark;
+          text-shadow:  0 0 3px $color-red-dark;
+          box-shadow: rgba($color-red-dark, 0.4) 0px 2px 4px, rgba($color-red-dark, 0.3) 0px 7px 13px -3px, rgba($color-red-dark, 0.2) 0px -3px 0px inset;
+       }
+
+       &:active{
+        transform: translate(0,5px);
+       }
+     }
+    }
+}
+
+.lesson-ctn{
+   display: block;
+   height: 100%;
+   border-radius: 1rem;
+   background-color: $color-white;
+   background-image: $gradient-gray-white;
+   border: 2px solid $color-blue-dark;
+   padding: 4px;
+   overflow-y: scroll;
+
+   &::-webkit-scrollbar {
+    padding: 5px;
+    width: 15px;
+    border-radius: 10px;
+    background-color: transparent; 
+
+    &-thumb {
+      border:2px  $color-blue-darker solid;
+      border-radius: 10px;
+      background-color: $color-blue-dark; 
+    }
+  }
+}
+
+.lesson__progress-bar{
+    position:absolute;
+    bottom: .5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.progress-bar{
+    &__box{
+     border-radius: 1rem;
+     height: .7rem;
+     width: 80%;
+     border: 2px solid $color-blue-darker;
+     background-color: $color-white-max;
+     padding: 0;
+    }
+
+    &__grid-half{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: $color-secondary-dark;
+        left:50%;
+        transform: translateX(-50%);
+    }
+    
+    &__loading{
+      border-radius: 1rem;
+      height: 100%;
+      background-color: $color-blue-mid;
+      width: 50%;
+      position: relative;      
+    }
+}
+
+.start-view__ctn{
+  height: 100%;
+   
+  & > h1{
+    margin-bottom: 3rem;
+  }
+}

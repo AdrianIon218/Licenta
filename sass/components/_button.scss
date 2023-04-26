@@ -54,7 +54,7 @@
   }
 
   &--blue{
-    @include btn-color(lighten($color-blue-light, 13%), lighten($color-blue-dark,5%));
+    @include btn-color(lighten($color-blue-light, 20%), lighten($color-blue-dark,5%));
   }
 
   &--animated{
