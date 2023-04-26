@@ -1,0 +1,1 @@
+import{j as n,a as e}from"./index-060b5de1.js";function s({title:a}){return n("div",{className:"flex-column--centered start-view__ctn",children:[e("h1",{className:"heading-secondary",children:a}),e("button",{className:"btn btn--blue",children:"Începe lecția"})]})}export{s as default};
