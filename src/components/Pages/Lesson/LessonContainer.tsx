@@ -26,9 +26,6 @@ function LessonContainer() {
     }
   },[]);
 
-  const goBack = useCallback(()=>{
-    
-  },[]);
  
   return (
     <section className='lesson-section'>

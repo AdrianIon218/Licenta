@@ -138,6 +138,12 @@
   border: 2px solid $color-secondary-dark;
   position: relative;
 
+  & > h3{
+    color: $color-blue-dark;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
   .btn_exit_ctn{
     display: block;
     position: absolute;
@@ -160,4 +166,9 @@
       }
     } 
   }
+}
+
+.lesson-btn{
+  padding: 2px 6px;
+  border-radius: .7rem;
 }
