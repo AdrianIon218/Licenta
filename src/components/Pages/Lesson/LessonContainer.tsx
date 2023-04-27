@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 import LessonController from './LessonController';
+import LessonExitButton from './LessonExitButton';
 
 function LessonContainer() {
   const [lessonInfo, setLessonInfo] = useState({lessonId:-1, moduleId:-1, lessonTitle:''});
@@ -26,16 +27,12 @@ function LessonContainer() {
   },[]);
 
   const goBack = useCallback(()=>{
-    navigate(-1);
+    
   },[]);
  
   return (
     <section className='lesson-section'>
-     <div className="lesson__exit">
-        <button className='lesson__exit__btn' onClick={() => goBack()}>
-            &times;
-        </button>
-     </div>
+      <LessonExitButton />
       <div className="lesson-ctn">
         <LessonController {...lessonInfo} setProgressBar={setProgressBar}/>
       </div>

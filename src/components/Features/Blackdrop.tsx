@@ -15,7 +15,6 @@ export default function Blackdrop(props:IBlackdropProps){
 
   function breakPropagation(event:React.MouseEvent<HTMLDivElement, MouseEvent>){
     event.stopPropagation();
-
   }
 
   return (<section className='blackdrop' id={props.popupId} onClick={exitBackdrop}>
