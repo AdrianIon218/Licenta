@@ -1,4 +1,5 @@
 import { lazy, useEffect, useState } from "react";
+import LessonView from "./Views/LessonView";
 
 interface LocProps{
     lessonId:number, 
@@ -9,7 +10,7 @@ interface LocProps{
 };
 
 enum ViewStage {
-    START, NEXT
+    START, LESSON, EXERCISE
 }
 const StartView = lazy(()=>import('./Views/StartView'));
 
@@ -18,13 +19,13 @@ function LessonController(props:LocProps) {
 
    const startClickHandler = ()=>{
     props.triggerTransition();
-    setTimeout(()=>setStage(ViewStage.NEXT), 450);
+    setTimeout(()=>setStage(ViewStage.LESSON), 450);
    }
 
    return (
     <>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={startClickHandler} />}
-     {stage === ViewStage.NEXT && props.lessonTitle}
+     {stage === ViewStage.LESSON && <LessonView />}
     </>
   )
 }
