@@ -1,13 +1,14 @@
 interface LocProps{
-  title:string
+  title:string,
+  startClickHandler: ()=> void
 }
 
-function StartView({title}:LocProps) {
+function StartView(props:LocProps) {
   
   return (
     <div className="flex-column--centered start-view__ctn">
-        <h1 className="heading-secondary">{title}</h1>
-        <button className="btn btn--blue">Start</button>
+        <h1 className="heading-secondary">{props.title}</h1>
+        <button className="btn btn--blue" onClick={props.startClickHandler}>Start</button>
     </div>
   )
 }

@@ -64,7 +64,7 @@ export default function Login(){
         case 'USER_OK':
           email.current!.value = '';
           const {lastLevel} = response.data;
-          sessionStorage.setItem("userAccount", emailEntered);
+          localStorage.setItem("userAccount", emailEntered);
           dispatchNotification({type:'ACCEPTED'});
           setPage(`/Licenta/course-plan/${lastLevel}`);
           break;

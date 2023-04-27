@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 export default function MainPage(){
   const [displayRegisterForm, setDisplayRegisterForm] = useState(true);
   useEffect(()=>{
-    if(sessionStorage.getItem('userAccount')){
+    if(localStorage.getItem('userAccount')){
       setDisplayRegisterForm(false);
     }
   },[]);

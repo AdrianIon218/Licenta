@@ -38,7 +38,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
       }).
     then(resAddUser => {
       if(resAddUser?.data.isUserAdded){
-        sessionStorage.setItem('userAccount',emailEntered);
+        localStorage.setItem('userAccount',emailEntered);
         setPage(`/Licenta/course-plan/${currentLevel}`); 
       }
     });

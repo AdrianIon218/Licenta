@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface LocProps{
@@ -6,24 +6,30 @@ interface LocProps{
 }
 
 function ExitMessage(props:LocProps) {
+  const [closeMessage, setCloseMessage] = useState(false);
   const  navigate = useNavigate();
   const closeLesson = useCallback(()=>{
     sessionStorage.setItem('lessonId', '');
     sessionStorage.setItem('moduleId', '');
     sessionStorage.setItem('lessonTitle', '');
-    navigate(-1);
+    setCloseMessage(true);
+    setTimeout( ()=>navigate(-1), 410);
+  },[]);
+  const closeMessageHandler = useCallback(()=>{
+    setCloseMessage(true);
+    setTimeout( ()=>props.closeBk(), 350);
   },[]);
 
   return (
-    <div className="exit_message__blackdrop ">
+    <div className={`exit_message__blackdrop ${closeMessage && 'exit_message__blackdrop--close'}`}>
       <div className="exit_message__box flex-column--centered">
          <div className='btn_exit_ctn'>
-            <div className="btn_exit" onClick={props.closeBk}> &times; </div>
+            <div className="btn_exit" onClick={closeMessageHandler}> &times; </div>
          </div>
          <h3> Sigur dorești să închizi lecția ? </h3> 
          <div className="flex-row--centered">
           <div className="btn btn--white lesson-btn" onClick={closeLesson}> Da </div>
-          <div className="btn btn--blue lesson-btn" onClick={props.closeBk}> Nu </div>
+          <div className="btn btn--blue lesson-btn" onClick={closeMessageHandler}> Nu </div>
          </div>
       </div>
     </div>

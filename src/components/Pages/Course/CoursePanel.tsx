@@ -18,13 +18,14 @@ interface ModuleData{
 
 function CoursePanel({level}:LocProps) {
   const [activeModule, setActiveModule] = useState(-1);
-  useContext(CourseCtx)!.setCourseLvl(level);
+  const courseCtx = useContext(CourseCtx);
 
   const [courseModules, setCourseModules] = useState< {modules:Array<ModuleData>, 
     finishedLessons?:{ lessonId:number, progressStatus:'good'|'very good'|'perfect' }[]}>( {modules:[]} );
-  
+
   useEffect(()=>{
-    const user = sessionStorage.getItem('userAccount');
+    courseCtx!.setCourseLvl(level);
+    const user = localStorage.getItem('userAccount');
     
     axios.get('http://localhost:5000/course_modules', {params: {level: Level[level], email:user}}).
       then((res)=>{

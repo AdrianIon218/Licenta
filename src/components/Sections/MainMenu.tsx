@@ -14,7 +14,7 @@ const MainMenu = () => {
   const [showMenu, setShownMenu] = useState(false);
   const [menuList, setMenuList] = useState<ILocProps[]>(navListNotLogedin);
   const triggerMenu = () => {
-    if(sessionStorage.getItem("userAccount")){
+    if(localStorage.getItem("userAccount")){
       setMenuList(navListLogedin);
     }
     setShownMenu(oltState => !oltState);
@@ -23,7 +23,7 @@ const MainMenu = () => {
   const linkClick= (btn:string) => {
     triggerMenu();
     if(btn==="Deconectare"){
-      sessionStorage.removeItem('userAccount');
+      localStorage.removeItem('userAccount');
       setTimeout(()=>setMenuList(navListNotLogedin), 500);
     }
   }

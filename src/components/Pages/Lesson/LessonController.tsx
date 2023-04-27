@@ -1,10 +1,11 @@
-import { lazy, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 
 interface LocProps{
     lessonId:number, 
     moduleId:number, 
     lessonTitle:string,
-    setProgressBar: (progress:number) => void
+    setProgressBar: (progress:number) => void,
+    triggerTransition: () => void
 };
 
 enum ViewStage {
@@ -13,12 +14,16 @@ enum ViewStage {
 const StartView = lazy(()=>import('./Views/StartView'));
 
 function LessonController(props:LocProps) {
-   
    const [stage, setStage] = useState(ViewStage.START);
-   
+
+   const startClickHandler = ()=>{
+    props.triggerTransition();
+    setTimeout(()=>setStage(ViewStage.NEXT), 450);
+   }
+
    return (
     <>
-     {stage === ViewStage.START && <StartView title={props.lessonTitle} />}
+     {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={startClickHandler} />}
      {stage === ViewStage.NEXT && props.lessonTitle}
     </>
   )
