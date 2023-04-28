@@ -10,8 +10,7 @@ function CourseContext({children}:IProps) {
 
     return (<CourseCtx.Provider value={{courseLvl:currentCourseLvl, setCourseLvl:setCurrentCourseLevel}}>
       {children}
-    </CourseCtx.Provider>
-  )
+    </CourseCtx.Provider>);
 }
 
 export default CourseContext;

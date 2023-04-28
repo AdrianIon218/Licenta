@@ -1,27 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { VoiceCtx } from '../VoiceContext';
 
 function LessonView() {
-  const msg = new SpeechSynthesisUtterance();
-  msg.text = "Ich füllte möbel , weil ich stärke kopfschmerzen hatte";
-  msg.lang='de-De';
-  // https://www.voorhoede.nl/en/blog/exploring-the-web-speech-api/
+  const voiceCtx = useContext(VoiceCtx);
   
   useEffect(() => {
-    const voice = window.speechSynthesis.getVoices().find(voice => voice.voiceURI.includes('(Natural) - German'));
-    if(voice){
-        msg.voice = voice;
-        msg.rate = 1;
-        msg.pitch = 2;
-      }
-      else{
-        
-        msg.rate = 1;
-        msg.pitch = 0.2;
-        msg.volume = 1;
-      }
-    window.speechSynthesis.speak(msg);
-    console.log(speechSynthesis.getVoices());
-  }, [msg])
+    voiceCtx?.readTextWithVoiceSlowly("Ich war aber krank gestern");
+  }, [])
 
   return (
     <div>LessonView</div>
