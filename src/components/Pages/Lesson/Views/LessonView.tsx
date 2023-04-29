@@ -1,16 +1,22 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { VoiceCtx } from '../VoiceContext';
 
-function LessonView() {
+interface LocProps{
+  toExecises: ()=> void
+}
+
+function LessonView(props:LocProps) {
   const voiceCtx = useContext(VoiceCtx);
-  
-  useEffect(() => {
-    voiceCtx?.readTextWithVoiceSlowly("Ich war aber krank gestern");
-  }, [])
+
+  const startRecord = ()=>{
+    //https://www.youtube.com/watch?v=-k-PgvbktX4
+    voiceCtx!.startRecord();
+
+  }
 
   return (
-    <div>LessonView</div>
+    <div><button onClick={startRecord}>Start recording</button></div>
   )
 }
 
-export default LessonView
+export default LessonView;

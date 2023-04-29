@@ -20,7 +20,7 @@ function CoursePanel({level}:LocProps) {
   const [activeModule, setActiveModule] = useState(-1);
   const courseCtx = useContext(CourseCtx);
 
-  const [courseModules, setCourseModules] = useState< {modules:Array<ModuleData>, 
+  const [courseModules, setCourseModules] = useState<{modules:Array<ModuleData>, 
     finishedLessons?:{ lessonId:number, progressStatus:'good'|'very good'|'perfect' }[]}>( {modules:[]} );
 
   useEffect(()=>{
