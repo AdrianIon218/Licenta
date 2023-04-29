@@ -9,8 +9,9 @@ function LessonView(props:LocProps) {
   const voiceCtx = useContext(VoiceCtx);
 
   const startRecord = ()=>{
-    //https://www.youtube.com/watch?v=-k-PgvbktX4
-    voiceCtx!.startRecord();
+    voiceCtx!.startRecord(5).then((text)=>{
+      console.log(text);
+    })
 
   }
 

@@ -33,7 +33,7 @@ function CourseModule({title, activeModule, index, closeOtherModules, lessons}:L
   },[activeModule]);
 
   const lessonsJSX = useMemo(()=>{
-   return lessons.map((l,index) => <LessonBtn status={l.status ?? IconStatus.NO_PROGRESS} lessonId={l.id} moduleId={l.moduleId} key={index}>{l.title}</LessonBtn>);
+   return lessons.map((l,index) => <LessonBtn status={l.status ?? IconStatus.NO_PROGRESS} lessonId={l.id} moduleId={l.moduleId} type={l.type} key={index}>{l.title}</LessonBtn>);
   },[lessons]);
 
   return (

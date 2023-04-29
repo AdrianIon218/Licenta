@@ -44,8 +44,7 @@ class VoiceController {
      speechSynthesis.speak(this.voiceUtterance);
    }
 
-   static startRecord(numberOfSeconds:number = 10){
-     const timeInMs = numberOfSeconds * 1000;
+   static startRecord(timeInMs:number = 5000){
      this.textRecorded = '';
      this.speechRecognition!.start();
      setTimeout(()=>{
@@ -55,9 +54,9 @@ class VoiceController {
 }
 
 export const VoiceCtx = React.createContext<null | {
-  readTextWithVoice: (text:string)=>void,
-  readTextWithVoiceSlowly: (text:string)=>void,
-  startRecord: ()=>void
+  readTextWithVoice: (text:string)=> void,
+  readTextWithVoiceSlowly: (text:string)=> void,
+  startRecord: (timeInMs:number)=> Promise<string>
 }>(null);
 
 interface LocProps {
@@ -83,16 +82,16 @@ function VoiceContext(props:LocProps) {
        }
     },[]);
 
-    const startRecordHandler = useCallback(()=>{
-      VoiceController.startRecord(5);
-      setTimeout(()=>{
-        console.log(VoiceController.textRecorded)
-      },5100);
+    const startRecordHandler = useCallback((numberOfSeconds:number)=>{
+     const timeInMs = numberOfSeconds * 1000;
+     VoiceController.startRecord(timeInMs);
+     return new Promise<string>((resolve)=>{
+        setTimeout(()=> resolve(VoiceController.textRecorded), timeInMs + 100);
+     });
     },[]);
     
-    return (<VoiceCtx.Provider value={{readTextWithVoice: readTextWithVoiceHandler, 
-                                    readTextWithVoiceSlowly: readTextWithVoiceSlowlyHandler,
-                                    startRecord:startRecordHandler}}>
+    return (<VoiceCtx.Provider value={{readTextWithVoice: readTextWithVoiceHandler, readTextWithVoiceSlowly: readTextWithVoiceSlowlyHandler,
+                        startRecord:startRecordHandler}}>
         {props.children}
      </VoiceCtx.Provider>); 
 }

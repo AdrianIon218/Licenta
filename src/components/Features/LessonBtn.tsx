@@ -1,4 +1,4 @@
-import { IconStatus } from "../Helpers/commonInterfaces";
+import { IconStatus, lessonType } from "../Helpers/commonInterfaces";
 import { useContext } from "react";
 import { Level } from "../Helpers/constants";
 import { CourseCtx } from "./CourseContext";
@@ -9,9 +9,10 @@ type props = {
   status:IconStatus,
   lessonId:number,
   moduleId:number,
+  type:lessonType
 };
 
-function LessonBtn({children, status, lessonId, moduleId}:props) {
+function LessonBtn({children, status, lessonId, moduleId, type}:props) {
   const {courseLvl:level} = useContext(CourseCtx)!;
   const navigate = useNavigate();
 
@@ -19,7 +20,8 @@ function LessonBtn({children, status, lessonId, moduleId}:props) {
     event.stopPropagation();
     sessionStorage.setItem('lessonId', lessonId.toString());
     sessionStorage.setItem('moduleId', moduleId.toString());
-    sessionStorage.setItem('lessonTitle',children);
+    sessionStorage.setItem('lessonTitle', children);
+    sessionStorage.setItem('lessonType', type);
     navigate('/Licenta/lesson');
   }
 
