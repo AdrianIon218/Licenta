@@ -15,3 +15,12 @@ export interface lessonItem{
   type:lessonType,
   status?:IconStatus
 }
+
+export interface Word{
+  id: number,
+  wordName: string,
+  translation:  string,
+  example: string,
+  moduleId: number,
+  imageURL: string
+}

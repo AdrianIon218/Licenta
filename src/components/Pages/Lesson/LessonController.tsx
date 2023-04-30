@@ -1,8 +1,9 @@
 import { lazy, useEffect, useState } from "react";
-import LessonView from "./Views/LessonView";
+import NewWordsLesson from "./Views/NewWordsLesson";
+import { Word } from "../../Helpers/commonInterfaces";
 import axios from "axios";
-const StartView = lazy(()=>import('./Views/StartView'));
-enum ViewStage { START, LESSON, EXERCISE, END }
+enum ViewStage { START, LESSON, EXERCISE, END };
+const StartView = lazy(()=> import('./Views/StartView'));
 
 interface LocProps{
   lessonId:number, 
@@ -14,34 +15,62 @@ interface LocProps{
 
 function LessonController(props:LocProps) {
    const [stage, setStage] = useState(ViewStage.START);
+   const [words, setWords] = useState<Word[]>([]);
+   const [compJSX, setCompJSX] = useState<JSX.Element>();
+   const lessonType = sessionStorage.getItem('lessonType');
 
    const stageHandler = (stage:ViewStage)=>{
     props.triggerTransition();
-    setTimeout(()=>setStage(stage), 450);
+    setTimeout(()=> setStage(stage), 450);
    }
+   
+   const retrieveWords = (moduleId:number) => {
+     const retrivedWords: Word[] = [];
+     return axios.post("http://localhost:5000/lessons/getWords", {moduleId: moduleId}).
+       then(response => {
+          response.data.forEach((word:any) => {
+            const {id, word:wordName, translation, example, moduleId} = word;
 
-   const [imageUrl, setImage] = useState<string>();
+            const bufferToArray = new Uint8Array(word.image.data);
+            const blobObj = new Blob([bufferToArray], {type:'application/octet-stream'})
+            const objUrl = URL.createObjectURL(blobObj);
+
+            retrivedWords.push({id: id, wordName:wordName, translation:translation,example: example, moduleId:moduleId, imageURL: objUrl});
+          });
+         
+         return retrivedWords;
+       });
+  }
 
    useEffect(()=>{
-     const moduleId = sessionStorage.getItem("moduleId");
-     const lessonId = sessionStorage.getItem('lessonId');
-     const lessonType = sessionStorage.getItem('lessonType');
-     
-     axios.post("http://localhost:5000/course_modules/getWords", {moduleId: moduleId }).then(response => {
-         console.log(response.data)
-         response.data.forEach((word:any) => {
-          const buffer = new Uint8Array(word.image.data)
-          setImage(URL.createObjectURL(new Blob([buffer],{type:'application/octet-stream'})));//
-         });
-       
-     });
-   },[])
+    if(lessonType === 'new_words' || lessonType === 'pronunciation' || lessonType === 'test'){
+      retrieveWords(props.moduleId).then(rez=>{
+        rez.sort((a, b) => 0.5 - Math.random())
+        setWords(rez);
+      });
+    }
+   },[props.moduleId]);
+
+   useEffect(()=>{
+    if(lessonType === 'new_words'){
+      setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} />);
+      return;
+    }
+    if(lessonType === 'pronunciation'){
+
+      return;
+    }
+    if(lessonType === 'test'){
+
+      return;
+    }
+
+   },[words]);
 
    return (
     <>
-     <img src={imageUrl} alt="nu merge"/>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}
-     {stage === ViewStage.LESSON && <LessonView toExecises={()=> stageHandler(ViewStage.EXERCISE)}/>}
+     {stage === ViewStage.LESSON && compJSX}
     </>
   )
 }

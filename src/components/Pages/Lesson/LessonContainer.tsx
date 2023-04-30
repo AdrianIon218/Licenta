@@ -15,7 +15,9 @@ function LessonContainer() {
     const lessonId = sessionStorage.getItem('lessonId');
     const moduleId = sessionStorage.getItem('moduleId');
     const lessonTitle = sessionStorage.getItem('lessonTitle');
+    
     if(lessonId && moduleId && lessonTitle){
+        console.log("here ! ", +moduleId)
         setLessonInfo({lessonId: +lessonId, moduleId: +moduleId, lessonTitle:lessonTitle});
     }else{
         navigate('/Licenta/PageNotFound');
@@ -35,7 +37,7 @@ function LessonContainer() {
   return (
     <section className='lesson-section'>
       <div className="lesson-ctn">
-        <LessonController {...lessonInfo} setProgressBar={setProgressBar} triggerTransition={triggerTransition}/>
+        {lessonInfo.lessonId >= 0 && <LessonController {...lessonInfo} setProgressBar={setProgressBar} triggerTransition={triggerTransition} />}
         <StageTransition ref={transitionRef} />
       </div>
       <div className="lesson__progress-bar">
