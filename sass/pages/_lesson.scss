@@ -213,6 +213,19 @@
 
 .word__container{
   color: $color-blue-dark;
+  @include mixin_animation(fade-in, .3s, ease-in-out, 0s);
+    @keyframes fade-in {
+      from{opacity: 1;}
+      to{opacity: 0;}
+    }
+
+  &--fade-out{
+    @include mixin_animation(fade-out, .3s, ease-in-out, 0s);
+    @keyframes fade-out {
+      from{opacity: 1;}
+      to{opacity: 0;}
+    }
+  }
 }
 
 .word__img{
@@ -246,17 +259,11 @@
 }
 
 .arrow-ctn{
-  margin-top: 2rem;
-  position: relative;
-  bottom: 0;
-  @include respond(phone){
-    margin-top: 4rem;
-  }
   width: 100%;
   display: flex;
   flex-direction: row;
   color: darken($color-blue-mid, 5%);
-
+  justify-content: space-between;
   & > i {
     cursor: pointer;
     transition: all .5s;

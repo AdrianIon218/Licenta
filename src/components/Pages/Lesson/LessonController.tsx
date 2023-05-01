@@ -54,7 +54,7 @@ function LessonController(props:LocProps) {
 
    useEffect(()=>{
     if(lessonType === 'new_words'){
-      setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} />);
+      setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} setProgressBar={props.setProgressBar} />);
       return;
     }
     if(lessonType === 'pronunciation'){
