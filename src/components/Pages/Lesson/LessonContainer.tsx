@@ -17,7 +17,6 @@ function LessonContainer() {
     const lessonTitle = sessionStorage.getItem('lessonTitle');
     
     if(lessonId && moduleId && lessonTitle){
-        console.log("here ! ", +moduleId)
         setLessonInfo({lessonId: +lessonId, moduleId: +moduleId, lessonTitle:lessonTitle});
     }else{
         navigate('/Licenta/PageNotFound');

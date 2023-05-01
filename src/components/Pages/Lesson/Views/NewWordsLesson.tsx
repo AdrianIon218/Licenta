@@ -1,6 +1,6 @@
-import { useContext } from 'react'
-import { VoiceCtx } from '../VoiceContext';
+import { useMemo, useState } from "react";
 import { Word } from "../../../Helpers/commonInterfaces";
+import WordView from './WordView';
 
 interface LocProps{
   toExecises: ()=> void
@@ -8,18 +8,19 @@ interface LocProps{
 }
 
 function NewWordsLesson(props:LocProps) {
-  const voiceCtx = useContext(VoiceCtx);
+  const [currentWordIndex, setWordIndex] = useState(0);
+  const numOdWords = props.unkwonWords.length;
+  const wordsJSX = useMemo(()=> props.unkwonWords.map((word, index) => 
+  {
+    return index === 0 ? (<WordView {...word} key={index} nextWord={()=> setWordIndex(index+1)} />) :
+           index === numOdWords-1 ? (<WordView {...word} key={index} previousWord={()=> setWordIndex(index-1)} />) :
+            (<WordView {...word} key={index} previousWord={()=> setWordIndex(index-1)} nextWord={()=> setWordIndex(index+1)} />);
+
+   }), [props.unkwonWords]);
   
-
-  const startRecord = ()=>{
-    voiceCtx!.startRecord(5).then((text)=>{
-      console.log(text);
-    })
-  }
-
   return (
     <div>
-     <img src={props.unkwonWords[3].imageURL} alt='' />
+      {wordsJSX[currentWordIndex]}
     </div>
   )
 }

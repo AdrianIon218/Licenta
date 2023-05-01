@@ -33,6 +33,7 @@ class VoiceController {
 
    static readText = (text:string) => {
      speechSynthesis.cancel();
+     this.voiceUtterance.rate = 1;
      this.voiceUtterance.text = text;
      speechSynthesis.speak(this.voiceUtterance);
    }
@@ -42,6 +43,13 @@ class VoiceController {
      this.voiceUtterance.rate = 0.5;
      this.voiceUtterance.text = text;
      speechSynthesis.speak(this.voiceUtterance);
+   }
+
+   static stopRead = () =>{
+    if(speechSynthesis.speaking){
+     speechSynthesis.cancel();
+     this.voiceUtterance.text = '';
+    }
    }
 
    static startRecord(timeInMs:number = 5000){
@@ -56,7 +64,8 @@ class VoiceController {
 export const VoiceCtx = React.createContext<null | {
   readTextWithVoice: (text:string)=> void,
   readTextWithVoiceSlowly: (text:string)=> void,
-  startRecord: (timeInMs:number)=> Promise<string>
+  startRecord: (timeInMs:number)=> Promise<string>,
+  stopReadText: ()=> void
 }>(null);
 
 interface LocProps {
@@ -64,6 +73,7 @@ interface LocProps {
 }
 
 function VoiceContext(props:LocProps) {
+
     useEffect(()=>{
       VoiceController.getVoiceReady();
     },[]);
@@ -91,7 +101,7 @@ function VoiceContext(props:LocProps) {
     },[]);
     
     return (<VoiceCtx.Provider value={{readTextWithVoice: readTextWithVoiceHandler, readTextWithVoiceSlowly: readTextWithVoiceSlowlyHandler,
-                        startRecord:startRecordHandler}}>
+                        startRecord:startRecordHandler, stopReadText: VoiceController.stopRead}}>
         {props.children}
      </VoiceCtx.Provider>); 
 }

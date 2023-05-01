@@ -1,7 +1,8 @@
 import { lazy, useEffect, useState } from "react";
-import NewWordsLesson from "./Views/NewWordsLesson";
-import { Word } from "../../Helpers/commonInterfaces";
 import axios from "axios";
+import { Word } from "../../Helpers/commonInterfaces";
+import NewWordsLesson from "./Views/NewWordsLesson";
+import PronunciationLesson from "./Views/PronunciationLesson";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./Views/StartView'));
 
@@ -57,7 +58,7 @@ function LessonController(props:LocProps) {
       return;
     }
     if(lessonType === 'pronunciation'){
-
+      setCompJSX(<PronunciationLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} />);
       return;
     }
     if(lessonType === 'test'){
