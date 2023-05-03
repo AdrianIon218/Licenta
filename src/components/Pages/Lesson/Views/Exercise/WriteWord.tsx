@@ -26,6 +26,7 @@ function WriteWord(props:LocProps) {
    const addUmlout = (umlout:string)=>{
      if(answearRef.current!.value.length < correctAnswear.length){
         answearRef.current!.value += umlout; 
+        answearRef.current!.focus();
      }
    }
 
@@ -36,7 +37,12 @@ function WriteWord(props:LocProps) {
    return (<>
      <div className='info'>
         <i className="fa fa-lightbulb-o" />
-        <span>Nu este nevoie să folosești semne de punctuație</span>
+        <span>
+            <ul>
+                <li>Nu este nevoie să folosești majuscule .</li>
+                <li>Nu folosi semne de punctuație .</li>
+            </ul>
+        </span>
       </div>
      <div className='flex-column--centered word__container'>
         <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
