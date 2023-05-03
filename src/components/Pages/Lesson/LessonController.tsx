@@ -1,9 +1,10 @@
 import { lazy, useEffect, useState } from "react";
 import axios from "axios";
-import { Word } from "../../Helpers/commonInterfaces";
+import { IconStatus, Word } from "../../Helpers/commonInterfaces";
 import NewWordsLesson from "./Views/NewWordsLesson";
 import PronunciationLesson from "./Views/PronunciationLesson";
-import NewWordsExercises from "./Views/NewWordsExercises";
+import NewWordsExercises from "./Views/Exercise/NewWordsExercises";
+import ShowLessonResult from "./Views/Exercise/ShowLessonResult";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./Views/StartView'));
 
@@ -19,6 +20,7 @@ function LessonController(props:LocProps) {
    const [stage, setStage] = useState(ViewStage.START);
    const [words, setWords] = useState<Word[]>([]);
    const [compJSX, setCompJSX] = useState<JSX.Element>();
+   const [statusLesson, setStatusLesson] = useState(IconStatus.NO_PROGRESS);
    const lessonType = sessionStorage.getItem('lessonType');
 
    const stageHandler = (stage:ViewStage)=>{
@@ -42,7 +44,7 @@ function LessonController(props:LocProps) {
          
          return retrivedWords;
        });
-  }
+   }
 
    useEffect(()=>{
     if(lessonType === 'new_words' || lessonType === 'pronunciation' || lessonType === 'test'){
@@ -68,14 +70,20 @@ function LessonController(props:LocProps) {
     }
    },[words]);
 
+   const finishExercises = (status:IconStatus) =>{
+      setStatusLesson(status);
+      stageHandler(ViewStage.END);
+   }
+
    useEffect(()=>{
      if(stage === ViewStage.EXERCISE){
-      setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={()=> stageHandler(ViewStage.END)}/>);
+      setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
      }
      if(stage === ViewStage.END){
-      setCompJSX(<div>Finished</div>);
+      
+      setCompJSX(<ShowLessonResult statusLesson={statusLesson} />);
      }
-   },[stage]);
+   },[stage, statusLesson]);
 
    return (
     <>

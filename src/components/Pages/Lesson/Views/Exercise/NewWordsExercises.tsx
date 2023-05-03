@@ -1,22 +1,22 @@
 import { useEffect, useMemo, useReducer, useState } from 'react';
-import { Word } from '../../../Helpers/commonInterfaces';
-import WriteWord from './Exercise/WriteWord';
-import Notification, { NotificationType } from '../../../Features/Notfication';
+import { IconStatus, Word } from '../../../../Helpers/commonInterfaces';
+import WriteWord from './WriteWord';
+import Notification, { NotificationType } from '../../../../Features/Notfication';
 
 interface LocProps{
   unkwonWords:Word[],
   setProgressBar: (num:number) => void,
-  onFinish: ()=> void
+  onFinish: (status:IconStatus)=> void
 }
 
 enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CORRECT_TRANSLATION }
-enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR,INCREASE_INDEX, DECREASE_INDEX, INCRESE_SCORE, DECREASE_SCORE };
-
+enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR };
 
 function NewWordsExercises(props:LocProps) {
   const [exerciseInfo, dispatch] = useReducer(reducer, {progressBar:50, score:0, wordIndex: 0});
   const [warningNotification, setNotification] = useState(false);
-  
+  const numWords = props.unkwonWords.length;
+
   function reducer(state:any, action:{type:ACTION}) {
     const progressRatio = 50/props.unkwonWords.length;
     switch (action.type) {
@@ -49,7 +49,9 @@ function NewWordsExercises(props:LocProps) {
 
   useEffect(()=>{
     if(exerciseInfo.wordIndex === props.unkwonWords.length) {
-      props.onFinish();
+      const status = exerciseInfo.score <= numWords/3 ? IconStatus.STAR_1:
+                     exerciseInfo.score <= numWords/2 ? IconStatus.STAR_2: IconStatus.STAR_3;
+      props.onFinish(status);
     }
   },[exerciseInfo.wordIndex])
 
