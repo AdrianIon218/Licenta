@@ -3,6 +3,7 @@ import axios from "axios";
 import { Word } from "../../Helpers/commonInterfaces";
 import NewWordsLesson from "./Views/NewWordsLesson";
 import PronunciationLesson from "./Views/PronunciationLesson";
+import NewWordsExercises from "./Views/NewWordsExercises";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./Views/StartView'));
 
@@ -36,7 +37,7 @@ function LessonController(props:LocProps) {
             const blobObj = new Blob([bufferToArray], {type:'application/octet-stream'})
             const objUrl = URL.createObjectURL(blobObj);
 
-            retrivedWords.push({id: id, wordName:wordName, translation:translation,example: example, moduleId:moduleId, imageURL: objUrl});
+            retrivedWords.push({id: id, wordName:wordName.trim(), translation:translation.trim(), example: example, moduleId:moduleId, imageURL: objUrl});
           });
          
          return retrivedWords;
@@ -46,7 +47,7 @@ function LessonController(props:LocProps) {
    useEffect(()=>{
     if(lessonType === 'new_words' || lessonType === 'pronunciation' || lessonType === 'test'){
       retrieveWords(props.moduleId).then(rez=>{
-        rez.sort((a, b) => 0.5 - Math.random())
+        rez.sort((a, b) => 0.5 - Math.random());
         setWords(rez);
       });
     }
@@ -65,13 +66,18 @@ function LessonController(props:LocProps) {
 
       return;
     }
-
    },[words]);
+
+   useEffect(()=>{
+     if(stage === ViewStage.EXERCISE){
+      setCompJSX(<NewWordsExercises unkwonWords={words}/>);
+     }
+   },[stage]);
 
    return (
     <>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}
-     {stage === ViewStage.LESSON && compJSX}
+     {(stage === ViewStage.LESSON || stage === ViewStage.EXERCISE) && compJSX}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Word } from '../../../Helpers/commonInterfaces';
 import SoundBtn from '../../../Features/SoundBtn';
 
@@ -9,18 +9,21 @@ interface LocProps extends Word{
 
 function WordView(props:LocProps) {
   const wordDiv= useRef<HTMLDivElement>(null);
+  const [isAnArrowClicked, setArrowClick] = useState(false);
 
   const clickHandler = (func:()=>void) => {
-    wordDiv.current?.classList.add('word__container--fade-out');
-    
-    setTimeout(()=>func(),300);
+    if(!isAnArrowClicked){
+      wordDiv.current?.classList.add('word__container--fade-out');   
+      setTimeout(()=>func(),300);
+      setArrowClick(true);
+    }
   }
 
   return (
     <div className='flex-column--centered word__container' ref={wordDiv} >
       <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
-      <h3>{props.wordName}</h3>
-      <h4>[ {props.translation} ]</h4>
+      <h3 className='u-center-text'>{props.wordName}</h3>
+      <h4 className='u-center-text'>[ {props.translation} ]</h4>
       <h5 className='u-center-text'>Ex : {props.example} </h5>
       <SoundBtn sentence={props.wordName} />
       <div className='arrow-ctn'>
@@ -31,4 +34,4 @@ function WordView(props:LocProps) {
   );
 }
 
-export default WordView
+export default WordView;
