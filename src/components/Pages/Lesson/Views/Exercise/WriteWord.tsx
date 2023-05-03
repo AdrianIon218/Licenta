@@ -30,10 +30,14 @@ function WriteWord(props:LocProps) {
    }
 
    const umloutsBtns = useMemo(()=>{
-    return ['ä','ö','ü','ß'].map(umloat => (<button type='button' onClick={()=> addUmlout(umloat)}>{umloat}</button>));
+    return ['ä','ö','ü','ß'].map((umloat,index) => (<button type='button' onClick={()=> addUmlout(umloat)} key={index}>{umloat}</button>));
    },[]);
 
-   return (
+   return (<>
+     <div className='info'>
+        <i className="fa fa-lightbulb-o" />
+        <span>Nu este nevoie să folosești semne de punctuație</span>
+      </div>
      <div className='flex-column--centered word__container'>
         <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
         <h4 className='u-center-text'>{props.translation}</h4>
@@ -45,7 +49,8 @@ function WriteWord(props:LocProps) {
           </div>
           <button className='submitBtn u-center-text'>Verfică <i className='fas fa-angle-double-right'/></button>
         </form>
-     </div>);
+     </div>
+     </>);
 }
 
 export default WriteWord;

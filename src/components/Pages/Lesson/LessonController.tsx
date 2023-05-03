@@ -70,14 +70,17 @@ function LessonController(props:LocProps) {
 
    useEffect(()=>{
      if(stage === ViewStage.EXERCISE){
-      setCompJSX(<NewWordsExercises unkwonWords={words}/>);
+      setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={()=> stageHandler(ViewStage.END)}/>);
+     }
+     if(stage === ViewStage.END){
+      setCompJSX(<div>Finished</div>);
      }
    },[stage]);
 
    return (
     <>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}
-     {(stage === ViewStage.LESSON || stage === ViewStage.EXERCISE) && compJSX}
+     {(stage === ViewStage.LESSON || stage === ViewStage.EXERCISE || stage === ViewStage.END) && compJSX}
     </>
   )
 }
