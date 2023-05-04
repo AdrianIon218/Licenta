@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { IconStatus } from '../../../../Helpers/commonInterfaces'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import React from 'react';
 
 interface LocProps {
     statusLesson:IconStatus
