@@ -1,1 +1,0 @@
-import{j as a,a as e}from"./index-464a880c.js";function l(t){return a("div",{className:"flex-column--centered start-view__ctn",children:[e("h1",{className:"heading-secondary",children:t.title}),e("button",{className:"btn btn--blue",onClick:t.startClickHandler,children:"Start"})]})}export{l as default};
