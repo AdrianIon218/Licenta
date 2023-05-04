@@ -385,3 +385,37 @@
     }   
   }
 }
+
+.result-stars{
+  margin: 2rem 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  @include respond(phone){
+    width: 40%;
+  }
+  
+  & > i {
+    text-shadow: 0 0 4px black;
+  }
+}
+
+.btn-gradient-cyan {
+  background-image: $gradient-cyan-blue;
+  cursor: pointer;
+  padding: 7px 12px;
+  font-size: 1.4rem;
+  color: $color-white-max;
+  border-radius: 1rem;
+  border: 1px solid $color-blue-mid;
+  transition: all .3s;
+
+  &:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 5px $color-blue-dark;
+  }
+
+  &:active{
+    transform: translateY(5px);
+  }
+}

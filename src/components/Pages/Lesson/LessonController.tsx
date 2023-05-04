@@ -80,11 +80,11 @@ function LessonController(props:LocProps) {
       setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
      }
      if(stage === ViewStage.END){
-      
       setCompJSX(<ShowLessonResult statusLesson={statusLesson} />);
      }
    },[stage, statusLesson]);
-
+  
+   // stageHandler(ViewStage.LESSON)
    return (
     <>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}

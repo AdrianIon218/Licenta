@@ -51,6 +51,7 @@ function NewWordsExercises(props:LocProps) {
     if(exerciseInfo.wordIndex === props.unkwonWords.length) {
       const status = exerciseInfo.score <= numWords/3 ? IconStatus.STAR_1:
                      exerciseInfo.score <= numWords/2 ? IconStatus.STAR_2: IconStatus.STAR_3;
+      console.log(status);
       props.onFinish(status);
     }
   },[exerciseInfo.wordIndex])

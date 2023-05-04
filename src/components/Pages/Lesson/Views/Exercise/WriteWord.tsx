@@ -49,7 +49,7 @@ function WriteWord(props:LocProps) {
         <h4 className='u-center-text'>{props.translation}</h4>
         <SoundBtn sentence={props.example} /> 
         <form onSubmit={testAnswear} className='flex-column--centered write_word__form'>
-          <input type='text' className='flex-element u-center-text' maxLength={correctAnswear.length} ref={answearRef} />
+          <input type='text' className='flex-element u-center-text' maxLength={correctAnswear.length} ref={answearRef} autoFocus />
           <div className='flex-element u-center-text umlouts-ctn '>
              {umloutsBtns}
           </div>

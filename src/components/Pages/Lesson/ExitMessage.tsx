@@ -9,9 +9,10 @@ function ExitMessage(props:LocProps) {
   const [closeMessage, setCloseMessage] = useState(false);
   const  navigate = useNavigate();
   const closeLesson = useCallback(()=>{
-    sessionStorage.setItem('lessonId', '');
-    sessionStorage.setItem('moduleId', '');
-    sessionStorage.setItem('lessonTitle', '');
+    sessionStorage.removeItem('lessonType');
+    sessionStorage.removeItem('lessonId');
+    sessionStorage.removeItem('moduleId');
+    sessionStorage.removeItem('lessonTitle');
     setCloseMessage(true);
     setTimeout( ()=>navigate(-1), 410);
   },[]);
