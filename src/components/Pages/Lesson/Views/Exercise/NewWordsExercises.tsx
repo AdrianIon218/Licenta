@@ -2,6 +2,7 @@ import { useEffect, useMemo, useReducer, useState } from 'react';
 import { IconStatus, Word } from '../../../../Helpers/commonInterfaces';
 import WriteWord from './WriteWord';
 import Notification, { NotificationType } from '../../../../Features/Notfication';
+import MultipleChoice from './MultipleChoice';
 
 interface LocProps{
   unkwonWords:Word[],
@@ -35,15 +36,23 @@ function NewWordsExercises(props:LocProps) {
   },[]);
 
   const exerciseJSX = useMemo(()=> {
+    const wordNames =  props.unkwonWords.map(word => word.wordName);
+
     return props.unkwonWords.map((word, index)=>{
       const currentExerciseType = index % 3;
-      return currentExerciseType === ExerciseType.WRITE_wORD ? 
-        <WriteWord key={index} {...word} 
-          correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
-          wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />  : 
-        <WriteWord key={index} {...word} 
-          correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
-          wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />;
+
+      if(currentExerciseType === ExerciseType.WRITE_wORD){
+        return (<WriteWord key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
+                   wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />);
+      }
+
+      if(currentExerciseType === ExerciseType.MUTIPLE_CHOICE){
+        return (<MultipleChoice key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
+                   wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} wordNames={wordNames} />);
+      }
+      
+      return (<WriteWord key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
+         wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />);
     })
   },[props.unkwonWords]);
 
