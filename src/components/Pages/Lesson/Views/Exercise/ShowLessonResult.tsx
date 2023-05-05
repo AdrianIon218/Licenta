@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { IconStatus } from '../../../../Helpers/commonInterfaces'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import React from 'react';
 
 interface LocProps {
     statusLesson:IconStatus
@@ -20,7 +19,6 @@ function ShowLessonResult(props:LocProps) {
     if(user){
       axios.post("http://localhost:5000/lessons/addProgress", {email: user, lessonId: lessonId, status: props.statusLesson}).then(
         res => {
-          console.log(res);
           sessionStorage.removeItem('lessonId');
         });
     }else{

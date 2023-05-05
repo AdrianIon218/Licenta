@@ -3,6 +3,7 @@ import { IconStatus, Word } from '../../../../Helpers/commonInterfaces';
 import WriteWord from './WriteWord';
 import Notification, { NotificationType } from '../../../../Features/Notfication';
 import MultipleChoice from './MultipleChoice';
+import ChooseTranslation from './ChooseTranslation';
 
 interface LocProps{
   unkwonWords:Word[],
@@ -10,7 +11,7 @@ interface LocProps{
   onFinish: (status:IconStatus)=> void
 }
 
-enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CORRECT_TRANSLATION }
+enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CHOOSE_TNRANSLATION }
 enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR };
 
 function NewWordsExercises(props:LocProps) {
@@ -37,22 +38,22 @@ function NewWordsExercises(props:LocProps) {
 
   const exerciseJSX = useMemo(()=> {
     const wordNames =  props.unkwonWords.map(word => word.wordName);
+    const wordsTranslations = props.unkwonWords.map(word => word.translation);
+    const commonMethodes = {correctAnswear:()=>dispatch({type:ACTION.CORRECT_ANSWEAR}) ,
+            wrongAnswear:()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}}
 
     return props.unkwonWords.map((word, index)=>{
       const currentExerciseType = index % 3;
 
       if(currentExerciseType === ExerciseType.WRITE_wORD){
-        return (<WriteWord key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
-                   wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />);
+        return (<WriteWord key={index} {...word} {...commonMethodes} />);
       }
 
       if(currentExerciseType === ExerciseType.MUTIPLE_CHOICE){
-        return (<MultipleChoice key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
-                   wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} wordNames={wordNames} />);
+        return (<MultipleChoice key={index} {...word} {...commonMethodes} wordNames={wordNames} />);
       }
       
-      return (<WriteWord key={index} {...word} correctAnswear={()=>dispatch({type:ACTION.CORRECT_ANSWEAR})} 
-         wrongAnswear={()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}} />);
+      return (<ChooseTranslation key={index} {...word} {...commonMethodes} wordsTranslation={wordsTranslations} />);
     })
   },[props.unkwonWords]);
 
@@ -60,7 +61,6 @@ function NewWordsExercises(props:LocProps) {
     if(exerciseInfo.wordIndex === props.unkwonWords.length) {
       const status = exerciseInfo.score <= numWords/3 ? IconStatus.STAR_1:
                      exerciseInfo.score <= numWords/2 ? IconStatus.STAR_2: IconStatus.STAR_3;
-      console.log(status);
       props.onFinish(status);
     }
   },[exerciseInfo.wordIndex])

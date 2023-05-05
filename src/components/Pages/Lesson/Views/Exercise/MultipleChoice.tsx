@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Word } from '../../../../Helpers/commonInterfaces'
 
 interface LocProps extends Word{
@@ -17,7 +17,6 @@ function MultipleChoice(props:LocProps) {
 
     const choiceHandler = (e:React.ChangeEvent<HTMLInputElement>) =>{
       setChoiceMade(e.target.value);
-
     }
 
     const choicesJSX =  useMemo(()=>{
@@ -26,21 +25,21 @@ function MultipleChoice(props:LocProps) {
             return (
               <div key={index} className='choice-ctn'>
                 <label htmlFor={idElement} className={choiceMade === choice ? 'choice--checked':'' }>{choice}</label>
-                <input type="checkbox" id={`choice-${index}`} name="choice" value={choice} hidden onChange={choiceHandler}/>
+                <input type="checkbox" id={idElement} name="choice" value={choice} hidden onChange={choiceHandler}/>
               </div>);
         })
-    },[choicesLabes,choiceMade]);
+    },[choicesLabes, choiceMade]);
 
     const submit = (e:React.FormEvent<HTMLFormElement>)=> {
-       e.preventDefault();
-       if(choiceMade === props.wordName){
-         props.correctAnswear();
-       }else{
-         
-         props.wrongAnswear();
-       }
+      e.preventDefault();
+      if(choiceMade === props.wordName){
+        props.correctAnswear();
+      }
+      else{
+        props.wrongAnswear();
+      }  
     }
-    
+
     return ( <div className='flex-column--centered multiple-choice-ex'>
       <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
       <h4 className='u-center-text'>{props.translation}</h4>
