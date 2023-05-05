@@ -53,3 +53,8 @@
     transform: translate(-50%, 0px);
   }
 }
+
+@keyframes fade-in-effect{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}

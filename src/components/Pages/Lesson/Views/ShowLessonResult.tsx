@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { IconStatus } from '../../../../Helpers/commonInterfaces'
+import { IconStatus } from '../../../Helpers/commonInterfaces'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -25,6 +25,7 @@ function ShowLessonResult(props:LocProps) {
       sessionStorage.removeItem('lessonId');
     }
   },[]);
+  
   
   return (
     <div className='flex-column--centered'>

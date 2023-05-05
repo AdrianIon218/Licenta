@@ -30,7 +30,7 @@ function ChooseTranslation(props:LocProps) {
          </div>);});
      }, [choicesLabes, choiceMade]);
 
-   const submit = (e:React.FormEvent<HTMLFormElement>)=> {
+   const submitAction = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=> {
      e.preventDefault();
      if(choiceMade === props.translation){
        props.correctAnswear();
@@ -40,20 +40,18 @@ function ChooseTranslation(props:LocProps) {
       }  
     }
 
-
-  return (
-    <div className='flex-column--centered multiple-choice-ex'>
-      <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
-      <h4 className='u-center-text'>{props.wordName}</h4>
-      <SoundBtn sentence={props.wordName} />
-      <form onSubmit={submit} className='flex-column--centered'>
-        <div className='multiple-choices-ctn'>
-          {choicesJSX}
-        </div>
-        <button className='submitBtn u-center-text'>Verfică <i className='fas fa-angle-double-right'/></button>
-      </form>
-      
-    </div>);
+    return (
+      <div className='flex-column--centered multiple-choice-ex'>
+        <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
+        <h4 className='u-center-text'>{props.wordName}</h4>
+        <SoundBtn sentence={props.wordName} />
+        <form className='flex-column--centered'>
+          <div className='multiple-choices-ctn'>
+            {choicesJSX}
+          </div>
+          <button className='submitBtn u-center-text' onClick={submitAction}>Verfică <i className='fas fa-angle-double-right'/></button>
+        </form> 
+      </div>);
 }
 
 export default ChooseTranslation;

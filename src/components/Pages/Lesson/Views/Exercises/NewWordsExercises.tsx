@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useState } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { IconStatus, Word } from '../../../../Helpers/commonInterfaces';
 import WriteWord from './WriteWord';
 import Notification, { NotificationType } from '../../../../Features/Notfication';
@@ -12,7 +12,7 @@ interface LocProps{
 }
 
 enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CHOOSE_TNRANSLATION }
-enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR };
+enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR, SKIP_ANSWEAR };
 
 function NewWordsExercises(props:LocProps) {
   const [exerciseInfo, dispatch] = useReducer(reducer, {progressBar:50, score:0, wordIndex: 0});
@@ -27,6 +27,9 @@ function NewWordsExercises(props:LocProps) {
         return {progressBar: state.progressBar + progressRatio, score: state.score + 1, wordIndex: state.wordIndex + 1};
       case ACTION.WRONG_ANSWEAR:
         return {...state, score: state.score - 1};
+      case ACTION.SKIP_ANSWEAR:
+        props.setProgressBar(state.progressBar + progressRatio);
+        return {progressBar: state.progressBar + progressRatio, score: state.score - 1, wordIndex: state.wordIndex + 1};
       default:
         return state;
     }
@@ -39,14 +42,15 @@ function NewWordsExercises(props:LocProps) {
   const exerciseJSX = useMemo(()=> {
     const wordNames =  props.unkwonWords.map(word => word.wordName);
     const wordsTranslations = props.unkwonWords.map(word => word.translation);
-    const commonMethodes = {correctAnswear:()=>dispatch({type:ACTION.CORRECT_ANSWEAR}) ,
-            wrongAnswear:()=>{dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true)}}
+    const commonMethodes = { 
+          correctAnswear:()=>{ dispatch({type:ACTION.CORRECT_ANSWEAR}); setNotification(false);} ,
+          wrongAnswear:()=>{ dispatch({type:ACTION.WRONG_ANSWEAR}); setNotification(true);}};
 
     return props.unkwonWords.map((word, index)=>{
       const currentExerciseType = index % 3;
 
       if(currentExerciseType === ExerciseType.WRITE_wORD){
-        return (<WriteWord key={index} {...word} {...commonMethodes} />);
+        return (<WriteWord key={index} {...word} {...commonMethodes} skipExercise={()=>{dispatch({type:ACTION.SKIP_ANSWEAR}); setNotification(false);}} />);
       }
 
       if(currentExerciseType === ExerciseType.MUTIPLE_CHOICE){
@@ -70,8 +74,7 @@ function NewWordsExercises(props:LocProps) {
       { warningNotification && <Notification message="Răspuns greșit !" type={NotificationType.ERROR} 
            deleteNotification={() => setNotification(false)} />}
       { exerciseInfo.wordIndex < props.unkwonWords.length && exerciseJSX[exerciseInfo.wordIndex] }
-    </div>
-  )
+    </div>);
 }
 
 export default NewWordsExercises;

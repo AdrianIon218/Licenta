@@ -30,24 +30,24 @@ function MultipleChoice(props:LocProps) {
         })
     },[choicesLabes, choiceMade]);
 
-    const submit = (e:React.FormEvent<HTMLFormElement>)=> {
+    const submitAction = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=> {
       e.preventDefault();
       if(choiceMade === props.wordName){
         props.correctAnswear();
       }
       else{
         props.wrongAnswear();
-      }  
-    }
+       }  
+     }
 
     return ( <div className='flex-column--centered multiple-choice-ex'>
       <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
       <h4 className='u-center-text'>{props.translation}</h4>
-      <form onSubmit={submit} className='flex-column--centered'>
+      <form className='flex-column--centered'>
         <div className='multiple-choices-ctn'>
            {choicesJSX}
         </div>
-        <button className='submitBtn u-center-text'>Verfică <i className='fas fa-angle-double-right'/></button>
+        <button className='submitBtn u-center-text' onClick={submitAction}>Verfică <i className='fas fa-angle-double-right'/></button>
       </form>
     </div>);
 }

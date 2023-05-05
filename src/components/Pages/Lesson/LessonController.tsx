@@ -3,8 +3,8 @@ import axios from "axios";
 import { IconStatus, Word } from "../../Helpers/commonInterfaces";
 import NewWordsLesson from "./Views/NewWordsLesson";
 import PronunciationLesson from "./Views/PronunciationLesson";
-import NewWordsExercises from "./Views/Exercise/NewWordsExercises";
-import ShowLessonResult from "./Views/Exercise/ShowLessonResult";
+import NewWordsExercises from "./Views/Exercises/NewWordsExercises";
+import ShowLessonResult from "./Views/ShowLessonResult";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./Views/StartView'));
 
