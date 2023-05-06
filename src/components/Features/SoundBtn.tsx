@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import {VoiceCtx} from '../Pages/Lesson/VoiceContext';
+import { useContext, useState } from 'react';
+import {VoiceCtx} from './VoiceContext';
 enum BtnState{ START, STOP};
 
 interface LocProps{
@@ -20,9 +20,7 @@ function SoundBtn(props:LocProps) {
             setTimeout(()=>{setBtnState(BtnState.START);}, timeToExpire);
             return BtnState.STOP;
           }
-          else{
-            return oldState;
-          }
+          return oldState;
        });
     }
 

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 import { IconStatus, Word } from '../../../../Helpers/commonInterfaces';
 import WriteWord from './WriteWord';
 import Notification, { NotificationType } from '../../../../Features/Notfication';
@@ -50,7 +50,8 @@ function NewWordsExercises(props:LocProps) {
       const currentExerciseType = index % 3;
 
       if(currentExerciseType === ExerciseType.WRITE_wORD){
-        return (<WriteWord key={index} {...word} {...commonMethodes} skipExercise={()=>{dispatch({type:ACTION.SKIP_ANSWEAR}); setNotification(false);}} />);
+        return (<WriteWord key={index} {...word} {...commonMethodes} 
+                  skipExercise={()=>{dispatch({type:ACTION.SKIP_ANSWEAR}); setNotification(false);}} />);
       }
 
       if(currentExerciseType === ExerciseType.MUTIPLE_CHOICE){

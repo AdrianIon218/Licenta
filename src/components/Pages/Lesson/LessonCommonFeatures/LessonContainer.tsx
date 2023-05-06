@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import ProgressBar from './ProgressBar';
+import ProgressBar from '../../../Features/ProgressBar';
 import LessonController from './LessonController';
 import LessonExitButton from './LessonExitButton';
-import StageTransition from './Views/StageTransition';
+import StageTransition from './StageTransition';
 
 function LessonContainer() {
   const [lessonInfo, setLessonInfo] = useState({lessonId:-1, moduleId:-1, lessonTitle:''});
@@ -34,6 +34,7 @@ function LessonContainer() {
   },[]);
  
   return (
+    <div className='lesson-section-ctn'>
     <section className='lesson-section'>
       <div className="lesson-ctn">
         {lessonInfo.lessonId >= 0 && <LessonController {...lessonInfo} setProgressBar={setProgressBar} triggerTransition={triggerTransition} />}
@@ -44,6 +45,7 @@ function LessonContainer() {
       </div>
       <LessonExitButton />
     </section>
+    </div>
   );
 }
 

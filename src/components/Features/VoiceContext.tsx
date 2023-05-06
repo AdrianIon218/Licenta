@@ -73,7 +73,6 @@ interface LocProps {
 }
 
 function VoiceContext(props:LocProps) {
-
     useEffect(()=>{
       VoiceController.getVoiceReady();
     },[]);
@@ -99,7 +98,7 @@ function VoiceContext(props:LocProps) {
         setTimeout(()=> resolve(VoiceController.textRecorded), timeInMs + 100);
      });
     },[]);
-    
+
     return (<VoiceCtx.Provider value={{readTextWithVoice: readTextWithVoiceHandler, readTextWithVoiceSlowly: readTextWithVoiceSlowlyHandler,
                         startRecord:startRecordHandler, stopReadText: VoiceController.stopRead}}>
         {props.children}

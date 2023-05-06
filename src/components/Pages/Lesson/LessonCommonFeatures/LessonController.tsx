@@ -1,12 +1,12 @@
-import { lazy, useEffect, useState } from "react";
+import { lazy, useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import { IconStatus, Word } from "../../Helpers/commonInterfaces";
-import NewWordsLesson from "./Views/NewWordsLesson";
-import PronunciationLesson from "./Views/PronunciationLesson";
-import NewWordsExercises from "./Views/Exercises/NewWordsExercises";
-import ShowLessonResult from "./Views/ShowLessonResult";
+import { IconStatus, Word } from "../../../Helpers/commonInterfaces";
+import NewWordsLesson from "../Views/NewWordsLesson";
+import PronunciationLesson from "../Views/PronunciationLesson";
+import NewWordsExercises from "../Views/Exercises/NewWordsExercises";
+import ShowLessonResult from "./ShowLessonResult";
 enum ViewStage { START, LESSON, EXERCISE, END };
-const StartView = lazy(()=> import('./Views/StartView'));
+const StartView = lazy(()=> import('./StartView'));
 
 interface LocProps{
   lessonId:number, 
@@ -84,7 +84,6 @@ function LessonController(props:LocProps) {
      }
    },[stage, statusLesson]);
   
-   // stageHandler(ViewStage.LESSON)
    return (
     <>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}

@@ -35,7 +35,7 @@ function MultipleChoice(props:LocProps) {
       if(choiceMade === props.wordName){
         props.correctAnswear();
       }
-      else{
+      else if(choiceMade !== ''){
         props.wrongAnswear();
        }  
      }

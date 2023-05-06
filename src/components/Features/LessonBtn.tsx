@@ -35,6 +35,7 @@ function LessonBtn({children, status, lessonId, moduleId, type}:props) {
         <i className={`fa fa-star ${status === IconStatus.STAR_3 && 'course-status--checked'}`} />
         <i className={`fa fa-star ${status > IconStatus.STAR_1 && 'course-status--checked'}`} />
       </div>
+      {type === 'pronunciation' && <div className="course-pronunciation"><i className="fa fa-microphone" /></div>}
     </div>);
 }
 

@@ -10,7 +10,7 @@ function ProgressBar({progressStatus}:LocProps) {
       <div className="progress-bar__loading" style={{width:`${progressStatus}%`}} />
       <div className="progress-bar__grid-half" />
     </div>
-  )
+  );
 }
 
 export default ProgressBar;

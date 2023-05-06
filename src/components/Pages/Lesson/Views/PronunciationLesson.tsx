@@ -1,6 +1,7 @@
 import { Word } from '../../../Helpers/commonInterfaces';
 import { useContext } from 'react'
-import { VoiceCtx } from '../VoiceContext';
+import { VoiceCtx } from '../../../Features/VoiceContext';
+import WordRecord from '../LessonCommonFeatures/WordRecord';
 
 interface LocProps{
   toExecises: ()=> void
@@ -9,16 +10,12 @@ interface LocProps{
 
 function PronunciationLesson(props:LocProps) {
   const voiceCtx = useContext(VoiceCtx);
-  const startRecord = ()=>{
-    voiceCtx!.startRecord(5).then((text)=>{
-      console.log(text);
-    })
-  }
+
   return (
     <div>
-
+      <WordRecord {...props.unkwonWords[0]}/>
     </div>
   )
 }
 
-export default PronunciationLesson
+export default PronunciationLesson;

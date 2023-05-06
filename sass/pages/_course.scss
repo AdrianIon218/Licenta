@@ -365,3 +365,18 @@
     }
   }
 }
+
+.course-pronunciation{
+  font-size: 1rem;
+  font-weight: 800;
+  padding: .4rem .5rem;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+  color: $color-gray-dark;
+  border:1px dashed $color-gray-dark;;
+  padding: 1px 8px;
+  padding: auto;
+  opacity: .7;
+}

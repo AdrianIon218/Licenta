@@ -5,35 +5,30 @@ import Notification, { NotificationType } from "../../Features/Notfication";
 
 const reducer = (state:{isShown:boolean}, action:{type:'ACCEPTED'|'INVALID_PASS'|'NO_USER'|'SERVER_ERR'|'DEACTIVATE'}) => {
   switch (action.type) {
-
     case "ACCEPTED":
       return {
         isShown:false,
         message:'Te-ai autentificat !',
         notificationType: NotificationType.SUCCESS
       }
-
     case "INVALID_PASS":
       return {
         isShown:true,
         message:'Parola este incorectă !',
         notificationType: NotificationType.ERROR
       }
-
     case "NO_USER":
       return {
         isShown:true,
         message:'Nu există utilizator cu această adresă de mail !',
         notificationType: NotificationType.NO_TYPE
       }
-
     case 'SERVER_ERR':
       return{
         isShown:true,
         message:'Eroare de server, încerca-ți mai târziu !',
         notificationType: NotificationType.ERROR
       }
-      
     default:
       return{
         isShown:false,

@@ -35,7 +35,7 @@ function ChooseTranslation(props:LocProps) {
      if(choiceMade === props.translation){
        props.correctAnswear();
      }
-     else{
+     else if(choiceMade !== ''){
        props.wrongAnswear();
       }  
     }

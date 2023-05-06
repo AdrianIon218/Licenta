@@ -13,7 +13,7 @@ function App() {
   const Contacts = lazy(() => import("./components/Pages/Contacts"));
   const CoursePlan = lazy(() => import("./components/Pages/Course/CoursePlan"));
   const CoursesSection = lazy(()=> import("./components/Sections/CoursesSection"));
-  const LessonContainer = lazy(()=>import("./components/Pages/Lesson/LessonContainer"));
+  const LessonContainer = lazy(()=>import("./components/Pages/Lesson/LessonCommonFeatures/LessonContainer"));
 
   return (<Router>
     <Routes>
