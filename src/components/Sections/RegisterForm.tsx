@@ -21,7 +21,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
     const emailEntered = emailRef.current!.value;
     const currentLevel = level === KnowlegdeLevel.ADVANCED ? 'C1' :
            level === KnowlegdeLevel.BEGGINER ? 'A1' : 'B1' ;
-    axios.post("http://localhost:5000/signup/checkemail", { email: emailEntered }).
+    axios.post("http://localhost:5000/signup/checkEmail", { email: emailEntered }).
     then(response => 
       {
        const {isEmailAvailable} = response.data;

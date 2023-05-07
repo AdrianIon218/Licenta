@@ -7,10 +7,8 @@ interface LocProps{
 
 function RecordBtn(props:LocProps) {
     const voiceCtx = useContext(VoiceCtx);
-    const timeToRecord = props.textToLookFor.length > 15 ? 8 : 5;
+    const timeToRecord = props.textToLookFor.length > 15 ? 8 : 3;
     const startRecord = ()=>{
-      
-        
       voiceCtx!.startRecord(timeToRecord).then((text)=>{
        if(text === props.textToLookFor){
         console.log("text match")
