@@ -4,7 +4,7 @@ export default function Header(){
   <div className='logo_box'>
     <img src="/Licenta/images/GermanMax.png" alt="GermanMax" className="logo_box__img" />
   </div>
-  <header className='header header-section'>
+  <header className='header section-header'>
     <div className='text-box'>
       <h1 className='heading-primary'>
         <span className='heading-primary__main'> 

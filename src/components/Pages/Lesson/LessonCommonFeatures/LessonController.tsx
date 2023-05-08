@@ -61,7 +61,7 @@ function LessonController(props:LocProps) {
       return;
     }
     if(lessonType === 'pronunciation'){
-      setCompJSX(<PronunciationLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} />);
+      setCompJSX(<PronunciationLesson toExecises={(score:number)=> props.triggerTransition()} unkwonWords={words} setProgressBar={props.setProgressBar} />);
       return;
     }
     if(lessonType === 'test'){
@@ -77,7 +77,9 @@ function LessonController(props:LocProps) {
 
    useEffect(()=>{
      if(stage === ViewStage.EXERCISE){
-      setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
+      if(lessonType !== 'pronunciation'){
+        setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
+      }
      }
      if(stage === ViewStage.END){
       setCompJSX(<ShowLessonResult statusLesson={statusLesson} />);

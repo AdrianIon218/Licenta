@@ -6,7 +6,7 @@ function Contacts() {
   }
 
   return (
-    <section className="header-section form u_padding_down--big flex-column--centered">
+    <section className="section-header form u_padding_down--big flex-column--centered">
       <form onSubmit={submit} className="forn box-form u-margin-top--small">
         <div className="u-margin-bottom-medium u-center-text">
           <h2 className="heading-secondary">

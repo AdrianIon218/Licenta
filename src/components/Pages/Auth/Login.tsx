@@ -84,7 +84,7 @@ export default function Login(){
   {notification.isShown && <Notification message={notification.message} type={notification.notificationType}
            deleteNotification={() => dispatchNotification({type:'DEACTIVATE'})} />}
   
-   <section className="section-gradient header-section u_padding_down--big">
+   <section className="section-gradient section-header u_padding_down--big">
       <div className="flex-row--centered">
         <div className="box-mountain-bg">
           <div className="box-mountain-bg__form">

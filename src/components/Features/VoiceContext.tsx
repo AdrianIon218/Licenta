@@ -6,17 +6,6 @@ class VoiceController {
    public static textRecorded:string = '';
 
    static getVoiceReady = ()=>{
-     window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-     window.SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList;
-     window.SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-     this.speechRecognition = new window.SpeechRecognition();
-     this.speechRecognition.interimResults = true;
-     this.speechRecognition.lang = "de-De";
-     this.speechRecognition.addEventListener('result', (e)=>{
-       const text = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
-       this.textRecorded = text;
-     });
-
      this.voiceUtterance.lang = "de-De";
      this.voiceUtterance.rate = 1;
      speechSynthesis.addEventListener('voiceschanged', ()=>{
@@ -30,6 +19,26 @@ class VoiceController {
         }
       });
    } 
+
+   static VoiceRecognisitionInitialization(){
+     window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+     window.SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList;
+     window.SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+     this.speechRecognition = new window.SpeechRecognition();
+     this.speechRecognition.interimResults = true;
+     this.speechRecognition.lang = "de-De";
+     this.speechRecognition.continuous = false;
+     this.speechRecognition.onstart = ()=>{
+        this.voiceUtterance.volume = 0;
+     }
+     this.speechRecognition.onend = ()=>{
+        this.voiceUtterance.volume = 1;
+     }
+     this.speechRecognition.addEventListener('result', (e)=>{
+      const text = Array.from(e.results).map(result => result[0]).map(result => result.transcript).join('');
+      this.textRecorded = text;
+     });
+   }
 
    static readText = (text:string) => {
      speechSynthesis.cancel();
@@ -53,10 +62,11 @@ class VoiceController {
    }
 
    static startRecord(timeInMs:number = 5000){
-     this.textRecorded = '';
-     this.speechRecognition!.start();
-     setTimeout(()=>{
-        this.speechRecognition!.stop();
+      this.VoiceRecognisitionInitialization();
+      this.textRecorded = '';
+      this.speechRecognition!.start();
+      setTimeout(()=>{
+        this.speechRecognition!.stop();   
       }, timeInMs);
    }
 }
@@ -92,11 +102,11 @@ function VoiceContext(props:LocProps) {
     },[]);
 
     const startRecordHandler = useCallback((numberOfSeconds:number)=>{
-     const timeInMs = numberOfSeconds * 1000;
-     VoiceController.startRecord(timeInMs);
-     return new Promise<string>((resolve)=>{
+      const timeInMs = numberOfSeconds * 1000;
+      VoiceController.startRecord(timeInMs);
+      return new Promise<string>((resolve)=>{
         setTimeout(()=> resolve(VoiceController.textRecorded), timeInMs + 100);
-     });
+      });
     },[]);
 
     return (<VoiceCtx.Provider value={{readTextWithVoice: readTextWithVoiceHandler, readTextWithVoiceSlowly: readTextWithVoiceSlowlyHandler,

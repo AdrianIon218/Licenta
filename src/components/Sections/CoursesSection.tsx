@@ -3,7 +3,7 @@ import { AvailableCourses } from "../../data/ts-data/availableCourses";
 
 export default function CoursesSection({location}:{location:'home'|'own-page'}){
 
-  return (<section className={`section-courses ${location === 'home'? 'section-courses--between between-section':'header-section'} `} id="section-course-id"> 
+  return (<section className={`section-courses ${location === 'home'? 'section-courses--between section-between':'section-header'} `} id="section-course-id"> 
     <div className="u-center-text u-margin-bottom-medium">
       <h2 className="heading-secondary">
       Cursuri disponibile

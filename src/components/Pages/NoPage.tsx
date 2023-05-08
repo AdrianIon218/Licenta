@@ -1,6 +1,6 @@
 
 export default function NoPage(){
-  return (<section className="section-video-bg header-section">
+  return (<section className="section-video-bg section-header">
     <div className="message-not-found">
       <h2 className="heading-secondary u-center-text">
         <span className="span-block">Pagina nu</span>&nbsp; 

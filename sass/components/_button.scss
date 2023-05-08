@@ -88,3 +88,47 @@
     transform: translateY(0);
   }
 }
+
+.btn-skip{
+  position: absolute;
+  top: 4rem;
+  right: 4px;
+  text-align: center;
+  z-index: 1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 1rem;
+  border: 1px double $color-green-3;
+  color: $color-green-4;
+  background-color: $backgound-green;
+  cursor: pointer;
+  transition: all .4s;
+
+  &:hover{
+    box-shadow: 0 0 4px $color-green-1;
+  }
+
+  &:active{
+    transform: translateY(3px);
+  }
+}
+
+.play-btn.btn-record{
+  background-color: $color-red-mid;
+  border-color: $color-white-max;
+  transition: all .4s;
+
+  &:hover{
+    background-color: $color-white-max;
+    color: $color-red-mid;
+    border-color: $color-red-mid;
+  }
+
+  &.btn-recording{
+    outline: 3px double $color-red-mid;
+    
+    @include mixin_animation-infinite(recording-outline-effect, .7s, ease-in-out, 0s);
+  }
+}
+

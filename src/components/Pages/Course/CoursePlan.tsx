@@ -15,7 +15,7 @@ function CoursePlan() {
 
   return (
     <CourseContext>
-      <section className='header-section course'>
+      <section className='section-header course'>
         <div className={`course-board course-${levelStr} flex-column--centered`}>
           <div className='course-title-container u-margin-bottom-intermediate'>
             <h1 className='u-center-text'>Nivelul {levelStr}</h1>

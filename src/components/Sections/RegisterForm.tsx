@@ -57,7 +57,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
    deleteNotification={() => setNotification(false)} />}
    {pageTarget && <LinkTansition to={pageTarget} transitNow={true}> </LinkTansition>}
 
- <section className={location === 'home' ? "section-sign-up between-section u_padding_down--med":"header-section u_padding_down--big section-gradient"}>
+ <section className={location === 'home' ? "section-sign-up section-between u_padding_down--med":"section-header u_padding_down--big section-gradient"}>
   <div className="flex-row--centered">
     <div className="box-mountain-bg">
       <div className="box-mountain-bg__form">
