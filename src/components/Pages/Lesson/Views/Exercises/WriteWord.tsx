@@ -47,7 +47,7 @@ function WriteWord(props:LocProps) {
             </ul>
         </span>
     </div>
-    {countMistakes === 2 && <button className='btn-skip' onClick={props.skipExercise}>Skip</button>}
+    {countMistakes >= 2 && <button className='btn-skip' onClick={props.skipExercise}>Skip</button>}
     <div className='flex-column--centered word__container'>
         <img className='flex-element word__img' src={props.imageURL} alt={props.wordName} />
         <h4 className='u-center-text'>{props.translation}</h4>

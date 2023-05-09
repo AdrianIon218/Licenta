@@ -37,7 +37,7 @@ function LessonContainer() {
     <div className='lesson-section-ctn'>
     <section className='lesson-section'>
       <div className="lesson-ctn">
-        {lessonInfo.lessonId >= 0 && <LessonController {...lessonInfo} setProgressBar={setProgressBar} triggerTransition={triggerTransition} />}
+        {lessonInfo.lessonId >= 0 && <LessonController {...lessonInfo} setProgressBar={(progressStatus:number)=>setProgressBar(progressStatus)} triggerTransition={triggerTransition} />}
         <StageTransition ref={transitionRef} />
       </div>
       <div className="lesson__progress-bar">

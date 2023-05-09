@@ -6,6 +6,7 @@ class VoiceController {
    public static textRecorded:string = '';
 
    static getVoiceReady = ()=>{
+     this.VoiceRecognisitionInitialization();
      this.voiceUtterance.lang = "de-De";
      this.voiceUtterance.rate = 1;
      speechSynthesis.addEventListener('voiceschanged', ()=>{
@@ -20,7 +21,7 @@ class VoiceController {
       });
    } 
 
-   static VoiceRecognisitionInitialization(){
+   private static VoiceRecognisitionInitialization(){
      window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
      window.SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList;
      window.SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
@@ -62,7 +63,6 @@ class VoiceController {
    }
 
    static startRecord(timeInMs:number = 5000){
-      this.VoiceRecognisitionInitialization();
       this.textRecorded = '';
       this.speechRecognition!.start();
       setTimeout(()=>{

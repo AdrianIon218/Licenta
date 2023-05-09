@@ -5,19 +5,21 @@ import { removePunctuation, removeUmlauts } from '../Helpers/StringMethodes';
 
 interface LocProps{
     textToLookFor: string,
-    correctAnswear: ()=> void,
-    wrongAnswear: ()=> void
+    correctAnswear: ()=>void,
+    wrongAnswear: ()=>void,
+    clickActions: ()=>void
 }
 
 function RecordBtn(props:LocProps) {
     const voiceCtx = useContext(VoiceCtx);
     const [isListening, setListening] = useState(false); 
-    const timeToRecord = props.textToLookFor.length < 10 ? 3 : props.textToLookFor.length < 20 ? 5 : 8 ;
+    const timeToRecord = props.textToLookFor.length < 10 ? 3 : props.textToLookFor.length < 20 ? 4 : 7 ;
     const textToLookFor = removeUmlauts(removePunctuation(props.textToLookFor.toLowerCase()));
 
     const startRecord = ()=>{
       if(!isListening){
         try{
+          props.clickActions();
           setListening(true);
           voiceCtx!.startRecord(timeToRecord).then((text)=>{
             text = removeUmlauts(removePunctuation(text.toLowerCase()));
@@ -27,7 +29,6 @@ function RecordBtn(props:LocProps) {
             }
             else{
                 props.wrongAnswear();
-                console.log(text)
             }
             setListening(false);
           });

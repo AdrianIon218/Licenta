@@ -6,7 +6,8 @@ import SoundBtn from '../../../Features/SoundBtn';
 interface LocProps extends Word{
   correctAnswear: ()=>void,
   wrongAnswear: ()=>void,
-  skip: ()=>void
+  skip: ()=>void,
+  stopNotification:()=>void
 }
 
 function WordRecord(props:LocProps) {
@@ -32,7 +33,7 @@ function WordRecord(props:LocProps) {
       <SoundBtn sentence={props.wordName} />
       <h3 className='u-center-text'>{props.wordName}</h3>
       <h4 className='u-center-text'>[ {props.translation} ]</h4>
-      <RecordBtn textToLookFor={props.wordName} correctAnswear={correctAnswearHandler} wrongAnswear={wrongAnswearHandler} />
+      <RecordBtn textToLookFor={props.wordName} correctAnswear={correctAnswearHandler} wrongAnswear={wrongAnswearHandler} clickActions={()=>props.stopNotification()} />
     </div>
     </>);
 }

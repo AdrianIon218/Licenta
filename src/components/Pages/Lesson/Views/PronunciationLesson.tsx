@@ -1,5 +1,5 @@
 import { Word } from '../../../Helpers/commonInterfaces';
-import { useEffect, useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
 import WordRecord from '../LessonCommonFeatures/WordRecord';
 import Notification, { NotificationType } from '../../../Features/Notfication';
 
@@ -17,24 +17,24 @@ function PronunciationLesson(props:LocProps) {
   const reducer = (state:{progressBarStatus:number, score:number, currentWordIndex: number}, action:{type:ACTION, ratioProgress:number})=>{
     switch(action.type){
       case ACTION.CORRECT_ANSWEAR:
-        props.setProgressBar(state.progressBarStatus + action.ratioProgress);
         return { progressBarStatus: state.progressBarStatus + action.ratioProgress, score: state.score+1, currentWordIndex: state.currentWordIndex+1}
       case ACTION.WRONG_ANSWEAR:
         return {...state, score: state.score-1}
       case ACTION.SKIP:
-        props.setProgressBar(state.progressBarStatus + action.ratioProgress);
-        return {...state, progressBarStatus: state.progressBarStatus + action.ratioProgress, score: state.score-1, currentWordIndex: state.currentWordIndex+1}
+        return { progressBarStatus: state.progressBarStatus + action.ratioProgress, score: state.score-1, currentWordIndex: state.currentWordIndex+1}
       default:
         return state;
     }
   }
 
-  const [state, dispatch] = useReducer(reducer,{progressBarStatus:0, score:0, currentWordIndex:0});
+  const [state, dispatch] = useReducer(reducer, {progressBarStatus:0, score:0, currentWordIndex:0});
   const ratioProgress = 50/props.unkwonWords.length;
   const [warningNotification, setNotification] = useState(false);
 
   const correctAnswearHandler = ()=>{
+    props.setProgressBar(state.progressBarStatus + ratioProgress);
     dispatch({type:ACTION.CORRECT_ANSWEAR, ratioProgress: ratioProgress});
+    setNotification(false);
   }
 
   const wrongAnswearHandler = ()=>{
@@ -43,19 +43,20 @@ function PronunciationLesson(props:LocProps) {
   }
 
   const skipHandler = ()=>{
+    props.setProgressBar(state.progressBarStatus + ratioProgress);
     dispatch({type:ACTION.SKIP, ratioProgress: ratioProgress});
+    setNotification(false);
   }
 
   const WordsRecordJSX = props.unkwonWords.map((word, index)=> 
-       <WordRecord {...word} key={index} correctAnswear={correctAnswearHandler} wrongAnswear={wrongAnswearHandler} skip={skipHandler}/>);  
+       <WordRecord {...word} key={index} correctAnswear={correctAnswearHandler}
+          wrongAnswear={wrongAnswearHandler} skip={skipHandler} stopNotification={()=> setNotification(false)} />);  
       
-  return (
-    <>
-    {warningNotification && <Notification message="Răspuns greșit !" type={NotificationType.ERROR} deleteNotification={() => setNotification(false)} />}
+  return (<>
+    {warningNotification && <Notification message="Răspuns greșit !" type={NotificationType.ERROR} deleteNotification={()=> setNotification(false)} />}
     {state.currentWordIndex < props.unkwonWords.length && WordsRecordJSX[state.currentWordIndex]}
     {state.currentWordIndex === props.unkwonWords.length && props.toExecises(state.score)}
-    </>
-  )
+  </>);
 }
 
 export default PronunciationLesson;

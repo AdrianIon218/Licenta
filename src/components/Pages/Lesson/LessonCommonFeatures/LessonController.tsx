@@ -3,7 +3,7 @@ import axios from "axios";
 import { IconStatus, Word } from "../../../Helpers/commonInterfaces";
 import NewWordsLesson from "../Views/NewWordsLesson";
 import PronunciationLesson from "../Views/PronunciationLesson";
-import NewWordsExercises from "../Views/Exercises/NewWordsExercises";
+import WordsExercises from "../Views/Exercises/WordsExercises";
 import ShowLessonResult from "./ShowLessonResult";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./StartView'));
@@ -34,15 +34,13 @@ function LessonController(props:LocProps) {
        then(response => {
           response.data.forEach((word:any) => {
             const {id, word:wordName, translation, example, moduleId} = word;
-
             const bufferToArray = new Uint8Array(word.image.data);
             const blobObj = new Blob([bufferToArray], {type:'application/octet-stream'})
             const objUrl = URL.createObjectURL(blobObj);
-
             retrivedWords.push({id: id, wordName:wordName.trim(), translation:translation.trim(), example: example, moduleId:moduleId, imageURL: objUrl});
           });
          
-         return retrivedWords;
+          return retrivedWords;
        });
    }
 
@@ -55,30 +53,33 @@ function LessonController(props:LocProps) {
     }
    },[props.moduleId]);
 
+   const finishExercises = (status:IconStatus) =>{
+    setStatusLesson(status);
+    stageHandler(ViewStage.END);
+   }
+
+   const setExercisesListening = (score:number)=>{
+     props.triggerTransition();
+     setTimeout(()=>{
+      setCompJSX(<WordsExercises score={score} unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
+     }, 450);
+   }
+
    useEffect(()=>{
     if(lessonType === 'new_words'){
       setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} setProgressBar={props.setProgressBar} />);
       return;
     }
     if(lessonType === 'pronunciation'){
-      setCompJSX(<PronunciationLesson toExecises={(score:number)=> props.triggerTransition()} unkwonWords={words} setProgressBar={props.setProgressBar} />);
-      return;
-    }
-    if(lessonType === 'test'){
-
+      setCompJSX(<PronunciationLesson toExecises={setExercisesListening} unkwonWords={words} setProgressBar={props.setProgressBar} />);
       return;
     }
    },[words]);
 
-   const finishExercises = (status:IconStatus) =>{
-      setStatusLesson(status);
-      stageHandler(ViewStage.END);
-   }
-
    useEffect(()=>{
      if(stage === ViewStage.EXERCISE){
       if(lessonType !== 'pronunciation'){
-        setCompJSX(<NewWordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
+        setCompJSX(<WordsExercises unkwonWords={words} setProgressBar={props.setProgressBar} onFinish={finishExercises}/>);
       }
      }
      if(stage === ViewStage.END){
@@ -86,12 +87,10 @@ function LessonController(props:LocProps) {
      }
    },[stage, statusLesson]);
   
-   return (
-    <>
+   return (<>
      {stage === ViewStage.START && <StartView title={props.lessonTitle} startClickHandler={()=> stageHandler(ViewStage.LESSON)} />}
      {(stage === ViewStage.LESSON || stage === ViewStage.EXERCISE || stage === ViewStage.END) && compJSX}
-    </>
-  )
+    </>);
 }
 
 export default LessonController;
