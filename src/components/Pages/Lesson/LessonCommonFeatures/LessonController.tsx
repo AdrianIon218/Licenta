@@ -5,9 +5,10 @@ import NewWordsLesson from "../Views/NewWordsLesson";
 import PronunciationLesson from "../Views/PronunciationLesson";
 import WordsExercises from "../Views/Exercises/WordsExercises";
 import ShowLessonResult from "./ShowLessonResult";
-import GrammerLesson from "../Views/GrammerLesson";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./StartView'));
+const GrammerLesson = lazy(()=> import('../Views/GrammerLesson'));
+const GrammerExercises = lazy(()=> import('../Views/Exercises/GrammerExercises'));
 
 interface LocProps{
   lessonId:number, 
@@ -76,7 +77,13 @@ function LessonController(props:LocProps) {
       return;
     }
     if(lessonType === 'grammer'){
-      setCompJSX(<GrammerLesson lessonId={props.lessonId} />);
+      setCompJSX(<GrammerLesson lessonId={props.lessonId} toExercises={()=>{
+        props.triggerTransition();
+        props.setProgressBar(50);
+        setTimeout(()=>{
+          setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId}/>);
+        }, 450);
+      }} />);
       return;
     }
     if(lessonType === 'test'){

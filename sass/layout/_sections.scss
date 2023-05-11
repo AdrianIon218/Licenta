@@ -118,3 +118,95 @@
 .section-lazy-loading{
   min-width: 96vw;
 }
+
+.section-grammer{
+  padding: 1rem 5px;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  
+  h3{
+    font-size: 1.5rem;
+    color: $color-blue-darker;
+    margin-bottom: 2rem;
+  }
+
+  h4{
+    font-size: 1.4rem;
+    color: $color-blue-dark;
+  }
+
+  p{
+    text-align: justify;
+  }
+
+  div:nth-last-child(2){
+    margin-bottom: 4rem;
+  }
+
+  .submitBtn{
+    font-size: 1.2rem;
+  }
+}
+
+.exercise{
+  h3{
+    color:$color-blue-dark;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  h4{
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  div{
+    margin-top: 6rem;
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    @include mixin_animation(fade-in-effect, .5s, ease-in-out, 0s);
+    
+    & > button{
+      font-size: 1.2rem;
+      padding: 3px 8px;
+      border-radius: 1rem;
+      border: 4px double;
+      cursor: pointer;
+      background-color: $color-white-max;
+      font-weight: 700;
+      transition: all .4s;
+
+      &.false-btn{
+        color: $color-red-mid;
+      }
+
+      &.true-btn{
+        color: $color-green-3;
+      }
+
+      &:hover{
+        transform: translateY(-3px);
+      }
+
+      &:active{
+        transform: translateY(3px);
+      }
+    }
+
+    @include respond(phone){
+      width: 80%;
+      justify-content: space-around;
+    }
+  }
+  
+  .submitBtn{
+    outline: none;
+  }
+
+  .correct_sentence{
+    color: $color-green-3;
+  }
+}

@@ -18,14 +18,13 @@ function ShowLessonResult(props:LocProps) {
     sessionStorage.removeItem('lessonType');
     if(user){
       axios.post("http://localhost:5000/lessons/addProgress", {email: user, lessonId: lessonId, status: props.statusLesson}).then(
-        res => {
+        response=> {
           sessionStorage.removeItem('lessonId');
         });
     }else{
       sessionStorage.removeItem('lessonId');
     }
   },[]);
-  
   
   return (
     <div className='flex-column--centered'>
