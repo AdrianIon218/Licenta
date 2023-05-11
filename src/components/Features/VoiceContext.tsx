@@ -63,6 +63,9 @@ class VoiceController {
    }
 
    static startRecord(timeInMs:number = 5000){
+      if(navigator.userAgent.match(/edg/i)){
+        this.VoiceRecognisitionInitialization();
+      }
       this.textRecorded = '';
       this.speechRecognition!.start();
       setTimeout(()=>{

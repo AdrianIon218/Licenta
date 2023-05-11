@@ -5,6 +5,7 @@ import NewWordsLesson from "../Views/NewWordsLesson";
 import PronunciationLesson from "../Views/PronunciationLesson";
 import WordsExercises from "../Views/Exercises/WordsExercises";
 import ShowLessonResult from "./ShowLessonResult";
+import GrammerLesson from "../Views/GrammerLesson";
 enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./StartView'));
 
@@ -72,6 +73,14 @@ function LessonController(props:LocProps) {
     }
     if(lessonType === 'pronunciation'){
       setCompJSX(<PronunciationLesson toExecises={setExercisesListening} unkwonWords={words} setProgressBar={props.setProgressBar} />);
+      return;
+    }
+    if(lessonType === 'grammer'){
+      setCompJSX(<GrammerLesson lessonId={props.lessonId} />);
+      return;
+    }
+    if(lessonType === 'test'){
+      
       return;
     }
    },[words]);
