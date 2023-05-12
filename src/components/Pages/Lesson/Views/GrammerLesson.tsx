@@ -21,11 +21,16 @@ function GrammerLesson(props:LocProps) {
         });
     },[props.lessonId]);
 
+    const clickHandler = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+      event.currentTarget.disabled = true;
+      props.toExercises();
+    }
+
     return (
       <div className='section-grammer'>
         {lessionInfo}
         <div className="u-center-text">
-           <button className='submitBtn u-center-text' onClick={props.toExercises}>Începe exercițiile <i className='fas fa-angle-double-right'/></button>
+           <button className='submitBtn u-center-text' onClick={clickHandler}>Începe exercițiile <i className='fas fa-angle-double-right'/></button>
         </div>
       </div>
     );

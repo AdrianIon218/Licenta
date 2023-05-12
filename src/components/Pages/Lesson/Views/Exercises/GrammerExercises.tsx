@@ -47,11 +47,16 @@ function GrammerExercises(props:LocProps) {
                 { exercise.type === 'complete_sentence' && 
                   <CompleteSentence structure={exercise.structure} correctAnswear={()=>correctAnswearHandler(50/exercises.length)} 
                   wrongAnswear={()=>wrongAnswearHandler(50/exercises.length)}/>}
-                { exercise.type === 'match_choices' && <MatchChoices structure={exercise.structure}/> }
+                { exercise.type === 'match_choices' && <MatchChoices structure={exercise.structure} correctAnswear={()=>correctAnswearHandler(50/exercises.length)} 
+                  wrongAnswear={()=>wrongAnswearHandler(50/exercises.length)} /> }
                 </React.Fragment>);
           }));
         });
     },[props.lessonId]);
+    
+    useEffect(()=>{
+      console.log(generalState.score)
+    },[generalState])
     
     return (<React.Fragment>
       {exercisesComps[generalState.currentExIndex]}

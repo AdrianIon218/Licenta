@@ -1,4 +1,4 @@
-import { lazy, useEffect, useReducer, useState } from "react";
+import { lazy, useEffect, useState, useTransition } from "react";
 import axios from "axios";
 import { IconStatus, Word } from "../../../Helpers/commonInterfaces";
 import NewWordsLesson from "../Views/NewWordsLesson";
@@ -24,6 +24,7 @@ function LessonController(props:LocProps) {
    const [compJSX, setCompJSX] = useState<JSX.Element>();
    const [statusLesson, setStatusLesson] = useState(IconStatus.NO_PROGRESS);
    const lessonType = sessionStorage.getItem('lessonType');
+   const [isPending, startTransition] = useTransition();
 
    const stageHandler = (stage:ViewStage)=>{
     props.triggerTransition();
@@ -78,11 +79,13 @@ function LessonController(props:LocProps) {
     }
     if(lessonType === 'grammer'){
       setCompJSX(<GrammerLesson lessonId={props.lessonId} toExercises={()=>{
-        props.triggerTransition();
         props.setProgressBar(50);
-        setTimeout(()=>{
-          setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId}/>);
-        }, 450);
+        props.triggerTransition();
+        startTransition(()=>{
+          setTimeout(()=>{
+            setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId}/>);
+          }, 470);
+        })
       }} />);
       return;
     }

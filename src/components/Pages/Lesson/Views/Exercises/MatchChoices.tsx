@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface LocProps{
     structure: {
       choices: string[][]
-    }
+    },
+    correctAnswear:()=>void,
+    wrongAnswear:()=>void
 }
 
 function MatchChoices(props:LocProps) {
@@ -22,14 +24,11 @@ function MatchChoices(props:LocProps) {
        setChoices(oldVal=>oldVal.concat([value]));
     }
 
-    const choiceElements = props.structure.choices.map(arr=>arr[1]).map((choice, index)=>{
+    const choicesShuffled = useMemo(()=>props.structure.choices.map(arr=>arr[1]).sort((a, b)=> 0.5 - Math.random()),[]);
+    const choiceElements =  choicesShuffled.map((choice, index)=>{
         return (<button key={index} onClick={onClickHandler} value={choice} 
             disabled={choicesMade.length === leftColoumnElements.length || choicesMade.includes(choice)} >{choice}</button>);
     });
-
-    useEffect(()=>{
-        choiceElements.sort((a, b)=> 0.5 - Math.random());
-    },[]);
 
     const onSubmit = ()=>{
       if(choicesMade.length === props.structure.choices.length){
@@ -40,13 +39,13 @@ function MatchChoices(props:LocProps) {
       }
     }
 
-    const continueHandler = ()=>{
+    const continueHandler = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+      event.currentTarget.disabled = true;
       if(results.isCorrect){
-
+        props.correctAnswear();
         return;
       }
-      
-
+      props.wrongAnswear();
     }
 
     return (<div className="flex-column--centered exercise">
