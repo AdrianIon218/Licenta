@@ -209,4 +209,109 @@
   .correct_sentence{
     color: $color-green-3;
   }
+
+  .block-transparent{
+    display: inline-block;
+    padding: 2px;
+    background-color: rgba($color-blue-dark, 0.5);
+    border-radius: 1rem;
+    border:3px double $color-blue-darker;
+    min-width: 4rem;
+    margin: 0 5px;
+    color: $color-white-max;
+    &:before {
+      content: "\200D";
+      display:inline;
+    }
+  }
+
+  .box-btns{
+    flex-wrap: wrap;
+    row-gap:1rem;
+    margin-bottom: 5rem;
+
+    button{
+      color: $color-blue-dark;
+      border: 3px solid;
+    }
+  }
+
+  .backgd-green{
+    background-color: $backgound-green;
+    color:$color-green-3 !important;
+    border-color: $color-green-3 !important;
+  }
+
+  .backgd-red{
+    background-color: $backgound-orange;
+    color: $color-red-dark !important;
+    border-color: $color-red-dark !important;
+  }
+
+  .choices-match-box{
+    list-style-type: none;
+    height: auto;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem 5px 0 5px;
+   
+    li{
+      display: flex;
+      font-size: 1.2rem;
+      color:$color-blue-dark;
+      column-gap: 1rem;
+      margin-bottom: 1rem;
+      
+      div{
+        display: inline-block;
+        background-color: $color-white-max;
+        box-shadow: 0 0 5px $color-gray;
+        padding: 3px 8px;
+        border-radius: .8rem;
+        margin: 0;
+        flex-basis: 20%;
+        @include respond(phone){
+          flex-basis: 40%;
+        }
+
+        margin-left: auto;
+        &:last-child{
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+      
+    }
+  }
+
+  .choices-box{
+    padding: 1rem 10px;
+    border-radius: 1rem;
+    border: 0px solid $color-blue-mid;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    background-color: lighten($color-blue-light,20%);
+
+    button:disabled{
+      color:$color-gray;
+      cursor: auto;
+
+      &:hover,&:active{
+        transform: none;
+      }
+    }
+  }
+
+  .correct-choices{
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    border-color: $color-green-3;
+    color:$color-green-3;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: $backgound-green;
+    @include mixin_animation(fade-in-effect, .5s, ease-in-out, 0s);    
+  }
 }
+

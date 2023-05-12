@@ -42,10 +42,10 @@ function TrueOrFalse(props:LocProps) {
          <button value={'flase'} disabled={nextBtn} onClick={onClickHandler} className='false-btn'>Falsch</button>
          <button value={'true'} disabled={nextBtn} onClick={onClickHandler} className='true-btn'>Richtig</button>
        </div>
-       { nextBtn && <div className='flex-column--centered'>
+       {nextBtn && <div className='flex-column--centered'>
           {props.structure.correct_sentence && <h4 className='correct_sentence'>{`Varianta corectă : ${props.structure.correct_sentence}`}</h4>}
-          <button className='submitBtn' onClick={nextExercise}>Următorul exercițiu</button>
          </div>}
+        {nextBtn && <button className='submitBtn u-center-text' onClick={nextExercise}>Continuă</button>}
     </div>
     </>);
 }
