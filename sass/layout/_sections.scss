@@ -212,7 +212,7 @@
 
   .block-transparent{
     display: inline-block;
-    padding: 2px;
+    padding: 2px 5px;
     background-color: rgba($color-blue-dark, 0.5);
     border-radius: 1rem;
     border:3px double $color-blue-darker;
@@ -313,5 +313,10 @@
     background-color: $backgound-green;
     @include mixin_animation(fade-in-effect, .5s, ease-in-out, 0s);    
   }
-}
 
+  .sentence-builder{
+    display:flex;
+    flex-wrap: wrap;
+    gap:5px;
+  }
+}

@@ -83,14 +83,10 @@ function LessonController(props:LocProps) {
         props.triggerTransition();
         startTransition(()=>{
           setTimeout(()=>{
-            setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId}/>);
+            setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId} toFinish={finishExercises}/>);
           }, 470);
         })
       }} />);
-      return;
-    }
-    if(lessonType === 'test'){
-      
       return;
     }
    },[words]);

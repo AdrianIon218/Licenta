@@ -13,7 +13,7 @@ function MatchChoices(props:LocProps) {
     const [results, setResults] = useState({isShown:false, isCorrect:false});
     
     const leftColoumnElements = props.structure.choices.map(arr=>arr[0]).map((choice,index)=>{
-        return (<li key={index} className="" >
+        return (<li key={index}>
            <div className="u-center-text">{choice}</div>
            <div className={`u-center-text ${results.isShown? choicesMade[index] === props.structure.choices[index][1]? 'backgd-green':'backgd-red':''}`}>{choicesMade[index]??''}</div>
         </li>);
@@ -27,7 +27,7 @@ function MatchChoices(props:LocProps) {
     const choicesShuffled = useMemo(()=>props.structure.choices.map(arr=>arr[1]).sort((a, b)=> 0.5 - Math.random()),[]);
     const choiceElements =  choicesShuffled.map((choice, index)=>{
         return (<button key={index} onClick={onClickHandler} value={choice} 
-            disabled={choicesMade.length === leftColoumnElements.length || choicesMade.includes(choice)} >{choice}</button>);
+            disabled={choicesMade.length === leftColoumnElements.length || choicesMade.includes(choice)}>{choice}</button>);
     });
 
     const onSubmit = ()=>{
@@ -62,7 +62,7 @@ function MatchChoices(props:LocProps) {
         {props.structure.choices.map((choice,index)=>(<li key={index}>{choice.join(' ')}</li>))}
         </ul>}
        {results.isShown && <button className='submitBtn u-center-text' onClick={continueHandler}>Continuă <i className='fas fa-angle-double-right'/></button>}
-       </div>);
+    </div>);
 }
 
 export default MatchChoices
