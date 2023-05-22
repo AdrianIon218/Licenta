@@ -39,12 +39,12 @@ const reducer = (state:{isShown:boolean}, action:{type:'ACCEPTED'|'INVALID_PASS'
 };
 
 export default function Login(){
-  const [notification, dispatchNotification] = useReducer(reducer, 
-        {isShown:false, message:'',notificationType:NotificationType.NO_TYPE});
+  const [notification, dispatchNotification] = useReducer(reducer, {isShown:false, message:'', notificationType:NotificationType.NO_TYPE});
 
   const [pageTarget, setPage] = useState('');
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
+  const [passNumMistakes, setPassMistakes] = useState(0);
 
   function submit(event:React.FormEvent<HTMLFormElement>){
     event.preventDefault();
@@ -69,6 +69,7 @@ export default function Login(){
           break;
 
         case 'PASS_INCORECT':
+          setPassMistakes(oldVal=> oldVal+1);
           dispatchNotification({type:'INVALID_PASS'});
           break;
 
@@ -76,6 +77,8 @@ export default function Login(){
           dispatchNotification({type:'SERVER_ERR'});
           break;
       }
+    }).catch(()=>{
+      dispatchNotification({type:'SERVER_ERR'});
     }); 
   }
 
@@ -95,6 +98,11 @@ export default function Login(){
                   creeare cont nou &ensp;
                   <span className='span-pointer'>
                     <LinkTansition to="/Licenta/signup" icon="fas fa-id-card" />
+                  </span>
+                </span>
+                <span className="span-header-block span-reset-pass" style={{visibility: passNumMistakes > 1 ? "visible" : "hidden"}}>
+                  <span className='span-pointer'>
+                    <LinkTansition to="/Licenta/password_reset" className="span-reset-pass__link">resetare parolă</LinkTansition>
                   </span>
                 </span>
               </div>

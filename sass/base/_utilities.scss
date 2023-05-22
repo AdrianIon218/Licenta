@@ -62,7 +62,6 @@
   display: inline-block;
 }
 
-
 .span-header-block{
   display: block;
   color:$color-blue-darker;
@@ -77,6 +76,16 @@
     &:hover{
       transform: translateY(-5px) scale(1.1);
     }
+  }
+}
+
+.span-reset-pass{
+  color: $color-red-dark;
+  transition: all .2s;
+  backface-visibility: hidden;
+  &:hover{
+    color: $color-blue-darker;
+    transform: translateY(-2px) scale(1.1);
   }
 }
 
