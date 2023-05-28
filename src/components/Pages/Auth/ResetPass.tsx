@@ -16,15 +16,17 @@ function ResetPass() {
 
   const onSubmit = (event:React.FormEvent<HTMLFormElement>)=>{
     event.preventDefault();
-    const emailEntered = emailRef.current!.value;
-    setDisableForm(true);
+   
+    if(!disableForm){
+      const emailEntered = emailRef.current!.value;
+      setDisableForm(true);
 
-    axios.post("http://localhost:5000/login/", { email: emailEntered, password: '' }).then((response)=>{
-       const {status} = response.data;
-       if(status === 'NO_USER'){
-         setDisableForm(false);
-         setNotification({isShown:true,message: 'Nu există utilizator cu această adresă!', type:NotificationType.WARNING });
-       }else if(status === 'PASS_INCORECT'){
+      axios.post("http://localhost:5000/login/", { email: emailEntered, password: '' }).then((response)=>{
+        const {status} = response.data;
+        if(status === 'NO_USER'){
+          setDisableForm(false);
+          setNotification({isShown:true,message: 'Nu există utilizator cu această adresă!', type:NotificationType.WARNING });
+        }else if(status === 'PASS_INCORECT'){
            axios.post("http://localhost:5000/login/reset_pass", { email: emailEntered}).then(({status})=>{
              if(status){
                 setDisableForm(false);
@@ -38,6 +40,7 @@ function ResetPass() {
          serverError();
        }
      }).catch(()=>{ serverError(); });
+    }
   }
 
   return (<>
