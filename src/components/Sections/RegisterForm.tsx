@@ -85,7 +85,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
           </div>
           
           <div className="form__group">
-            <input type="password" minLength={6} className="form__input" placeholder="Parolă de minim 6 caractere *" id="password" ref={passRef} required />
+            <input type="password" minLength={6} maxLength={50} className="form__input" placeholder="Parolă de minim 6 caractere *" id="password" ref={passRef} required />
             <label htmlFor="password" className="form__label form__label__required">Parolă</label>
             
             <div className="form__group form__group__checkbox">

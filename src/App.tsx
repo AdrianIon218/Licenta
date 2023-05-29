@@ -16,6 +16,7 @@ function App() {
   const LessonContainer = lazy(()=>import("./components/Pages/Lesson/LessonCommonFeatures/LessonContainer"));
   const ResetPassword = lazy(()=>import("./components/Pages/Auth/ResetPass"));
   const ResetPassCode = lazy(()=>import("./components/Pages/Auth/ResetPassCode"));
+  const NewPassword = lazy(()=> import('./components/Pages/Auth/NewPassword'));
 
   return (<Router>
     <Routes>
@@ -30,7 +31,10 @@ function App() {
         <Route path="*" element={ <NoPage />} />
         <Route path="course-plan/:id" element={<CoursePlan />} /> 
         <Route path="courses" element={<CoursesSection location='own-page'/>} />
-        <Route path='password_reset' element={<ResetPassword />} />
+        <Route path='password_reset'>
+          <Route index element={<ResetPassword />} />
+          <Route path='new_password' element={<NewPassword />} />
+        </Route>
         <Route path='password_reset_code' element={<ResetPassCode />} />
       </Route>
     </Routes> 

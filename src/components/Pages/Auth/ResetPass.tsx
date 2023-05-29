@@ -2,11 +2,13 @@ import axios from "axios";
 import { useRef, useState } from "react";
 import Notification, {NotificationType} from "../../Features/Notfication";
 import { useNavigate } from "react-router-dom";
+import LoadingPanel from "../../Features/LoadingPanel";
+import LoadingLoader from "../../Features/LoadingLoader";
 
 function ResetPass() {
   const emailRef = useRef<HTMLInputElement>(null);
-  const [notification, setNotification] = useState({isShown:false, message:'', type:NotificationType.NO_TYPE});
   const navigate = useNavigate();
+  const [notification, setNotification] = useState({isShown:false, message:'', type:NotificationType.NO_TYPE});
   const [disableForm, setDisableForm] = useState(false);
 
   const serverError = ()=>{
@@ -21,13 +23,13 @@ function ResetPass() {
       const emailEntered = emailRef.current!.value;
       setDisableForm(true);
 
-      axios.post("http://localhost:5000/login/", { email: emailEntered, password: '' }).then((response)=>{
+      axios.post("http://localhost:5000/login/", {email: emailEntered, password: '' }).then((response)=>{
         const {status} = response.data;
         if(status === 'NO_USER'){
           setDisableForm(false);
           setNotification({isShown:true,message: 'Nu există utilizator cu această adresă!', type:NotificationType.WARNING });
         }else if(status === 'PASS_INCORECT'){
-           axios.post("http://localhost:5000/login/reset_pass", { email: emailEntered}).then(({status})=>{
+           axios.post("http://localhost:5000/login/reset_pass", {email: emailEntered}).then(({status})=>{
              if(status){
                 setDisableForm(false);
                 sessionStorage.setItem('emailToReset',emailEntered);
@@ -43,13 +45,16 @@ function ResetPass() {
     }
   }
 
+  
+
   return (<>
     {notification.isShown && <Notification message={notification.message} type={notification.type}
            deleteNotification={()=> setNotification({isShown:false, message:'', type:NotificationType.NO_TYPE})} />}
     <section className='section-gradient section-header u_padding_down--big'>
       <div className="flex-row--centered">
         <div className="box-mountain-bg">
-          <div className="box-mountain-bg__form">
+          <div className="box-mountain-bg__form">  
+            {disableForm ? <LoadingPanel />:
             <form onSubmit={onSubmit} className="forn">
               <div className="u-margin-bottom-medium u-center-text">
                 <h2 className="heading-secondary">Resetare parolă</h2>
@@ -63,7 +68,7 @@ function ResetPass() {
                   Resetează &nbsp;<i className="fas fa-sync"></i>
                 </button>
               </div>
-            </form>
+            </form>} 
           </div>
         </div>
       </div>

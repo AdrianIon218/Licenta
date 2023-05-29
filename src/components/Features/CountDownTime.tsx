@@ -6,7 +6,7 @@ interface LocProps{
 }
 
 function CountDownTime(props:LocProps) {
-    const [timeToShow, setTimeToShow] = useState({min:0, sec:0});
+    const [timeToShow, setTimeToShow] = useState({min:10, sec:0});
 
     const converToMs = (hours:number, min:number, sec:number)=>{
         const hoursToMs = hours*60*60*1000;
@@ -25,15 +25,15 @@ function CountDownTime(props:LocProps) {
           const timeNow = converToMs(now_hours, time_now.getMinutes(), time_now.getSeconds());
           const timeDif = timeTarget - timeNow;
           if(timeDif < 0){
-            clearInterval(id);
             props.codeExpire();
+            clearInterval(id);
           }else{
             setTimeToShow({min: Math.floor(timeDif/1000/60), sec:timeDif/1000%60})
           }
         },1000);
         
         return ()=>{
-            props.codeExpire();
+           // props.codeExpire();
             clearInterval(id);
         }   
     },[props.time]);
