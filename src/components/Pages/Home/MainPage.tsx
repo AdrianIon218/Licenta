@@ -4,6 +4,7 @@ import TestSection from './TestSection';
 import CoursesSection from '../../Sections/CoursesSection';
 import RegisterForm from '../../Sections/RegisterForm';
 import { useEffect, useState } from 'react';
+import CourseAvailableContext from '../../Features/CourseAvailableContext';
 
 export default function MainPage(){
   const [displayRegisterForm, setDisplayRegisterForm] = useState(true);
@@ -18,7 +19,9 @@ export default function MainPage(){
     <main >
       <AboutSection />
       <TestSection />
-      <CoursesSection location='home' />
+      <CourseAvailableContext>
+        <CoursesSection location='home' />
+      </CourseAvailableContext>
       {displayRegisterForm && <RegisterForm location="home" /> }
     </main> 
     </>);

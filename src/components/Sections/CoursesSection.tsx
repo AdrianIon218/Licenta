@@ -1,7 +1,9 @@
 import CardCoure from "../Features/CardCourse";
-import { AvailableCourses } from "../../data/ts-data/availableCourses";
+import { useContext } from "react";
+import { CourseAvailableCtx } from "../Features/CourseAvailableContext";
 
 export default function CoursesSection({location}:{location:'home'|'own-page'}){
+  const  coursesContext = useContext(CourseAvailableCtx);
 
   return (<section className={`section-courses ${location === 'home'? 'section-courses--between section-between':'section-header'} `} id="section-course-id"> 
     <div className="u-center-text u-margin-bottom-medium">
@@ -10,7 +12,7 @@ export default function CoursesSection({location}:{location:'home'|'own-page'}){
       </h2>  
     </div>
     <div className="flex-row--centered">
-      {AvailableCourses.map((course,index) => <CardCoure {...course} key={index} />)}
+      {coursesContext.map((course,index) => <CardCoure {...course} key={index} />)}
     </div>
     <div className="u-center-text u-margin-top--medium">
       <a href="#" className="btn btn--blue">Află ce curs ți se potrivește</a>

@@ -4,6 +4,7 @@ import { lazy } from 'react';
 
 import MainLayout from './components/Layouts/MainLayout';
 import LessonLayout from './components/Layouts/LessonLayout';
+import CourseAvailableContext from './components/Features/CourseAvailableContext';
 
 function App() {
   const MainPage = lazy(() => import("./components/Pages/Home/MainPage")); 
@@ -30,7 +31,7 @@ function App() {
         <Route path="signup" element={<RegisterForm location="register"/>} />
         <Route path="*" element={ <NoPage />} />
         <Route path="course-plan/:id" element={<CoursePlan />} /> 
-        <Route path="courses" element={<CoursesSection location='own-page'/>} />
+        <Route path="courses" element={<CourseAvailableContext><CoursesSection location='own-page'/></CourseAvailableContext>} />
         <Route path='password_reset'>
           <Route index element={<ResetPassword />} />
           <Route path='new_password' element={<NewPassword />} />
