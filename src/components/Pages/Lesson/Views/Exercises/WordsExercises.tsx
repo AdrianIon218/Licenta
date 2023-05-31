@@ -13,7 +13,7 @@ interface LocProps{
   score?:number
 }
 
-enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CHOOSE_TNRANSLATION, PRONUNCIATION }
+enum ExerciseType { MUTIPLE_CHOICE, WRITE_wORD, CHOOSE_TRANSLATION, PRONUNCIATION }
 enum ACTION { CORRECT_ANSWEAR, WRONG_ANSWEAR, SKIP_ANSWEAR };
 
 function WordsExercises(props:LocProps) {
@@ -67,7 +67,7 @@ function WordsExercises(props:LocProps) {
         return (<MultipleChoice key={index} {...word} {...commonMethodes} wordNames={wordNames} />);
       }
 
-      if(currentExerciseType === ExerciseType.CHOOSE_TNRANSLATION){
+      if(currentExerciseType === ExerciseType.CHOOSE_TRANSLATION){
         return (<ChooseTranslation key={index} {...word} {...commonMethodes} wordsTranslation={wordsTranslations} />);
       }
       

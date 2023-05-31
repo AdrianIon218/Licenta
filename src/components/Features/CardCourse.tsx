@@ -51,7 +51,7 @@ export default function CardCourse(props:IPropsCardCourse){
       <div className="card__back-content">
         <div className="card__time-estimation u-margin-bottom-intermediate">
           <p className="u-margin-bottom-small">Timp estimat<i className="fas fa-clock u-margin-left-small" /></p>
-          <p>{props.estimationWeeks} săptămâni</p>
+          <p>{props.estimationWeeks === 1 ? "1 săptămână": `${props.estimationWeeks} săptămâni`} </p>
         </div>
         <LinkTansition to={`/Licenta/course-plan/${props.heading}`} className="btn btn--white card__back-btn"> 
           Vezi cursul <i className="fas fa-play u-margin-left-small" /> 

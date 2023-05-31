@@ -23,7 +23,7 @@ function OrderWords(props:LocProps) {
 
     const choicesShuffled = useMemo(()=>[...props.structure.words].sort((a, b)=> 0.5 - Math.random()),[]);
     const choiceElements =  choicesShuffled.map((word, index)=>{
-        return (<button key={index} onClick={onClickHandler} value={word} disabled={choicesMade.includes(word)} >{word}</button>);
+        return (<button key={index} onClick={onClickHandler} value={word} disabled={choicesMade.includes(word)}>{word}</button>);
     });
 
     const onSubmit = ()=>{

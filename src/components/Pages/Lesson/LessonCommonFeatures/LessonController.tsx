@@ -9,6 +9,7 @@ enum ViewStage { START, LESSON, EXERCISE, END };
 const StartView = lazy(()=> import('./StartView'));
 const GrammerLesson = lazy(()=> import('../Views/GrammerLesson'));
 const GrammerExercises = lazy(()=> import('../Views/Exercises/GrammerExercises'));
+const TestLesson = lazy(()=>import("../Views/TestLesson"));
 
 interface LocProps{
   lessonId:number, 
@@ -83,10 +84,16 @@ function LessonController(props:LocProps) {
         props.triggerTransition();
         startTransition(()=>{
           setTimeout(()=>{
-            setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId} toFinish={finishExercises}/>);
+            setCompJSX(<GrammerExercises addProgress={props.setProgressBar} lessonId={props.lessonId} toFinish={finishExercises} />);
           }, 470);
         })
       }} />);
+      return;
+    }
+    if(lessonType === 'test'){
+      setCompJSX(
+        <TestLesson unkwonWords={words} setProgressBar={props.setProgressBar} lessonId={props.lessonId} toFinish={finishExercises} />
+      );
       return;
     }
    },[words]);
