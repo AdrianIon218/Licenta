@@ -89,7 +89,7 @@
     &:focus{
       outline: none;
       box-shadow: 0 1rem 2rem rgba($color-black, .2);
-      border-bottom: 3px solid $color-secondary-dark;
+      border-bottom: 3px solid $color-blue-7;
     }
 
     &:focus:invalid{
@@ -140,7 +140,7 @@
 
   &__sub-heading{
     font-weight: 700;
-    @include textgradient(1.4rem, darken($color-secondary-light, 12%), darken($color-secondary-dark, 15%));
+    @include textgradient(1.4rem, darken($color-blue-2, 12%), darken($color-blue-7, 15%));
   }
 
   &__radio-group{
@@ -156,7 +156,7 @@
     position:relative; 
     padding-left: 2rem;
     font-weight: 600;
-    color: $color-secondary-dark;
+    color: $color-blue-7;
   }
 
   &__radio-input{
@@ -166,7 +166,7 @@
   &__radio-button{
     height: 1.6rem;
     width: 1.6rem;
-    border: 4px solid $color-secondary-dark;
+    border: 4px solid $color-blue-7;
     border-radius: 50%;
     display: inline-block;
     position: absolute;
@@ -183,7 +183,7 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%,-50%);
-      background-color: $color-secondary-dark;
+      background-color: $color-blue-7;
       opacity: 0;
       transition: opacity .2s;
     }

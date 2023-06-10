@@ -37,7 +37,7 @@ h1 {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, $color-secondary-dark, $color-secondary-light);
+  background-image: linear-gradient(to right, $color-blue-7, $color-blue-2);
   -webkit-background-clip: text;
   background-clip: text;
   color:transparent;
@@ -61,7 +61,7 @@ h1 {
   }
 
   &--dark-color{
-    background-image: linear-gradient(to right, darken($color-secondary-dark, 5%), darken($color-secondary-dark, 15%));
+    background-image: linear-gradient(to right, darken($color-blue-7, 5%), darken($color-blue-7, 15%));
   }
 }
 

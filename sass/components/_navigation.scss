@@ -23,7 +23,7 @@
         display: inline-block;
         height: 4px;
         width: 2rem;
-        background-color: $color-secondary-dark;
+        background-color: $color-blue-7;
       }
       
       &::after,
@@ -154,7 +154,7 @@
     &:hover,
     &:active{
       background-position: 100%;
-      color:$color-secondary-light;
+      color:$color-blue-2;
       transform: translateX(1rem);
     }
   }

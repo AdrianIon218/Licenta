@@ -102,10 +102,10 @@
     background-color:$section-color;
     border-color:$color-cyan-5;
     h1{
-      @include textgradient--circle(3rem, $color-secondary-light, $color-secondary-dark);
+      @include textgradient--circle(3rem, $color-blue-2, $color-blue-7);
     }
     .course-title-container{
-      border-color: $color-secondary-dark;
+      border-color: $color-blue-7;
       background-color: lighten($section-color,4%);
     }
   }
@@ -113,7 +113,7 @@
   &-B1{
     .course-plan{
       background-image:linear-gradient(to right bottom,
-          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-secondary-dark, 0.5) 100%),
+          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-blue-7, 0.5) 100%),
           url($path-to-images+"viena-photo1.jpeg");
     }
   }
@@ -121,7 +121,7 @@
   &-B2{
     .course-plan{
       background-image:linear-gradient(to right bottom,
-          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-secondary-dark, 0.5) 100%),
+          rgba(lighten($section-color,4%), 0.6) 0%, rgba( $color-blue-7, 0.5) 100%),
           url($path-to-images+"koln-photo2.webp");
     }
   }
@@ -174,7 +174,7 @@
       }
 
       &--B1,&--B2{
-        color:$color-secondary-light;
+        color:$color-blue-2;
       }
 
       &--C1{
@@ -239,7 +239,7 @@
      &__list--B1, &__list--B2{
       &::-webkit-scrollbar{
         &-thumb {
-          background-color: $color-secondary-light;
+          background-color: $color-blue-2;
         }
       }
      }
