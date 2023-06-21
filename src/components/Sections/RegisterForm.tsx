@@ -106,7 +106,7 @@ export default function RegisterForm({location}:{location:'home'|'register'}){
             
             <div className="form__group">
               <button className="btn btn--white">
-                Următorul pas <i className="fas fa-angle-right"></i>
+                Continuă <i className="fas fa-angle-right"></i>
               </button>
             </div>
           </form>

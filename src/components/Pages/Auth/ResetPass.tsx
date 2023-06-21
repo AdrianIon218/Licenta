@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import Notification, {NotificationType} from "../../Features/Notfication";
 import { useNavigate } from "react-router-dom";
 import LoadingPanel from "../../Features/LoadingPanel";
-import LoadingLoader from "../../Features/LoadingLoader";
 
 function ResetPass() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -44,8 +43,6 @@ function ResetPass() {
      }).catch(()=>{ serverError(); });
     }
   }
-
-  
 
   return (<>
     {notification.isShown && <Notification message={notification.message} type={notification.type}

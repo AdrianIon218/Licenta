@@ -19,7 +19,7 @@ export interface lessonItem{
 export interface Word{
   id: number,
   wordName: string,
-  translation:  string,
+  translation: string,
   example: string,
   moduleId: number,
   imageURL: string

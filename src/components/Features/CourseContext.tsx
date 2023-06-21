@@ -7,7 +7,6 @@ export const CourseCtx = React.createContext<null | {courseLvl:Level, setCourseL
 
 function CourseContext({children}:IProps) {
     const [currentCourseLvl, setCurrentCourseLevel] = useState(Level.A1);
-    
 
     return (<CourseCtx.Provider value={{courseLvl:currentCourseLvl, setCourseLvl:setCurrentCourseLevel}}>
       {children}

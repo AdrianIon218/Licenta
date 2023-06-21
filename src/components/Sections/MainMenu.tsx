@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
-import { navListLogedin } from "../../data/ts-data/navLists";
-import { navListNotLogedin } from '../../data/ts-data/navLists';
+import { navListLogedin, navListNotLogedin } from "../../data/ts-data/navLists";
 
 interface ILocProps {
   btn: string; 

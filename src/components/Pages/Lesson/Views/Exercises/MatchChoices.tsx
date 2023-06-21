@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 interface LocProps{
     structure: {
@@ -11,7 +11,7 @@ interface LocProps{
 function MatchChoices(props:LocProps) {
     const [choicesMade, setChoices] = useState<string[]>([]);
     const [results, setResults] = useState({isShown:false, isCorrect:false});
-    
+
     const leftColoumnElements = props.structure.choices.map(arr=>arr[0]).map((choice,index)=>{
         return (<li key={index}>
            <div className="u-center-text">{choice}</div>
@@ -23,7 +23,7 @@ function MatchChoices(props:LocProps) {
        const {value} = e.currentTarget;
        setChoices(oldVal=>oldVal.concat([value]));
     }
-
+    
     const choicesShuffled = useMemo(()=>props.structure.choices.map(arr=>arr[1]).sort((a, b)=> 0.5 - Math.random()),[]);
     const choiceElements =  choicesShuffled.map((choice, index)=>{
         return (<button key={index} onClick={onClickHandler} value={choice} 

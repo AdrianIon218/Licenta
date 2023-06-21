@@ -14,25 +14,32 @@ interface LocProps{
 function TrueOrFalse(props:LocProps) {
     const [warningNotification, setNotification] = useState(false);
     const [nextBtn, setNextState] = useState(false);
+    const [isGoodAnswear, setGoodAnswear] = useState(false);
 
     const onClickHandler=(event:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         const value = event.currentTarget.value === 'true';
         if(value === props.structure.state){
-           props.correctAnswear();
+           setGoodAnswear(true);
+           setNotification(true);
+           setNextState(true);
         }
         else{
+           setGoodAnswear(false);
            setNotification(true);
            setNextState(true);
         }
     }
 
     const nextExercise = ()=>{
+        if(isGoodAnswear){
+            setTimeout(()=>props.correctAnswear(), 200);
+        }
         setTimeout(()=>props.wrongAnswear(), 200);
     }
 
     return (<>
     {warningNotification && 
-     <Notification message={`Propoziția este ${props.structure.state?'correctă ' : `incorectă `}!`} type={NotificationType.ERROR}
+     <Notification message={`Propoziția este ${props.structure.state?'correctă ' : `incorectă `}!`} type={isGoodAnswear? NotificationType.SUCCESS:NotificationType.ERROR}
       deleteNotification={()=>setNotification(false)}
        />}
     <div className='flex-column--centered exercise'>

@@ -41,7 +41,13 @@ function LessonController(props:LocProps) {
             const bufferToArray = new Uint8Array(word.image.data);
             const blobObj = new Blob([bufferToArray], {type:'application/octet-stream'})
             const objUrl = URL.createObjectURL(blobObj);
-            retrivedWords.push({id: id, wordName:wordName.trim(), translation:translation.trim(), example: example, moduleId:moduleId, imageURL: objUrl});
+            console.log(objUrl)
+            retrivedWords.push(
+              {id: id, wordName:wordName.trim(), 
+               translation:translation.trim(), 
+               example: example,
+               moduleId:moduleId, 
+               imageURL: objUrl});
           });
          
           return retrivedWords;
@@ -71,7 +77,8 @@ function LessonController(props:LocProps) {
 
    useEffect(()=>{
     if(lessonType === 'new_words'){
-      setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} setProgressBar={props.setProgressBar} />);
+      setCompJSX(<NewWordsLesson toExecises={()=> stageHandler(ViewStage.EXERCISE)} unkwonWords={words} 
+                  setProgressBar={props.setProgressBar} />);
       return;
     }
     if(lessonType === 'pronunciation'){

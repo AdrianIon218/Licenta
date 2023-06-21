@@ -6,7 +6,8 @@ import TestDetails from "./TestDetails";
 export default function TestSection(){
   const availableTests:ITestBoxProps[] = tests.tests;
   const testElements = availableTests.map(
-    (item, index) => <TestBox iconClasses={item.iconClasses} titleBox={item.titleBox} linkTest={item.linkTest} key={index} />);
+    (item, index) => <TestBox iconClasses={item.iconClasses}
+      titleBox={item.titleBox} linkTest={item.linkTest} key={index} />);
 
   return (<>
   <Blackdrop popupId="popup-test-details"> 
