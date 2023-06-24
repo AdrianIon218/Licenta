@@ -187,6 +187,15 @@
         color: $color-green-3;
       }
 
+      &[disabled]{
+        color: $color-gray;
+        background-color: rgba($color-white-max,0.8);
+        cursor: default;
+        &:hover, &:active{
+          transform: none;
+        }
+      }
+
       &:hover{
         transform: translateY(-3px);
       }

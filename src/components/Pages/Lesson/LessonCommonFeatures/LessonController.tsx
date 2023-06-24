@@ -41,7 +41,6 @@ function LessonController(props:LocProps) {
             const bufferToArray = new Uint8Array(word.image.data);
             const blobObj = new Blob([bufferToArray], {type:'application/octet-stream'})
             const objUrl = URL.createObjectURL(blobObj);
-            console.log(objUrl)
             retrivedWords.push(
               {id: id, wordName:wordName.trim(), 
                translation:translation.trim(), 
@@ -64,6 +63,7 @@ function LessonController(props:LocProps) {
    },[props.moduleId]);
 
    const finishExercises = (status:IconStatus) =>{
+    props.setProgressBar(100);
     setStatusLesson(status);
     stageHandler(ViewStage.END);
    }

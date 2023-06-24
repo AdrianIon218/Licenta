@@ -32,9 +32,11 @@ function TrueOrFalse(props:LocProps) {
 
     const nextExercise = ()=>{
         if(isGoodAnswear){
-            setTimeout(()=>props.correctAnswear(), 200);
+          props.correctAnswear();
         }
-        setTimeout(()=>props.wrongAnswear(), 200);
+        else{
+          props.wrongAnswear();
+        }
     }
 
     return (<>

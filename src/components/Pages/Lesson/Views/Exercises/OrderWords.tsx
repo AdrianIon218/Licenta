@@ -18,7 +18,7 @@ function OrderWords(props:LocProps) {
     }
     
     const sentenceParts = props.structure.words.map((word,index)=>{
-        return (<span className={`block-transparent ${results.isShown? word===choicesMade[index]?'backgd-green':'backgd-red':''}`} key={index}>{choicesMade[index]}</span>)
+        return (<span className={`block-transparent u-center-text ${results.isShown? word===choicesMade[index]?'backgd-green':'backgd-red':''}`} key={index}>{choicesMade[index]}</span>)
     })
 
     const choicesShuffled = useMemo(()=>[...props.structure.words].sort((a, b)=> 0.5 - Math.random()),[]);
