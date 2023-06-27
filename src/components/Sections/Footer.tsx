@@ -1,12 +1,14 @@
 import imgLogo from '../../../public/images/GermanMax-just-logo.png'
+import LinkTansition from '../Features/LinkTransition';
 
 export default function Footer(){
   const footerNav = ["Contacte", "Recenzi", "Termeni și condiții","Sugestii"];
   const footerNavElements = footerNav.map((item,index) => 
     <li className="footer__item" key={index}>
-      <a href="#" className="footer__link"> 
-        {item} 
-      </a>
+      <LinkTansition to={`${item === "Contacte" ? "/Licenta/contacts":'#'}`} className="footer__link">
+       {item}
+      </LinkTansition>
+      
     </li>);
 
   return (<div className='footer-container'>
