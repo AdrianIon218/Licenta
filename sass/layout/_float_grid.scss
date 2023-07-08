@@ -1,20 +1,20 @@
-.row{
+.row {
   max-width: 100%;
-  margin:0 auto;
-  &:not(:last-child){
+  margin: 0 auto;
+  &:not(:last-child) {
     margin-bottom: $space-vertical;
   }
 
   @include floatclearfix;
 
-  [class^="col-"]{
-    float:left;
-    &:not(:last-child){
+  [class^="col-"] {
+    float: left;
+    &:not(:last-child) {
       margin-right: $space-horizontal;
     }
   }
 
-  .col-1-of-2{
-    width: calc((100% - #{$space-horizontal})/2);
+  .col-1-of-2 {
+    width: calc((100% - #{$space-horizontal}) / 2);
   }
 }

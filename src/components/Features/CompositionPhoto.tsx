@@ -1,17 +1,21 @@
-export interface ICompositionPhotoProps{
-  photo: string,
-  alt: string,
-  class: string,
-  title?: string
+export interface ICompositionPhotoProps {
+  photo: string;
+  alt: string;
+  class: string;
+  title?: string;
 }
 
-function CompositionPhoto(props:ICompositionPhotoProps){
+function CompositionPhoto(props: ICompositionPhotoProps) {
   return (
     <div className="composition__photo__container">
-      <img src={`/Licenta/images/${props.photo}`} alt={props.alt} 
-        className={`composition__photo ${props.class}`}  />
+      <img
+        src={`/Licenta/images/${props.photo}`}
+        alt={props.alt}
+        className={`composition__photo ${props.class}`}
+      />
       <span className="composition__photo__title">{props.title}</span>
-    </div>);
+    </div>
+  );
 }
 
 export default CompositionPhoto;

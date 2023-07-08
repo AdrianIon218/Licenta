@@ -11,11 +11,16 @@ h1 {
 
   &__main {
     display: block;
-    font-size: .63em;
+    font-size: 0.63em;
     font-weight: 700;
     letter-spacing: 10px;
-    @include mixin_animation(moveInLeft, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
-    @include respond(phone){
+    @include mixin_animation(
+      moveInLeft,
+      $time-move-in-ani,
+      ease-in-out,
+      $delay-move-in-ani
+    );
+    @include respond(phone) {
       letter-spacing: 3px;
     }
   }
@@ -25,14 +30,19 @@ h1 {
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 6px;
-    @include mixin_animation(moveInRight, $time-move-in-ani, ease-in-out, $delay-move-in-ani);
-    @include respond(phone){
+    @include mixin_animation(
+      moveInRight,
+      $time-move-in-ani,
+      ease-in-out,
+      $delay-move-in-ani
+    );
+    @include respond(phone) {
       letter-spacing: 3px;
     }
   }
 }
 
-.heading-secondary{
+.heading-secondary {
   font-size: 1.9rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -40,51 +50,54 @@ h1 {
   background-image: linear-gradient(to right, $color-blue-7, $color-blue-2);
   -webkit-background-clip: text;
   background-clip: text;
-  color:transparent;
-  letter-spacing: .13rem;
-  cursor:default;
+  color: transparent;
+  letter-spacing: 0.13rem;
+  cursor: default;
   backface-visibility: hidden;
-  transition: all .2s;
-  
-  @include touchScreenState(false){
-    &:hover{
+  transition: all 0.2s;
+
+  @include touchScreenState(false) {
+    &:hover {
       transform: skewY(2deg) skewX(10deg) scale(1.1);
-      text-shadow: .3rem .7rem 2rem rgba($color-black, .2);
+      text-shadow: 0.3rem 0.7rem 2rem rgba($color-black, 0.2);
     }
   }
 
-  @include touchScreenState(true){
-    &:hover{
+  @include touchScreenState(true) {
+    &:hover {
       transform: none;
       text-shadow: none;
     }
   }
 
-  &--dark-color{
-    background-image: linear-gradient(to right, darken($color-blue-7, 5%), darken($color-blue-7, 15%));
+  &--dark-color {
+    background-image: linear-gradient(
+      to right,
+      darken($color-blue-7, 5%),
+      darken($color-blue-7, 15%)
+    );
   }
 }
 
-.heading-tertiary{
+.heading-tertiary {
   font-size: 1.4rem;
   font-weight: 700;
 
-  &--biger{
+  &--biger {
     font-size: 1.7rem;
     font-weight: 800;
   }
 }
 
-.paragraph{
+.paragraph {
   font-size: $default-font-size;
-  &__title{
+  &__title {
     display: block;
     font-size: 1.4rem;
     font-weight: 800;
   }
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 1rem;
   }
 }
-

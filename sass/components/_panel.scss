@@ -1,26 +1,26 @@
-.panel{
+.panel {
   display: block;
   min-height: 10vh;
   max-height: 86vh;
   border-radius: 6px;
   padding: 2.3rem 0.7rem;
   overflow-y: auto;
-  
-  &--white{
+
+  &--white {
     background-color: $color-blue-gray;
     border: 6px double darken($color-gray, 30%);
   }
-  
+
   &::-webkit-scrollbar {
     padding: 5px;
     width: 15px;
     border-radius: 10px;
-    background-color: #F5F5F5; 
+    background-color: #f5f5f5;
 
     &-thumb {
-      border:2px $color-gray solid;
+      border: 2px $color-gray solid;
       border-radius: 10px;
-      background-color: $color-blue-light; 
+      background-color: $color-blue-light;
     }
   }
 }

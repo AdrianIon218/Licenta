@@ -3,8 +3,8 @@
   position: relative;
   width: 80px;
   height: 80px;
-  $animation-time:0.3s;
-  
+  $animation-time: 0.3s;
+
   div {
     position: absolute;
     top: 33px;
@@ -63,12 +63,11 @@
   }
 }
 
-
-.loading_panel{
+.loading_panel {
   width: 100%;
   height: 100%;
-  
-  h3{
-    color: $color-blue-darker !important;;
+
+  h3 {
+    color: $color-blue-darker !important;
   }
 }

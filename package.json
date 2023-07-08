@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "sass-dev": "node-sass sass/index.scss src/index.css",
     "predeploy": "npm run build",
-    "prettier":"prettier --write .",
+    "prettier": "prettier --write .",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
