@@ -17,24 +17,28 @@ function CountDownTime(props:LocProps) {
 
     useEffect(()=>{
         const value_end = props.time.split(':');
-        const timeTarget = converToMs(+value_end[0], +value_end[1], +value_end[2]);
-
+        const hoursToExpire = +value_end[0];
+        let timeTarget = converToMs(hoursToExpire, +value_end[1], +value_end[2]);
+        
         const id = setInterval(()=>{
-          const time_now = new Date();
-          const now_hours = time_now.getHours() > 12 ? time_now.getHours()-12 : time_now.getHours();
-          const timeNow = converToMs(now_hours, time_now.getMinutes(), time_now.getSeconds());
-          const timeDif = timeTarget - timeNow;
+          const timeOBj = new Date();
+          let hours_now = timeOBj.getHours();
+          hours_now = hours_now > 12 ? hours_now - 12 : hours_now;
+          if(hours_now === 11 && hoursToExpire === 0){
+            timeTarget = converToMs(12, +value_end[1], +value_end[2]);
+          }
+          let timeNow = converToMs(hours_now, timeOBj.getMinutes(), timeOBj.getSeconds());
+          let timeDif = timeTarget - timeNow;
           if(timeDif < 0){
             props.codeExpire();
             clearInterval(id);
           }else{
-            setTimeToShow({min: Math.floor(timeDif/1000/60), sec:timeDif/1000%60})
+            setTimeToShow({min: Math.floor(timeDif/1000/60), sec:timeDif/1000%60});
           }
-        },1000);
+        }, 1000);
         
         return ()=>{
-           // props.codeExpire();
-            clearInterval(id);
+          clearInterval(id);
         }   
     },[props.time]);
 
@@ -43,4 +47,4 @@ function CountDownTime(props:LocProps) {
   )
 }
 
-export default CountDownTime
+export default CountDownTime;

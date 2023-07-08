@@ -31,12 +31,12 @@ function ResetPass() {
            axios.post("http://localhost:5000/login/reset_pass", {email: emailEntered}).then(({status})=>{
              if(status){
                 setDisableForm(false);
-                sessionStorage.setItem('emailToReset',emailEntered);
+                sessionStorage.setItem('emailToReset', emailEntered);
                 navigate('/Licenta/password_reset_code');
              }else{
                 serverError();
              }
-           }).catch(()=>{ serverError(); });
+           }).catch(()=>{serverError()});
        }else{
          serverError();
        }

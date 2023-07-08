@@ -37,15 +37,15 @@ function Contacts() {
           </h2>
         </div>
         {!userEmail && <div className="form__group">
-          <input type="email" className="form__input" placeholder="Adresă ta de email *" id="email" required ref={emailRef}/>
+          <input type="email" className="form__input blue_border" placeholder="Adresă ta de email *" id="email" required ref={emailRef}/>
           <label htmlFor="email" className="form__label form__label__required">Adresă ta de email</label>
         </div>}
         <div className="form__group">
-          <input type="text" className="form__input" placeholder="Topic *" id="topic" required ref={topicRef}/>
+          <input type="text" className="form__input blue_border" placeholder="Topic *" id="topic" required ref={topicRef}/>
           <label htmlFor="topic" className="form__label form__label__required">Topic</label>
         </div>
         <div className="form__group">
-          <textarea name="message" className="form__input form__textarea" id="message" rows={10} ref={messageRef} minLength={5}
+          <textarea name="message" className="form__input form__textarea blue_border" id="message" rows={10} ref={messageRef} minLength={5}
           placeholder="Mesaj *" required />
           <label htmlFor="message" className="form__label form__label__required">Mesaj</label>
         </div>
