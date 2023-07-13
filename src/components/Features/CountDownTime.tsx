@@ -17,21 +17,29 @@ function CountDownTime(props: LocProps) {
 
   useEffect(() => {
     const value_end = props.time.split(":");
-    const hoursToExpire = +value_end[0];
-    let timeTarget = converToMs(hoursToExpire, +value_end[1], +value_end[2]);
+    let hoursToExpire = +value_end[0];
+    hoursToExpire = hoursToExpire === 12 ? 0 : hoursToExpire;
+    const minToExpire = +value_end[1];
+    const secToExpire = +value_end[2];
+    const isStartTimeBefore12 = hoursToExpire === 0 && minToExpire < 10;
+    let timeTarget = converToMs(hoursToExpire, minToExpire, secToExpire);
 
     const id = setInterval(() => {
       const timeOBj = new Date();
       let hours_now = timeOBj.getHours();
-      hours_now = hours_now > 12 ? hours_now - 12 : hours_now;
-      if (hours_now === 11 && hoursToExpire === 0) {
-        timeTarget = converToMs(12, +value_end[1], +value_end[2]);
+      hours_now = hours_now >= 12 ? hours_now - 12 : hours_now;
+      if (hours_now === 0 && isStartTimeBefore12) {
+        timeTarget = converToMs(0, minToExpire, secToExpire);
+      } else if (isStartTimeBefore12) {
+        timeTarget = converToMs(12, minToExpire, secToExpire);
       }
+
       let timeNow = converToMs(
         hours_now,
         timeOBj.getMinutes(),
         timeOBj.getSeconds(),
       );
+
       let timeDif = timeTarget - timeNow;
       if (timeDif < 0) {
         props.codeExpire();
