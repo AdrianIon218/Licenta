@@ -53,7 +53,7 @@ function ResetPass() {
                 if (status) {
                   setDisableForm(false);
                   sessionStorage.setItem("emailToReset", emailEntered);
-                  navigate("/Licenta/password_reset_code");
+                  navigate("/password_reset_code");
                 } else {
                   serverError();
                 }

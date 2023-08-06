@@ -53,7 +53,7 @@ export default function RegisterForm({
       .then((resAddUser) => {
         if (resAddUser?.data.isUserAdded) {
           localStorage.setItem("userAccount", emailEntered);
-          setPage(`/Licenta/course-plan/${currentLevel}`);
+          setPage(`/course-plan/${currentLevel}`);
         }
       });
   }
@@ -97,7 +97,7 @@ export default function RegisterForm({
                     ai cont deja ? &ensp;
                     <span className="span-pointer">
                       <LinkTansition
-                        to="/Licenta/login"
+                        to="/login"
                         icon="fas fa-sign-in-alt"
                       />
                     </span>

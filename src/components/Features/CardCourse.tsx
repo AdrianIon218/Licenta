@@ -81,7 +81,7 @@ export default function CardCourse(props: IPropsCardCourse) {
             </p>
           </div>
           <LinkTansition
-            to={`/Licenta/course-plan/${props.heading}`}
+            to={`/course-plan/${props.heading}`}
             className="btn btn--white card__back-btn"
           >
             Vezi cursul <i className="fas fa-play u-margin-left-small" />

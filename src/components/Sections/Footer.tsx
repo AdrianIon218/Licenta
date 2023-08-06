@@ -6,7 +6,7 @@ export default function Footer() {
   const footerNavElements = footerNav.map((item, index) => (
     <li className="footer__item" key={index}>
       <LinkTansition
-        to={`${item === "Contacte" ? "/Licenta/contacts" : "#"}`}
+        to={`${item === "Contacte" ? "/contacts" : "#"}`}
         className="footer__link"
       >
         {item}

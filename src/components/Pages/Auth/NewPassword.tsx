@@ -17,7 +17,7 @@ function NewPassword() {
   useEffect(() => {
     const isResetAllowed = sessionStorage.getItem("allowToResetPass");
     if (!email || isResetAllowed != "true") {
-      navigate("/Licenta/login");
+      navigate("/login");
     }
   }, []);
 
@@ -32,7 +32,7 @@ function NewPassword() {
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     if (isPassSaved) {
-      navigate("/Licenta/login");
+      navigate("/login");
       return;
     }
     const password = passRef.current!.value;

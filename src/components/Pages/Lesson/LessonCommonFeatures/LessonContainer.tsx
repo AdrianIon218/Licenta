@@ -27,7 +27,7 @@ function LessonContainer() {
         lessonTitle: lessonTitle,
       });
     } else {
-      navigate("/Licenta/PageNotFound");
+      navigate("/PageNotFound");
     }
   }, []);
 

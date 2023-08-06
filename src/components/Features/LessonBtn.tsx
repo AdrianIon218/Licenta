@@ -24,7 +24,7 @@ function LessonBtn({ children, status, lessonId, moduleId, type }: props) {
     sessionStorage.setItem("moduleId", moduleId.toString());
     sessionStorage.setItem("lessonTitle", children);
     sessionStorage.setItem("lessonType", type);
-    navigate("/Licenta/lesson");
+    navigate("/lesson");
   };
 
   return (

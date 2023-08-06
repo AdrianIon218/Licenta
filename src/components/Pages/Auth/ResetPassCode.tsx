@@ -19,13 +19,13 @@ function ResetPassCode() {
   useEffect(() => {
     const email = sessionStorage.getItem("emailToReset");
     if (!email) {
-      navigate("/Licenta/password_reset");
+      navigate("/password_reset");
       return;
     }
 
     setEmailToReset(email);
     if (sessionStorage.getItem("allowToResetPass")) {
-      navigate("/Licenta/password_reset/new_password");
+      navigate("/password_reset/new_password");
     }
   }, []);
 
@@ -50,7 +50,7 @@ function ResetPassCode() {
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     if (isCodeExpired) {
-      navigate("/Licenta/login");
+      navigate("/login");
     } else {
       const enteredCode = codeRef.current!.value;
       axios
@@ -62,7 +62,7 @@ function ResetPassCode() {
           const { status, isCorrect } = response.data;
           if (isCorrect) {
             sessionStorage.setItem("allowToResetPass", "true");
-            navigate("/Licenta/password_reset/new_password");
+            navigate("/password_reset/new_password");
           } else {
             if (status) {
               setNotification({

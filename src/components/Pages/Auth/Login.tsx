@@ -75,7 +75,7 @@ export default function Login() {
             const { lastLevel } = response.data;
             localStorage.setItem("userAccount", emailEntered);
             dispatchNotification({ type: "ACCEPTED" });
-            setPage(`/Licenta/course-plan/${lastLevel}`);
+            setPage(`/course-plan/${lastLevel}`);
             break;
 
           case "NO_USER":
@@ -125,7 +125,7 @@ export default function Login() {
                     creeare cont nou &ensp;
                     <span className="span-pointer">
                       <LinkTansition
-                        to="/Licenta/signup"
+                        to="/signup"
                         icon="fas fa-id-card"
                       />
                     </span>
@@ -138,7 +138,7 @@ export default function Login() {
                   >
                     <span className="span-pointer">
                       <LinkTansition
-                        to="/Licenta/password_reset"
+                        to="/password_reset"
                         className="span-reset-pass__link"
                       >
                         resetare parolă

@@ -27,20 +27,20 @@ function App() {
   const NewPassword = lazy(() => import("./components/Pages/Auth/NewPassword"));
 
   return (
-    <Router>
+    <Router basename="/Licenta">
       <Routes>
-        <Route path="/Licenta/lesson" element={<LessonLayout />}>
+        <Route path="/lesson" element={<LessonLayout />}>
           <Route index element={<LessonContainer />} />
         </Route>
-        <Route path="/Licenta/" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<MainPage />} />
-          <Route path="login" element={<Login />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="signup" element={<RegisterForm location="register" />} />
-          <Route path="*" element={<NoPage />} />
-          <Route path="course-plan/:id" element={<CoursePlan />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/signup" element={<RegisterForm location="register" />} />
+          <Route path="/*" element={<NoPage />} />
+          <Route path="/course-plan/:id" element={<CoursePlan />} />
           <Route
-            path="courses"
+            path="/courses"
             element={
               <CourseAvailableContext>
                 <CoursesSection location="own-page" />
