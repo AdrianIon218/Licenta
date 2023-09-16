@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IconStatus, Word } from "../../../Helpers/commonInterfaces";
+import { IconStatus, Word } from "../../../Helpers/CommonInterfaces";
 import { orderRandom } from "../../../Helpers/UtilFunctions";
 import WriteWord from "./Exercises/WriteWord";
 import MultipleChoice from "./Exercises/MultipleChoice";

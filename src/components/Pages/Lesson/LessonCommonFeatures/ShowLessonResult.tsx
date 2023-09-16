@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { IconStatus } from "../../../Helpers/commonInterfaces";
+import { IconStatus } from "../../../Helpers/CommonInterfaces";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 

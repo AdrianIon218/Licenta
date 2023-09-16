@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import SoundBtn from "../../../../Features/SoundBtn";
-import { Word } from "../../../../Helpers/commonInterfaces";
+import { Word } from "../../../../Helpers/CommonInterfaces";
 
 interface LocProps extends Word {
   correctAnswear: () => void;

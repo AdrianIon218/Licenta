@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Word } from "../../../Helpers/commonInterfaces";
+import { Word } from "../../../Helpers/CommonInterfaces";
 import WordView from "../LessonCommonFeatures/WordView";
 
 interface LocProps {

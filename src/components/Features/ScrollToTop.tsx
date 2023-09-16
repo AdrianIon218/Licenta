@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
-import { IProps } from "../Helpers/commonInterfaces";
+import { IProps } from "../Helpers/CommonInterfaces";
 
 const ScrollToTop = (props: IProps) => {
   const location = useLocation();

@@ -1,6 +1,6 @@
 import { lazy, useEffect, useState, useTransition } from "react";
 import axios from "axios";
-import { IconStatus, Word } from "../../../Helpers/commonInterfaces";
+import { IconStatus, Word } from "../../../Helpers/CommonInterfaces";
 import NewWordsLesson from "../Views/NewWordsLesson";
 import PronunciationLesson from "../Views/PronunciationLesson";
 import WordsExercises from "../Views/Exercises/WordsExercises";

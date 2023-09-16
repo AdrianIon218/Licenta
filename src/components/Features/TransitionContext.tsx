@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { IProps } from "../Helpers/commonInterfaces";
+import { IProps } from "../Helpers/CommonInterfaces";
 export const TransitionCtx = React.createContext<null | {
   getState: boolean;
   setTransition: any;

@@ -3,7 +3,7 @@ import LessonBtn from "../../Features/LessonBtn";
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { Level } from "../../Helpers/constants";
 import { CourseCtx } from "../../Features/CourseContext";
-import { IconStatus, lessonItem } from "../../Helpers/commonInterfaces";
+import { IconStatus, lessonItem } from "../../Helpers/CommonInterfaces";
 
 interface LocProps {
   title: StringMaxLength;

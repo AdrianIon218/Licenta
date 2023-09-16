@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
-import { Word } from "../../../../Helpers/commonInterfaces";
+import { Word } from "../../../../Helpers/CommonInterfaces";
 import SoundBtn from "../../../../Features/SoundBtn";
 import { removePunctuation } from "../../../../Helpers/StringMethodes";
 

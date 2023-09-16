@@ -1,4 +1,4 @@
-import { Word } from "../../../Helpers/commonInterfaces";
+import { Word } from "../../../Helpers/CommonInterfaces";
 import { useReducer, useState } from "react";
 import WordRecord from "../LessonCommonFeatures/WordRecord";
 import Notification, { NotificationType } from "../../../Features/Notfication";

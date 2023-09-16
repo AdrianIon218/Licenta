@@ -1,4 +1,4 @@
-import { IconStatus, lessonType } from "../Helpers/commonInterfaces";
+import { IconStatus, lessonType } from "../Helpers/CommonInterfaces";
 import { useContext } from "react";
 import { Level } from "../Helpers/constants";
 import { CourseCtx } from "./CourseContext";

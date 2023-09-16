@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IProps } from "../Helpers/commonInterfaces";
+import { IProps } from "../Helpers/CommonInterfaces";
 import { AvailableCourses } from "../../data/ts-data/availableCourses";
 import { IPropsCardCourse } from "./CardCourse";
 import axios from "axios";

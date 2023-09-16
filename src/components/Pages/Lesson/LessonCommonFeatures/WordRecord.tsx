@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Word } from "../../../Helpers/commonInterfaces";
+import { Word } from "../../../Helpers/CommonInterfaces";
 import RecordBtn from "../../../Features/RecordBtn";
 import SoundBtn from "../../../Features/SoundBtn";
 

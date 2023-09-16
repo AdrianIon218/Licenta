@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Level } from "../Helpers/constants";
-import { IProps } from "../Helpers/commonInterfaces";
+import { IProps } from "../Helpers/CommonInterfaces";
 
 export const CourseCtx = React.createContext<null | {
   courseLvl: Level;

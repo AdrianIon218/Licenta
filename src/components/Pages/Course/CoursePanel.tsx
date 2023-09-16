@@ -3,7 +3,7 @@ import { useState, useMemo, useContext, useEffect } from "react";
 import StringMaxLength from "../../Helpers/StringMaxLength";
 import { COURSE_TITLE_LENGTH, Level } from "../../Helpers/constants";
 import { CourseCtx } from "../../Features/CourseContext";
-import { IconStatus, lessonItem } from "../../Helpers/commonInterfaces";
+import { IconStatus, lessonItem } from "../../Helpers/CommonInterfaces";
 import axios from "axios";
 
 interface LocProps {

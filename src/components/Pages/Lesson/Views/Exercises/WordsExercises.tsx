@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import { IconStatus, Word } from "../../../../Helpers/commonInterfaces";
+import { IconStatus, Word } from "../../../../Helpers/CommonInterfaces";
 import WriteWord from "./WriteWord";
 import Notification, {
   NotificationType,

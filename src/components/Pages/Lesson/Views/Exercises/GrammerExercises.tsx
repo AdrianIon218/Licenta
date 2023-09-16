@@ -5,7 +5,7 @@ import TrueOrFalse from "./TrueOrFalse";
 import CompleteSentence from "./CompleteSentence";
 import MatchChoices from "./MatchChoices";
 import OrderWords from "./OrderWords";
-import { IconStatus } from "../../../../Helpers/commonInterfaces";
+import { IconStatus } from "../../../../Helpers/CommonInterfaces";
 
 interface LocProps {
   lessonId: number;
